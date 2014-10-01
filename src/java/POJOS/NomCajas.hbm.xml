@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19-sep-2014 10:35:40 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="POJOS.NomCajas" table="Nom_Cajas" schema="dbo" catalog="BD_SEGURIDAD_FELOX">
+        <id name="codCaja" type="string">
+            <column name="CodCaja" length="3" />
+            <generator class="assigned" />
+        </id>
+        <property name="codTer" type="string">
+            <column name="CodTer" length="15" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

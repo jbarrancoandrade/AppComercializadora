@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19-sep-2014 10:35:40 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="POJOS.VenFormaPago" table="Ven_FormaPago" schema="dbo" catalog="BD_SEGURIDAD_FELOX">
+        <id name="codfor" type="string">
+            <column name="Codfor" length="2" />
+            <generator class="assigned" />
+        </id>
+        <property name="nomfor" type="string">
+            <column name="Nomfor" length="50" />
+        </property>
+        <property name="abrevia" type="string">
+            <column name="Abrevia" length="2" />
+        </property>
+        <property name="documento" type="java.lang.Boolean">
+            <column name="Documento" />
+        </property>
+        <property name="prioridad" type="int">
+            <column name="Prioridad" not-null="true" />
+        </property>
+        <property name="codCue" type="string">
+            <column name="CodCue" length="8" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

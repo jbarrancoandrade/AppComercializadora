@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19-sep-2014 10:35:40 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="POJOS.TesNb" table="Tes_NB" schema="dbo" catalog="BD_SEGURIDAD_FELOX">
+        <composite-id name="id" class="POJOS.TesNbId">
+            <key-property name="codalm" type="string">
+                <column name="Codalm" length="3" />
+            </key-property>
+            <key-property name="numNot" type="string">
+                <column name="NumNot" length="8" />
+            </key-property>
+            <key-property name="codCon" type="string">
+                <column name="CodCon" length="3" />
+            </key-property>
+        </composite-id>
+        <property name="fecNot" type="timestamp">
+            <column name="FecNot" length="23" not-null="true" />
+        </property>
+        <property name="tipNot" type="char">
+            <column name="TipNot" length="1" not-null="true" />
+        </property>
+        <property name="valNot" type="big_decimal">
+            <column name="ValNot" precision="18" not-null="true" />
+        </property>
+        <property name="codter" type="string">
+            <column name="Codter" length="15" not-null="true" />
+        </property>
+        <property name="codCta" type="string">
+            <column name="CodCta" length="5" not-null="true" />
+        </property>
+        <property name="estNot" type="string">
+            <column name="EstNot" length="1" not-null="true" />
+        </property>
+        <property name="observa" type="string">
+            <column name="Observa" length="300" not-null="true" />
+        </property>
+        <property name="codUsu" type="string">
+            <column name="CodUsu" length="10" not-null="true" />
+        </property>
+        <property name="fecSys" type="timestamp">
+            <column name="FecSys" length="23" not-null="true" />
+        </property>
+        <property name="pc" type="string">
+            <column name="PC" length="50" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

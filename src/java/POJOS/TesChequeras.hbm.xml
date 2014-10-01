@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19-sep-2014 10:35:40 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="POJOS.TesChequeras" table="Tes_Chequeras" schema="dbo" catalog="BD_SEGURIDAD_FELOX">
+        <composite-id name="id" class="POJOS.TesChequerasId">
+            <key-property name="codCta" type="string">
+                <column name="CodCta" length="5" />
+            </key-property>
+            <key-property name="codChq" type="string">
+                <column name="CodChq" length="3" />
+            </key-property>
+        </composite-id>
+        <property name="refChq" type="string">
+            <column name="RefChq" length="50" not-null="true" />
+        </property>
+        <property name="chqIni" type="int">
+            <column name="ChqIni" not-null="true" />
+        </property>
+        <property name="chqFin" type="int">
+            <column name="ChqFin" not-null="true" />
+        </property>
+        <property name="chqAct" type="int">
+            <column name="ChqAct" not-null="true" />
+        </property>
+        <property name="activa" type="boolean">
+            <column name="Activa" not-null="true" />
+        </property>
+        <property name="estado" type="string">
+            <column name="ESTADO" length="1" not-null="true" />
+        </property>
+        <property name="formatoCheque" type="string">
+            <column name="FORMATO_CHEQUE" length="50" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19-sep-2014 10:35:40 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="POJOS.TesControlTurno" table="Tes_ControlTurno" schema="dbo" catalog="BD_SEGURIDAD_FELOX">
+        <composite-id name="id" class="POJOS.TesControlTurnoId">
+            <key-property name="codalm" type="string">
+                <column name="Codalm" length="3" />
+            </key-property>
+            <key-property name="numTurno" type="string">
+                <column name="NumTurno" length="8" />
+            </key-property>
+        </composite-id>
+        <property name="codCaja" type="string">
+            <column name="CodCaja" length="5" not-null="true" />
+        </property>
+        <property name="codven" type="string">
+            <column name="Codven" length="3" not-null="true" />
+        </property>
+        <property name="fecApert" type="timestamp">
+            <column name="FecApert" length="23" />
+        </property>
+        <property name="saldoApert" type="big_decimal">
+            <column name="SaldoApert" precision="18" not-null="true" />
+        </property>
+        <property name="observaApert" type="string">
+            <column name="ObservaApert" length="200" not-null="true" />
+        </property>
+        <property name="fecCierre" type="timestamp">
+            <column name="FecCierre" length="23" />
+        </property>
+        <property name="saldoCierre" type="big_decimal">
+            <column name="SaldoCierre" precision="18" not-null="true" />
+        </property>
+        <property name="observaCierre" type="string">
+            <column name="ObservaCierre" length="200" not-null="true" />
+        </property>
+        <property name="fecsys" type="timestamp">
+            <column name="Fecsys" length="23" not-null="true" />
+        </property>
+        <property name="codusu" type="string">
+            <column name="Codusu" length="10" not-null="true" />
+        </property>
+        <property name="estado" type="char">
+            <column name="Estado" length="1" not-null="true" />
+        </property>
+        <property name="cuadrado" type="boolean">
+            <column name="Cuadrado" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

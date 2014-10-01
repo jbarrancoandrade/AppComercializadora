@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19-sep-2014 10:35:40 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="POJOS.GenHomologacion" table="GEN_HOMOLOGACION" schema="dbo" catalog="BD_SEGURIDAD_FELOX">
+        <id name="tableName" type="string">
+            <column name="TableName" length="80" />
+            <generator class="assigned" />
+        </id>
+        <property name="fieldKey" type="string">
+            <column name="FieldKey" length="80" not-null="true" />
+        </property>
+        <property name="criterio" type="string">
+            <column name="Criterio" length="250" not-null="true" />
+        </property>
+        <property name="retro" type="boolean">
+            <column name="Retro" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19-sep-2014 10:35:40 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="POJOS.CntComprobantes" table="Cnt_Comprobantes" schema="dbo" catalog="BD_SEGURIDAD_FELOX">
+        <composite-id name="id" class="POJOS.CntComprobantesId">
+            <key-property name="codCen" type="string">
+                <column name="CodCen" length="3" />
+            </key-property>
+            <key-property name="numDoc" type="string">
+                <column name="NumDoc" length="10" />
+            </key-property>
+            <key-property name="tipDoc" type="string">
+                <column name="TipDoc" length="3" />
+            </key-property>
+            <key-property name="codCue" type="string">
+                <column name="CodCue" length="8" />
+            </key-property>
+            <key-property name="codter" type="string">
+                <column name="Codter" length="15" />
+            </key-property>
+            <key-property name="codres" type="string">
+                <column name="CODRES" length="8" />
+            </key-property>
+            <key-property name="codCos" type="string">
+                <column name="CodCos" length="3" />
+            </key-property>
+            <key-property name="otrCodCue" type="string">
+                <column name="OtrCodCue" length="8" />
+            </key-property>
+            <key-property name="numrad" type="string">
+                <column name="NUMRAD" length="8" />
+            </key-property>
+            <key-property name="idreg" type="string">
+                <column name="IDREG" length="4" />
+            </key-property>
+            <key-property name="idregDe" type="string">
+                <column name="IDREG_DE" length="4" />
+            </key-property>
+        </composite-id>
+        <property name="fecDoc" type="timestamp">
+            <column name="FecDoc" length="23" />
+        </property>
+        <property name="debito" type="big_decimal">
+            <column name="Debito" precision="18" not-null="true" />
+        </property>
+        <property name="credito" type="big_decimal">
+            <column name="Credito" precision="18" not-null="true" />
+        </property>
+        <property name="detalle" type="string">
+            <column name="Detalle" length="200" not-null="true" />
+        </property>
+        <property name="fecSys" type="timestamp">
+            <column name="FecSys" length="23" not-null="true" />
+        </property>
+        <property name="codUsu" type="string">
+            <column name="CodUsu" length="10" not-null="true" />
+        </property>
+        <property name="base" type="big_decimal">
+            <column name="Base" precision="18" not-null="true" />
+        </property>
+        <property name="estDoc" type="string">
+            <column name="EstDoc" length="1" not-null="true" />
+        </property>
+        <property name="numfac" type="string">
+            <column name="NUMFAC" length="8" not-null="true" />
+        </property>
+        <property name="tipfac" type="string">
+            <column name="TIPFAC" length="3" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

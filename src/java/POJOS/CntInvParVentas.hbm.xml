@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19-sep-2014 10:35:40 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="POJOS.CntInvParVentas" table="Cnt_InvParVentas" schema="dbo" catalog="BD_SEGURIDAD_FELOX">
+        <composite-id name="id" class="POJOS.CntInvParVentasId">
+            <key-property name="codLinea" type="string">
+                <column name="CodLinea" length="2" />
+            </key-property>
+            <key-property name="clase" type="char">
+                <column name="Clase" length="1" />
+            </key-property>
+        </composite-id>
+        <property name="ctaIngresos" type="string">
+            <column name="CtaIngresos" length="8" not-null="true" />
+        </property>
+        <property name="ctaIvaGenerado" type="string">
+            <column name="CtaIvaGenerado" length="8" not-null="true" />
+        </property>
+        <property name="ctaCostoVta" type="string">
+            <column name="CtaCostoVta" length="8" not-null="true" />
+        </property>
+        <property name="ctaInventario" type="string">
+            <column name="CtaInventario" length="8" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

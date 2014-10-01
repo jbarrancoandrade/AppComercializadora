@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19-sep-2014 10:35:40 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="POJOS.VenMaeCotiza" table="Ven_MaeCotiza" schema="dbo" catalog="BD_SEGURIDAD_FELOX">
+        <composite-id name="id" class="POJOS.VenMaeCotizaId">
+            <key-property name="codalm" type="string">
+                <column name="Codalm" length="3" />
+            </key-property>
+            <key-property name="numcot" type="string">
+                <column name="Numcot" length="8" />
+            </key-property>
+        </composite-id>
+        <property name="codter" type="string">
+            <column name="Codter" length="15" not-null="true" />
+        </property>
+        <property name="fecCot" type="timestamp">
+            <column name="FecCot" length="23" />
+        </property>
+        <property name="vigencia" type="int">
+            <column name="Vigencia" not-null="true" />
+        </property>
+        <property name="detallaPrecios" type="boolean">
+            <column name="DetallaPrecios" not-null="true" />
+        </property>
+        <property name="fecSys" type="timestamp">
+            <column name="FecSys" length="23" />
+        </property>
+        <property name="codUsu" type="string">
+            <column name="CodUsu" length="10" not-null="true" />
+        </property>
+        <property name="pc" type="string">
+            <column name="PC" length="30" not-null="true" />
+        </property>
+        <property name="estCot" type="char">
+            <column name="EstCot" length="1" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

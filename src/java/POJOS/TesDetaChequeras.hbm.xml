@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19-sep-2014 10:35:40 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="POJOS.TesDetaChequeras" table="Tes_DetaChequeras" schema="dbo" catalog="BD_SEGURIDAD_FELOX">
+        <composite-id name="id" class="POJOS.TesDetaChequerasId">
+            <key-property name="codCta" type="string">
+                <column name="CodCta" length="5" />
+            </key-property>
+            <key-property name="codChq" type="string">
+                <column name="CodChq" length="3" />
+            </key-property>
+            <key-property name="numChq" type="string">
+                <column name="NumChq" length="10" />
+            </key-property>
+        </composite-id>
+        <property name="codAlm" type="string">
+            <column name="CodAlm" length="3" not-null="true" />
+        </property>
+        <property name="tipEgr" type="string">
+            <column name="TipEgr" length="3" not-null="true" />
+        </property>
+        <property name="numEgr" type="string">
+            <column name="NumEgr" length="8" not-null="true" />
+        </property>
+        <property name="observa" type="string">
+            <column name="OBSERVA" length="50" not-null="true" />
+        </property>
+        <property name="fechachq" type="timestamp">
+            <column name="FECHACHQ" length="23" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

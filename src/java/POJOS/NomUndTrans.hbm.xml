@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19-sep-2014 10:35:40 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="POJOS.NomUndTrans" table="Nom_UndTrans" schema="dbo" catalog="BD_SEGURIDAD_FELOX">
+        <id name="codUni" type="string">
+            <column name="CodUni" length="3" />
+            <generator class="assigned" />
+        </id>
+        <property name="nomUni" type="string">
+            <column name="NomUni" length="50" not-null="true" />
+        </property>
+        <property name="sistema" type="boolean">
+            <column name="Sistema" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

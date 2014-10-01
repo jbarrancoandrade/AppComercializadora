@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+    <body>
+
+        <ui:composition template="./../Menu/Principal.xhtml">
+
+            <ui:define name="content">
+                <center>
+                    <h:form id="form">
+                        <p:growl id="msgs" showDetail="true" globalOnly="true" life="5000" />
+
+                        <p:panel header="Seleccion De Almacen " style="margin-bottom:10px; width: 600px;height: 320px;" >
+                            <h:panelGrid columns="2" cellpadding="5" style="height: 200px">
+                                <p:outputLabel for="almacen" value="Almacen : " style="font-weight: bold;" />
+                                <p:selectOneMenu id="almacen" value="#{mBAlmPrecios.almE}" style="width:350px;" >
+
+                                    <p:ajax event="change" listener="#{mBAlmPrecios.onChange(event)}"  update="precios,next"/> 
+
+                                    <f:selectItem itemLabel="Seleccione Almacen" itemValue="" />
+                                    <f:selectItems value="#{mBAlmPrecios.all}"  var="alm"  itemValue="#{alm.codalm}"  itemLabel="#{alm.nomalm}" />
+
+                                </p:selectOneMenu>
+
+                                <p:outputLabel for="precios" value="Lista Precios: " style="font-weight: bold;"  /> 
+                                <p:selectOneMenu id="precios" value="#{mBAlmPrecios.precE}" style="width:350px;" >
+
+                                    <p:ajax event="change" listener="#{mBAlmPrecios.onChangePrecio(event)}"  update="next"/> 
+                                    <f:selectItem itemLabel="Seleccione Listas" itemValue=""  />
+                                    <f:selectItems value="#{mBAlmPrecios.listPrecio}" var="pre"  itemValue="#{pre.codList}" itemLabel="#{pre.nomList}" />
+                                </p:selectOneMenu>
+                            </h:panelGrid>
+
+                            <p:separator />
+
+                            <p:commandButton value="Atras" update="msgs" actionListener="#{mBAlmPrecios.getAtras(event)}" iconPos="left" icon="ui-icon-triangle-1-w" />
+                            <p:commandButton value="Cancelar" update="msgs" actionListener="#{mBAlmPrecios.getInicio(event)}" icon="ui-icon-cancel" />
+                            <p:commandButton id="next" value="Continuar" update="msgs" actionListener="#{mBAlmPrecios.getProduc(event)}" iconPos="right"  icon="ui-icon-triangle-1-e" disabled="#{mBAlmPrecios.btnDisable}" />
+                        </p:panel>
+                    </h:form>
+                </center>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

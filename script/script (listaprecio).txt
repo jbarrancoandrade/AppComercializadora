@@ -1,0 +1,82 @@
+USE [BD_COMERCIAL]
+GO
+
+/****** Object:  Table [dbo].[Ven_ListaPrecios]    Script Date: 08/07/2014 10:50:36 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[Ven_ListaPrecios](
+	[CodList] [char](3) NOT NULL,
+	[NomList] [varchar](80) NULL,
+	[Codalm] [char](3) NULL,
+	[RoundPV] [bit] NOT NULL,
+	[ModificarPV] [bit] NOT NULL,
+	[RoundPVBase] [numeric](18, 2) NOT NULL,
+	[Modificado] [bit] NOT NULL,
+	[MARGENING] [numeric](18, 2) NOT NULL,
+	[ACTIVA] [bit] NOT NULL,
+	[TipPre] [char](2) NOT NULL,
+	[Orden] [int] NOT NULL,
+	[ShowLowerPrice] [bit] NOT NULL,
+	[Publica] [bit] NOT NULL,
+	[ControlCosto] [bit] NOT NULL,
+ CONSTRAINT [PK_Ven_ListaPrecios] PRIMARY KEY CLUSTERED 
+(
+	[CodList] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+ALTER TABLE [dbo].[Ven_ListaPrecios] ADD  CONSTRAINT [DF_Ven_ListaPrecios_CodList]  DEFAULT ('') FOR [CodList]
+GO
+
+ALTER TABLE [dbo].[Ven_ListaPrecios] ADD  CONSTRAINT [DF_Ven_ListaPrecios_NomList]  DEFAULT ('') FOR [NomList]
+GO
+
+ALTER TABLE [dbo].[Ven_ListaPrecios] ADD  CONSTRAINT [DF_Ven_ListaPrecios_Codalm]  DEFAULT ('') FOR [Codalm]
+GO
+
+ALTER TABLE [dbo].[Ven_ListaPrecios] ADD  CONSTRAINT [DF__Ven_Lista__Round__5F94079C]  DEFAULT ((0)) FOR [RoundPV]
+GO
+
+ALTER TABLE [dbo].[Ven_ListaPrecios] ADD  CONSTRAINT [DF__Ven_Lista__Modif__60882BD5]  DEFAULT ((0)) FOR [ModificarPV]
+GO
+
+ALTER TABLE [dbo].[Ven_ListaPrecios] ADD  CONSTRAINT [DF__Ven_Lista__Round__617C500E]  DEFAULT ((0)) FOR [RoundPVBase]
+GO
+
+ALTER TABLE [dbo].[Ven_ListaPrecios] ADD  CONSTRAINT [DF_Ven_ListaPrecios_Modificado]  DEFAULT ((1)) FOR [Modificado]
+GO
+
+ALTER TABLE [dbo].[Ven_ListaPrecios] ADD  CONSTRAINT [DF__Ven_Lista__MARGE__28B8D3FE]  DEFAULT ((0)) FOR [MARGENING]
+GO
+
+ALTER TABLE [dbo].[Ven_ListaPrecios] ADD  CONSTRAINT [DF__Ven_Lista__ACTIV__2B187FC1]  DEFAULT ((1)) FOR [ACTIVA]
+GO
+
+ALTER TABLE [dbo].[Ven_ListaPrecios] ADD  CONSTRAINT [DF__Ven_Lista__TipPr__2C0CA3FA]  DEFAULT ('SD') FOR [TipPre]
+GO
+
+ALTER TABLE [dbo].[Ven_ListaPrecios] ADD  CONSTRAINT [DF__Ven_Lista__Orden__390B706F]  DEFAULT ((0)) FOR [Orden]
+GO
+
+ALTER TABLE [dbo].[Ven_ListaPrecios] ADD  CONSTRAINT [DF__Ven_Lista__ShowL__39FF94A8]  DEFAULT ((1)) FOR [ShowLowerPrice]
+GO
+
+ALTER TABLE [dbo].[Ven_ListaPrecios] ADD  CONSTRAINT [DF__Ven_Lista__Publi__2FA2CD1D]  DEFAULT ((1)) FOR [Publica]
+GO
+
+ALTER TABLE [dbo].[Ven_ListaPrecios] ADD  CONSTRAINT [DF__Ven_Lista__Contr__1FDC0909]  DEFAULT ((1)) FOR [ControlCosto]
+GO
+
+

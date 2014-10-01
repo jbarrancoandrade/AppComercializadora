@@ -1,0 +1,154 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19-sep-2014 10:35:40 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="POJOS.VenFacturas" table="Ven_Facturas" schema="dbo" catalog="BD_SEGURIDAD_FELOX">
+        <composite-id name="id" class="POJOS.VenFacturasId">
+            <key-property name="codalm" type="string">
+                <column name="Codalm" length="3" />
+            </key-property>
+            <key-property name="numfac" type="string">
+                <column name="Numfac" length="8" />
+            </key-property>
+            <key-property name="tipFac" type="string">
+                <column name="TipFac" length="3" />
+            </key-property>
+            <key-property name="codres" type="string">
+                <column name="Codres" length="3" />
+            </key-property>
+        </composite-id>
+        <property name="fecFac" type="timestamp">
+            <column name="FecFac" length="23" />
+        </property>
+        <property name="fecVen" type="timestamp">
+            <column name="FecVen" length="23" />
+        </property>
+        <property name="codcli" type="string">
+            <column name="Codcli" length="6" />
+        </property>
+        <property name="codter" type="string">
+            <column name="Codter" length="15" />
+        </property>
+        <property name="codven" type="string">
+            <column name="Codven" length="3" />
+        </property>
+        <property name="codList" type="string">
+            <column name="CodList" length="3" />
+        </property>
+        <property name="codCaja" type="string">
+            <column name="CodCaja" length="5" />
+        </property>
+        <property name="valVta" type="big_decimal">
+            <column name="ValVta" precision="18" />
+        </property>
+        <property name="valIva" type="big_decimal">
+            <column name="ValIva" precision="18" />
+        </property>
+        <property name="valAbo" type="big_decimal">
+            <column name="ValAbo" precision="18" />
+        </property>
+        <property name="valDcto" type="big_decimal">
+            <column name="ValDcto" precision="18" />
+        </property>
+        <property name="valRet" type="big_decimal">
+            <column name="ValRet" precision="18" />
+        </property>
+        <property name="valRica" type="big_decimal">
+            <column name="ValRica" precision="18" />
+        </property>
+        <property name="valRiva" type="big_decimal">
+            <column name="ValRiva" precision="18" />
+        </property>
+        <property name="valCosto" type="big_decimal">
+            <column name="ValCosto" precision="18" />
+        </property>
+        <property name="valNeto" type="big_decimal">
+            <column name="ValNeto" precision="18" />
+        </property>
+        <property name="fpEfectivo" type="big_decimal">
+            <column name="Fp_Efectivo" precision="18" />
+        </property>
+        <property name="fpTd" type="big_decimal">
+            <column name="Fp_Td" precision="18" />
+        </property>
+        <property name="fpTc" type="big_decimal">
+            <column name="Fp_Tc" precision="18" />
+        </property>
+        <property name="fpCh" type="big_decimal">
+            <column name="Fp_CH" precision="18" />
+        </property>
+        <property name="fpCr" type="big_decimal">
+            <column name="Fp_CR" precision="18" />
+        </property>
+        <property name="fpAnticipo" type="big_decimal">
+            <column name="Fp_Anticipo" precision="18" />
+        </property>
+        <property name="fpOtr" type="big_decimal">
+            <column name="Fp_Otr" precision="18" />
+        </property>
+        <property name="codUsu" type="string">
+            <column name="CodUsu" length="10" />
+        </property>
+        <property name="fecSys" type="timestamp">
+            <column name="FecSys" length="23" />
+        </property>
+        <property name="horsys" type="string">
+            <column name="Horsys" length="10" />
+        </property>
+        <property name="estado" type="java.lang.Character">
+            <column name="Estado" length="1" />
+        </property>
+        <property name="systemSrx" type="string">
+            <column name="_SystemSRx" length="50" not-null="true" />
+        </property>
+        <property name="codRes" type="string">
+            <column name="_CodRes" length="3" not-null="true" />
+        </property>
+        <property name="swFp" type="byte">
+            <column name="_swFP" not-null="true" />
+        </property>
+        <property name="systemDbx" type="string">
+            <column name="_SystemDBx" length="50" not-null="true" />
+        </property>
+        <property name="codAlm" type="string">
+            <column name="_CodAlm" length="3" not-null="true" />
+        </property>
+        <property name="tipFac" type="string">
+            <column name="_TipFac" length="3" not-null="true" />
+        </property>
+        <property name="numFac" type="string">
+            <column name="_NumFac" length="8" not-null="true" />
+        </property>
+        <property name="vrefpagado" type="big_decimal">
+            <column name="VREFPAGADO" precision="18" not-null="true" />
+        </property>
+        <property name="vrefcambio" type="big_decimal">
+            <column name="VREFCAMBIO" precision="18" not-null="true" />
+        </property>
+        <property name="numTurno" type="string">
+            <column name="NumTurno" length="8" not-null="true" />
+        </property>
+        <property name="vbConta" type="boolean">
+            <column name="vbConta" not-null="true" />
+        </property>
+        <property name="codsuc" type="string">
+            <column name="CODSUC" length="3" not-null="true" />
+        </property>
+        <property name="fecent" type="timestamp">
+            <column name="FECENT" length="23" />
+        </property>
+        <property name="margenpropina" type="big_decimal">
+            <column name="MARGENPROPINA" precision="9" not-null="true" />
+        </property>
+        <property name="fpNc" type="big_decimal">
+            <column name="Fp_NC" precision="18" not-null="true" />
+        </property>
+        <property name="codzona" type="string">
+            <column name="CODZONA" length="3" not-null="true" />
+        </property>
+        <property name="valAiu" type="big_decimal">
+            <column name="ValAIU" precision="18" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

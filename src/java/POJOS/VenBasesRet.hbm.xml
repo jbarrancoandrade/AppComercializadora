@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19-sep-2014 10:35:40 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="POJOS.VenBasesRet" table="Ven_BasesRet" schema="dbo" catalog="BD_SEGURIDAD_FELOX">
+        <composite-id name="id" class="POJOS.VenBasesRetId">
+            <key-property name="codCon" type="string">
+                <column name="CodCon" length="3" />
+            </key-property>
+            <key-property name="regPropiet" type="string">
+                <column name="RegPropiet" length="1" />
+            </key-property>
+        </composite-id>
+        <property name="nomCon" type="string">
+            <column name="NomCon" length="100" not-null="true" />
+        </property>
+        <property name="base" type="big_decimal">
+            <column name="Base" precision="18" not-null="true" />
+        </property>
+        <property name="margen" type="big_decimal">
+            <column name="Margen" precision="9" not-null="true" />
+        </property>
+        <property name="aplicaS" type="boolean">
+            <column name="AplicaS" not-null="true" />
+        </property>
+        <property name="aplicaC" type="boolean">
+            <column name="AplicaC" not-null="true" />
+        </property>
+        <property name="aplicaG" type="boolean">
+            <column name="AplicaG" not-null="true" />
+        </property>
+        <property name="aplicacion" type="char">
+            <column name="Aplicacion" length="1" not-null="true" />
+        </property>
+        <property name="grupo" type="string">
+            <column name="Grupo" length="5" not-null="true" />
+        </property>
+        <property name="codcue" type="string">
+            <column name="Codcue" length="8" not-null="true" />
+        </property>
+        <property name="ctaCompras" type="string">
+            <column name="CtaCompras" length="8" not-null="true" />
+        </property>
+        <property name="modificado" type="boolean">
+            <column name="Modificado" not-null="true" />
+        </property>
+        <property name="codCueAutoRet" type="string">
+            <column name="CodCueAutoRet" length="8" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

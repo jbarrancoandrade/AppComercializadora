@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19-sep-2014 10:35:40 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="POJOS.TesReciConceptos" table="Tes_ReciConceptos" schema="dbo" catalog="BD_SEGURIDAD_FELOX">
+        <id name="codcon" type="string">
+            <column name="Codcon" length="3" />
+            <generator class="assigned" />
+        </id>
+        <property name="nomcon" type="string">
+            <column name="Nomcon" length="100" not-null="true" />
+        </property>
+        <property name="tipCon" type="char">
+            <column name="TipCon" length="1" not-null="true" />
+        </property>
+        <property name="codCue" type="string">
+            <column name="CodCue" length="8" not-null="true" />
+        </property>
+        <property name="codUsu" type="string">
+            <column name="CodUsu" length="10" not-null="true" />
+        </property>
+        <property name="fecSys" type="timestamp">
+            <column name="FecSys" length="23" not-null="true" />
+        </property>
+        <property name="sistema" type="boolean">
+            <column name="Sistema" not-null="true" />
+        </property>
+        <property name="aplicaMargen" type="boolean">
+            <column name="AplicaMargen" not-null="true" />
+        </property>
+        <property name="margen" type="big_decimal">
+            <column name="Margen" precision="18" not-null="true" />
+        </property>
+        <property name="baseMargen" type="int">
+            <column name="BaseMargen" not-null="true" />
+        </property>
+        <property name="modificado" type="boolean">
+            <column name="Modificado" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

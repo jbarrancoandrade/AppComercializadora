@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19-sep-2014 10:35:40 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="POJOS.VenClientesSucursal" table="Ven_Clientes_Sucursal" schema="dbo" catalog="BD_SEGURIDAD_FELOX">
+        <composite-id name="id" class="POJOS.VenClientesSucursalId">
+            <key-property name="codCli" type="string">
+                <column name="CodCli" length="6" />
+            </key-property>
+            <key-property name="codSuc" type="string">
+                <column name="CodSuc" length="3" />
+            </key-property>
+        </composite-id>
+        <property name="codMcpio" type="string">
+            <column name="CodMcpio" length="3" not-null="true" />
+        </property>
+        <property name="codDpto" type="string">
+            <column name="CodDpto" length="2" not-null="true" />
+        </property>
+        <property name="telefono1" type="string">
+            <column name="Telefono_1" length="50" not-null="true" />
+        </property>
+        <property name="telefono2" type="string">
+            <column name="Telefono_2" length="50" not-null="true" />
+        </property>
+        <property name="celular1" type="string">
+            <column name="Celular_1" length="50" not-null="true" />
+        </property>
+        <property name="celular2" type="string">
+            <column name="Celular_2" length="50" not-null="true" />
+        </property>
+        <property name="direccion" type="string">
+            <column name="Direccion" length="100" not-null="true" />
+        </property>
+        <property name="tels" type="string">
+            <column name="Tels" length="50" not-null="true" />
+        </property>
+        <property name="referencia" type="string">
+            <column name="Referencia" length="100" not-null="true" />
+        </property>
+        <property name="aplicaReteIca" type="boolean">
+            <column name="AplicaReteICA" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

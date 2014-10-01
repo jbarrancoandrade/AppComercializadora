@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19-sep-2014 10:35:40 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="POJOS.VenDetaFact" table="Ven_DetaFact" schema="dbo" catalog="BD_SEGURIDAD_FELOX">
+        <composite-id name="id" class="POJOS.VenDetaFactId">
+            <key-property name="codalm" type="string">
+                <column name="Codalm" length="3" />
+            </key-property>
+            <key-property name="numfac" type="string">
+                <column name="Numfac" length="8" />
+            </key-property>
+            <key-property name="tipfac" type="string">
+                <column name="Tipfac" length="3" />
+            </key-property>
+            <key-property name="codres" type="string">
+                <column name="Codres" length="3" />
+            </key-property>
+            <key-property name="codins" type="string">
+                <column name="Codins" length="8" />
+            </key-property>
+            <key-property name="idreg" type="string">
+                <column name="IDREG" length="3" />
+            </key-property>
+        </composite-id>
+        <property name="valUnitario" type="big_decimal">
+            <column name="ValUnitario" precision="18" />
+        </property>
+        <property name="valIns" type="big_decimal">
+            <column name="ValIns" precision="18" />
+        </property>
+        <property name="valIva" type="big_decimal">
+            <column name="ValIva" precision="18" not-null="true" />
+        </property>
+        <property name="qtyIns" type="big_decimal">
+            <column name="QtyIns" precision="18" />
+        </property>
+        <property name="qtyDev" type="big_decimal">
+            <column name="QtyDev" precision="18" />
+        </property>
+        <property name="ivaIns" type="big_decimal">
+            <column name="IvaIns" precision="9" />
+        </property>
+        <property name="cosIns" type="big_decimal">
+            <column name="CosIns" precision="18" />
+        </property>
+        <property name="desIns" type="big_decimal">
+            <column name="DesIns" precision="18" />
+        </property>
+        <property name="PList" type="big_decimal">
+            <column name="P_List" precision="18" />
+        </property>
+        <property name="estado" type="java.lang.Character">
+            <column name="Estado" length="1" />
+        </property>
+        <property name="codIva" type="string">
+            <column name="CodIva" length="3" not-null="true" />
+        </property>
+        <property name="codtalla" type="string">
+            <column name="CODTALLA" length="5" not-null="true" />
+        </property>
+        <property name="descrip" type="string">
+            <column name="DESCRIP" length="600" not-null="true" />
+        </property>
+        <property name="margenDscto" type="big_decimal">
+            <column name="MargenDscto" precision="9" not-null="true" />
+        </property>
+        <property name="lote" type="string">
+            <column name="LOTE" length="20" not-null="true" />
+        </property>
+        <property name="tipped" type="string">
+            <column name="TIPPED" length="3" not-null="true" />
+        </property>
+        <property name="codVen" type="string">
+            <column name="CodVen" length="3" not-null="true" />
+        </property>
+        <property name="qtyCon" type="big_decimal">
+            <column name="QtyCon" precision="18" not-null="true" />
+        </property>
+        <property name="numped" type="string">
+            <column name="NUMPED" length="8" not-null="true" />
+        </property>
+        <property name="margenAiu" type="big_decimal">
+            <column name="MargenAIU" precision="18" not-null="true" />
+        </property>
+        <property name="valAiu" type="big_decimal">
+            <column name="ValAIU" precision="18" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

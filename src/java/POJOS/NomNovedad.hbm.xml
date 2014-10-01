@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19-sep-2014 10:35:40 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="POJOS.NomNovedad" table="Nom_Novedad" schema="dbo" catalog="BD_SEGURIDAD_FELOX">
+        <composite-id name="id" class="POJOS.NomNovedadId">
+            <key-property name="codCen" type="string">
+                <column name="CodCen" length="3" />
+            </key-property>
+            <key-property name="codEmp" type="string">
+                <column name="CodEmp" length="3" />
+            </key-property>
+            <key-property name="año" type="int">
+                <column name="Año" precision="9" scale="0" />
+            </key-property>
+            <key-property name="mes" type="string">
+                <column name="Mes" length="2" />
+            </key-property>
+            <key-property name="periodo" type="string">
+                <column name="Periodo" length="2" />
+            </key-property>
+        </composite-id>
+        <property name="codTrans" type="string">
+            <column name="CodTrans" length="4" not-null="true" />
+        </property>
+        <property name="qty" type="int">
+            <column name="Qty" precision="9" scale="0" not-null="true" />
+        </property>
+        <property name="valor" type="big_decimal">
+            <column name="Valor" precision="18" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

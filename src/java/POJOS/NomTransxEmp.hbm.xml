@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19-sep-2014 10:35:40 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="POJOS.NomTransxEmp" table="Nom_TransxEmp" schema="dbo" catalog="BD_SEGURIDAD_FELOX">
+        <composite-id name="id" class="POJOS.NomTransxEmpId">
+            <key-property name="codEmp" type="string">
+                <column name="CodEmp" length="4" />
+            </key-property>
+            <key-property name="codTran" type="string">
+                <column name="CodTran" length="4" />
+            </key-property>
+        </composite-id>
+        <property name="qty" type="big_decimal">
+            <column name="Qty" precision="18" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

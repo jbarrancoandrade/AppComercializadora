@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19-sep-2014 10:35:40 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="POJOS.AlmMovTraslados" table="Alm_MovTraslados" schema="dbo" catalog="BD_SEGURIDAD_FELOX">
+        <composite-id name="id" class="POJOS.AlmMovTrasladosId">
+            <key-property name="codAlmOri" type="string">
+                <column name="CodAlm_Ori" length="3" />
+            </key-property>
+            <key-property name="docKarOri" type="string">
+                <column name="DocKar_Ori" length="8" />
+            </key-property>
+            <key-property name="tipKarOri" type="string">
+                <column name="TipKar_Ori" length="3" />
+            </key-property>
+            <key-property name="codAlmDes" type="string">
+                <column name="CodAlm_Des" length="3" />
+            </key-property>
+        </composite-id>
+        <property name="documento" type="string">
+            <column name="Documento" length="12" not-null="true" />
+        </property>
+        <property name="debito" type="big_decimal">
+            <column name="Debito" precision="18" not-null="true" />
+        </property>
+        <property name="credito" type="big_decimal">
+            <column name="Credito" precision="18" not-null="true" />
+        </property>
+        <property name="fecKarOri" type="timestamp">
+            <column name="FecKar_Ori" length="23" />
+        </property>
+        <property name="fecSys" type="timestamp">
+            <column name="FecSys" length="23" not-null="true" />
+        </property>
+        <property name="codUsu" type="string">
+            <column name="CodUsu" length="10" not-null="true" />
+        </property>
+        <property name="pc" type="string">
+            <column name="PC" length="50" not-null="true" />
+        </property>
+        <property name="observa" type="string">
+            <column name="Observa" length="500" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

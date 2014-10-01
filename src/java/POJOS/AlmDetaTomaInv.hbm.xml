@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19-sep-2014 10:35:40 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="POJOS.AlmDetaTomaInv" table="Alm_DetaTomaInv" schema="dbo" catalog="BD_SEGURIDAD_FELOX">
+        <composite-id name="id" class="POJOS.AlmDetaTomaInvId">
+            <key-property name="codToma" type="string">
+                <column name="CodToma" length="8" />
+            </key-property>
+            <key-property name="codalm" type="string">
+                <column name="Codalm" length="3" />
+            </key-property>
+            <key-property name="codins" type="string">
+                <column name="Codins" length="8" />
+            </key-property>
+            <key-property name="codtalla" type="string">
+                <column name="CODTALLA" length="5" />
+            </key-property>
+        </composite-id>
+        <property name="fisico" type="big_decimal">
+            <column name="Fisico" precision="18" not-null="true" />
+        </property>
+        <property name="canInv" type="big_decimal">
+            <column name="CanInv" precision="18" not-null="true" />
+        </property>
+        <property name="valInv" type="big_decimal">
+            <column name="ValInv" precision="18" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

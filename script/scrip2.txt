@@ -1,0 +1,32 @@
+
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE Ven_MaeCart(
+	[CodAlm] [char](3) DEFAULT '' NOT NULL,
+	[NumPed] [char](8) DEFAULT '' NOT NULL,
+	[TipPed] [char](3) DEFAULT '' NOT NULL,
+	[FecPed] [datetime] NOT NULL,
+	[FecSys] [datetime] DEFAULT GetDate() NOT NULL,
+	[CodUsu] [varchar](10)DEFAULT '' NOT NULL,
+	[PC] [varchar](50) DEFAULT '' NOT NULL,
+	[Estado] [varchar](1) DEFAULT '' NOT NULL,
+	[Codter] [varchar](15) DEFAULT '' NOT NULL,
+	[CodVen] [char](3) DEFAULT '' NOT NULL,
+	[CodList] [char](3) DEFAULT '' NOT NULL,
+	[CodSuc] [varchar](3) DEFAULT '' NOT NULL,
+ CONSTRAINT [PK_Ven_MaeCart] PRIMARY KEY CLUSTERED 
+(
+	[CodAlm] ASC,
+	[NumPed] ASC,
+	[TipPed] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO

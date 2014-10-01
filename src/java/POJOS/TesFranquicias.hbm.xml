@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19-sep-2014 10:35:40 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="POJOS.TesFranquicias" table="Tes_Franquicias" schema="dbo" catalog="BD_SEGURIDAD_FELOX">
+        <id name="codFranq" type="string">
+            <column name="CodFranq" length="3" />
+            <generator class="assigned" />
+        </id>
+        <property name="nomFranq" type="string">
+            <column name="NomFranq" length="100" not-null="true" />
+        </property>
+        <property name="comision" type="big_decimal">
+            <column name="Comision" precision="18" scale="4" not-null="true" />
+        </property>
+        <property name="tiptar" type="string">
+            <column name="Tiptar" length="2" not-null="true" />
+        </property>
+        <property name="reteiva" type="big_decimal">
+            <column name="RETEIVA" precision="14" />
+        </property>
+        <property name="reteica" type="big_decimal">
+            <column name="RETEICA" precision="14" />
+        </property>
+        <property name="retefte" type="big_decimal">
+            <column name="RETEFTE" precision="14" />
+        </property>
+        <property name="iva" type="big_decimal">
+            <column name="IVA" precision="18" not-null="true" />
+        </property>
+        <property name="ctaComis" type="string">
+            <column name="CtaComis" length="8" not-null="true" />
+        </property>
+        <property name="codCta" type="string">
+            <column name="CodCta" length="5" not-null="true" />
+        </property>
+        <property name="modificado" type="boolean">
+            <column name="MODIFICADO" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

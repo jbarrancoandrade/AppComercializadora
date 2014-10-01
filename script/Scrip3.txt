@@ -1,0 +1,35 @@
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE Ven_DetaCart(
+	[CodAlm] [char](3) DEFAULT '' NOT NULL,
+	[NumPed] [char](8) DEFAULT '' NOT NULL,
+	[TipPed] [char](3) DEFAULT '' NOT NULL,
+	[CodIns] [char](8) DEFAULT '' NOT NULL,
+	[CodTalla] [varchar](5) DEFAULT '' NOT NULL,
+	[QtyPed] [numeric](18, 2) NOT NULL,
+	[QtyRem] [numeric](18, 2) NOT NULL,
+	[ESTADO] [varchar](1) DEFAULT '' NOT NULL,
+	[QTYFAC] [numeric](18, 2) DEFAULT 0 NOT NULL,
+	[ValIVA] [numeric](18, 2) DEFAULT 0 NOT NULL,
+	[ValDcto] [numeric](18, 2)  DEFAULT 0 NOT NULL,
+	[MargenDcto] [numeric](9, 2) DEFAULT 0 NOT NULL,
+	[MargenIva] [numeric](9, 2) DEFAULT 0 NOT NULL,
+	[ValUnitario] [numeric](18, 2) DEFAULT 0 NOT NULL,
+ CONSTRAINT [PK_Ven_DetaCart] PRIMARY KEY CLUSTERED 
+(
+	[CodAlm] ASC,
+	[NumPed] ASC,
+	[TipPed] ASC,
+	[CodIns] ASC,
+	[CodTalla] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO 

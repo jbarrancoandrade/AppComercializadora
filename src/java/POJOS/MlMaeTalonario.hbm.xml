@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19-sep-2014 10:35:40 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="POJOS.MlMaeTalonario" table="ML_MaeTalonario" schema="dbo" catalog="BD_SEGURIDAD_FELOX">
+        <composite-id name="id" class="POJOS.MlMaeTalonarioId">
+            <key-property name="codVen" type="string">
+                <column name="CodVen" length="3" />
+            </key-property>
+            <key-property name="codTal" type="string">
+                <column name="CodTal" length="6" />
+            </key-property>
+        </composite-id>
+        <property name="refTal" type="string">
+            <column name="RefTal" length="50" not-null="true" />
+        </property>
+        <property name="rcIni" type="long">
+            <column name="rcIni" precision="18" scale="0" not-null="true" />
+        </property>
+        <property name="rcFin" type="long">
+            <column name="rcFin" precision="18" scale="0" not-null="true" />
+        </property>
+        <property name="rcAct" type="long">
+            <column name="rcAct" precision="18" scale="0" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

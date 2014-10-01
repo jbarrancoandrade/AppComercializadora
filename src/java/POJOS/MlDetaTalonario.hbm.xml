@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19-sep-2014 10:35:40 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="POJOS.MlDetaTalonario" table="ML_DetaTalonario" schema="dbo" catalog="BD_SEGURIDAD_FELOX">
+        <composite-id name="id" class="POJOS.MlDetaTalonarioId">
+            <key-property name="codTal" type="string">
+                <column name="CodTal" length="6" />
+            </key-property>
+            <key-property name="numRecF" type="string">
+                <column name="NumRec_F" length="8" />
+            </key-property>
+        </composite-id>
+        <property name="codVen" type="string">
+            <column name="CodVen" length="3" not-null="true" />
+        </property>
+        <property name="numRecS" type="string">
+            <column name="NumRec_S" length="8" not-null="true" />
+        </property>
+        <property name="codAlmS" type="string">
+            <column name="CodAlm_S" length="3" not-null="true" />
+        </property>
+        <property name="tipRecS" type="string">
+            <column name="TipRec_S" length="3" not-null="true" />
+        </property>
+        <property name="estado" type="string">
+            <column name="Estado" length="1" not-null="true" />
+        </property>
+        <property name="observa" type="string">
+            <column name="Observa" length="400" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

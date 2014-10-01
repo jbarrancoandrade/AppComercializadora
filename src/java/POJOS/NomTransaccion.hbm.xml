@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19-sep-2014 10:35:40 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="POJOS.NomTransaccion" table="Nom_Transaccion" schema="dbo" catalog="BD_SEGURIDAD_FELOX">
+        <id name="codTran" type="string">
+            <column name="CodTran" length="4" />
+            <generator class="assigned" />
+        </id>
+        <property name="nomTran" type="string">
+            <column name="NomTran" length="100" not-null="true" />
+        </property>
+        <property name="tipTran" type="int">
+            <column name="TipTran" not-null="true" />
+        </property>
+        <property name="formula" type="string">
+            <column name="Formula" length="1000" not-null="true" />
+        </property>
+        <property name="vrEditable" type="boolean">
+            <column name="VrEditable" not-null="true" />
+        </property>
+        <property name="codUni" type="string">
+            <column name="CodUni" length="3" not-null="true" />
+        </property>
+        <property name="activa" type="boolean">
+            <column name="Activa" not-null="true" />
+        </property>
+        <property name="abrevia" type="string">
+            <column name="Abrevia" length="50" not-null="true" />
+        </property>
+        <property name="sistema" type="boolean">
+            <column name="Sistema" not-null="true" />
+        </property>
+        <property name="qtyEditable" type="boolean">
+            <column name="QtyEditable" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

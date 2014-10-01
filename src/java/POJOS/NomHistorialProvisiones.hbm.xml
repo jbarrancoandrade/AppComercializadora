@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19-sep-2014 10:35:40 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="POJOS.NomHistorialProvisiones" table="Nom_Historial_Provisiones" schema="dbo" catalog="BD_SEGURIDAD_FELOX">
+        <composite-id name="id" class="POJOS.NomHistorialProvisionesId">
+            <key-property name="codEmp" type="string">
+                <column name="CodEmp" length="4" />
+            </key-property>
+            <key-property name="FCierre" type="timestamp">
+                <column name="F_Cierre" length="23" />
+            </key-property>
+        </composite-id>
+        <property name="codAlm" type="string">
+            <column name="CodAlm" length="3" not-null="true" />
+        </property>
+        <property name="numDoc" type="string">
+            <column name="NumDoc" length="8" not-null="true" />
+        </property>
+        <property name="tipDoc" type="string">
+            <column name="TipDoc" length="3" not-null="true" />
+        </property>
+        <property name="codSec" type="string">
+            <column name="CodSec" length="3" not-null="true" />
+        </property>
+        <property name="codTer" type="string">
+            <column name="CodTer" length="15" not-null="true" />
+        </property>
+        <property name="cesantia" type="big_decimal">
+            <column name="Cesantia" precision="18" not-null="true" />
+        </property>
+        <property name="icesantia" type="big_decimal">
+            <column name="ICesantia" precision="18" not-null="true" />
+        </property>
+        <property name="primas" type="big_decimal">
+            <column name="Primas" precision="18" not-null="true" />
+        </property>
+        <property name="vacaciones" type="big_decimal">
+            <column name="Vacaciones" precision="18" not-null="true" />
+        </property>
+        <property name="codUsu" type="string">
+            <column name="CodUsu" length="10" not-null="true" />
+        </property>
+        <property name="fecSys" type="timestamp">
+            <column name="FecSys" length="23" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

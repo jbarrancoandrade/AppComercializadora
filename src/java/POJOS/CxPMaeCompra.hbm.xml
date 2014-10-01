@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19-sep-2014 10:35:40 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="POJOS.CxPMaeCompra" table="CxP_MaeCompra" schema="dbo" catalog="BD_SEGURIDAD_FELOX">
+        <composite-id name="id" class="POJOS.CxPMaeCompraId">
+            <key-property name="codalm" type="string">
+                <column name="Codalm" length="3" />
+            </key-property>
+            <key-property name="numcom" type="string">
+                <column name="Numcom" length="8" />
+            </key-property>
+        </composite-id>
+        <property name="codpro" type="string">
+            <column name="Codpro" length="6" not-null="true" />
+        </property>
+        <property name="codter" type="string">
+            <column name="Codter" length="15" not-null="true" />
+        </property>
+        <property name="feccom" type="timestamp">
+            <column name="Feccom" length="23" not-null="true" />
+        </property>
+        <property name="valCom" type="big_decimal">
+            <column name="ValCom" precision="18" not-null="true" />
+        </property>
+        <property name="ivaCom" type="big_decimal">
+            <column name="IvaCom" precision="18" not-null="true" />
+        </property>
+        <property name="desCom" type="big_decimal">
+            <column name="DesCom" precision="18" not-null="true" />
+        </property>
+        <property name="netCom" type="big_decimal">
+            <column name="NetCom" precision="18" not-null="true" />
+        </property>
+        <property name="estCom" type="char">
+            <column name="EstCom" length="1" not-null="true" />
+        </property>
+        <property name="codUsu" type="string">
+            <column name="CodUsu" length="10" not-null="true" />
+        </property>
+        <property name="fecSys" type="timestamp">
+            <column name="FecSys" length="23" not-null="true" />
+        </property>
+        <property name="tipCom" type="string">
+            <column name="TipCom" length="1" not-null="true" />
+        </property>
+        <property name="valfletes" type="big_decimal">
+            <column name="VALFLETES" precision="18" not-null="true" />
+        </property>
+        <property name="plazocxp" type="int">
+            <column name="PLAZOCXP" precision="9" scale="0" not-null="true" />
+        </property>
+        <property name="valfletesApl" type="big_decimal">
+            <column name="VALFLETES_APL" precision="18" not-null="true" />
+        </property>
+        <property name="codmon" type="string">
+            <column name="CODMON" length="3" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

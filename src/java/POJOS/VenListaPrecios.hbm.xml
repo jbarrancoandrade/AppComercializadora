@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19-sep-2014 10:35:40 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="POJOS.VenListaPrecios" table="Ven_ListaPrecios" schema="dbo" catalog="BD_SEGURIDAD_FELOX">
+        <id name="codList" type="string">
+            <column name="CodList" length="3" />
+            <generator class="assigned" />
+        </id>
+        <property name="nomList" type="string">
+            <column name="NomList" length="80" />
+        </property>
+        <property name="codalm" type="string">
+            <column name="Codalm" length="3" />
+        </property>
+        <property name="roundPv" type="boolean">
+            <column name="RoundPV" not-null="true" />
+        </property>
+        <property name="modificarPv" type="boolean">
+            <column name="ModificarPV" not-null="true" />
+        </property>
+        <property name="roundPvbase" type="big_decimal">
+            <column name="RoundPVBase" precision="18" not-null="true" />
+        </property>
+        <property name="modificado" type="boolean">
+            <column name="Modificado" not-null="true" />
+        </property>
+        <property name="margening" type="big_decimal">
+            <column name="MARGENING" precision="18" not-null="true" />
+        </property>
+        <property name="activa" type="boolean">
+            <column name="ACTIVA" not-null="true" />
+        </property>
+        <property name="tipPre" type="string">
+            <column name="TipPre" length="2" not-null="true" />
+        </property>
+        <property name="orden" type="int">
+            <column name="Orden" not-null="true" />
+        </property>
+        <property name="showLowerPrice" type="boolean">
+            <column name="ShowLowerPrice" not-null="true" />
+        </property>
+        <property name="publica" type="boolean">
+            <column name="Publica" not-null="true" />
+        </property>
+        <property name="controlCosto" type="boolean">
+            <column name="ControlCosto" not-null="true" />
+        </property>
+        <property name="userAccessTag" type="char">
+            <column name="UserAccessTag" length="1" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19-sep-2014 10:35:40 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="POJOS.NomPeriodosxVar" table="Nom_PeriodosxVar" schema="dbo" catalog="BD_SEGURIDAD_FELOX">
+        <composite-id name="id" class="POJOS.NomPeriodosxVarId">
+            <key-property name="codVar" type="string">
+                <column name="CodVar" length="4" />
+            </key-property>
+            <key-property name="PIni" type="byte">
+                <column name="P_Ini" />
+            </key-property>
+            <key-property name="PFin" type="byte">
+                <column name="P_Fin" />
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

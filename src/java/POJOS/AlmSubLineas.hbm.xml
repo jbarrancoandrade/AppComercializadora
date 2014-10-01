@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19-sep-2014 10:35:40 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="POJOS.AlmSubLineas" table="Alm_SubLineas" schema="dbo" catalog="BD_SEGURIDAD_FELOX">
+        <composite-id name="id" class="POJOS.AlmSubLineasId">
+            <key-property name="codLinea" type="string">
+                <column name="CodLinea" length="2" />
+            </key-property>
+            <key-property name="codSub" type="string">
+                <column name="CodSub" length="2" />
+            </key-property>
+            <key-property name="clase" type="char">
+                <column name="Clase" length="1" />
+            </key-property>
+        </composite-id>
+        <property name="nomSub" type="string">
+            <column name="NomSub" length="100" />
+        </property>
+        <property name="modificado" type="boolean">
+            <column name="Modificado" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

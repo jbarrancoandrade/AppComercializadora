@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19-sep-2014 10:35:40 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="POJOS.NomEmpleado" table="Nom_Empleado" schema="dbo" catalog="BD_SEGURIDAD_FELOX">
+        <id name="codEmp" type="string">
+            <column name="CodEmp" length="4" />
+            <generator class="assigned" />
+        </id>
+        <property name="codTer" type="string">
+            <column name="CodTer" length="15" not-null="true" />
+        </property>
+        <property name="codCos" type="string">
+            <column name="CodCos" length="3" not-null="true" />
+        </property>
+        <property name="codTerEps" type="string">
+            <column name="CodTer_Eps" length="3" not-null="true" />
+        </property>
+        <property name="codTerArp" type="string">
+            <column name="CodTer_Arp" length="3" not-null="true" />
+        </property>
+        <property name="codMarArp" type="string">
+            <column name="CodMar_Arp" length="3" not-null="true" />
+        </property>
+        <property name="codTerPen" type="string">
+            <column name="CodTer_Pen" length="3" not-null="true" />
+        </property>
+        <property name="codTerCes" type="string">
+            <column name="CodTer_Ces" length="3" not-null="true" />
+        </property>
+        <property name="codTerCja" type="string">
+            <column name="CodTer_Cja" length="3" not-null="true" />
+        </property>
+        <property name="codCargo" type="string">
+            <column name="CodCargo" length="3" not-null="true" />
+        </property>
+        <property name="codTipoCon" type="string">
+            <column name="CodTipoCon" length="3" not-null="true" />
+        </property>
+        <property name="codSec" type="string">
+            <column name="CodSec" length="3" not-null="true" />
+        </property>
+        <property name="codEst" type="string">
+            <column name="CodEst" length="3" not-null="true" />
+        </property>
+        <property name="codbanco" type="string">
+            <column name="CODBANCO" length="3" not-null="true" />
+        </property>
+        <property name="nomcta" type="string">
+            <column name="NOMCTA" length="80" not-null="true" />
+        </property>
+        <property name="numcta" type="string">
+            <column name="NUMCTA" length="50" not-null="true" />
+        </property>
+        <property name="tipcta" type="int">
+            <column name="TIPCTA" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

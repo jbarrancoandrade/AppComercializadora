@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19-sep-2014 10:35:40 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="POJOS.NomSecciones" table="Nom_Secciones" schema="dbo" catalog="BD_SEGURIDAD_FELOX">
+        <id name="codSec" type="string">
+            <column name="CodSec" length="3" />
+            <generator class="assigned" />
+        </id>
+        <property name="nomSec" type="string">
+            <column name="NomSec" length="50" not-null="true" />
+        </property>
+        <property name="periodoLiq" type="int">
+            <column name="PeriodoLiq" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

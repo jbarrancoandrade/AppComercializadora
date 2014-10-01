@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19-sep-2014 10:35:40 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="POJOS.VenMaeCotizaOpc" table="Ven_MaeCotizaOpc" schema="dbo" catalog="BD_SEGURIDAD_FELOX">
+        <composite-id name="id" class="POJOS.VenMaeCotizaOpcId">
+            <key-property name="codalm" type="string">
+                <column name="Codalm" length="3" />
+            </key-property>
+            <key-property name="numcot" type="string">
+                <column name="Numcot" length="8" />
+            </key-property>
+            <key-property name="codopc" type="string">
+                <column name="Codopc" length="2" />
+            </key-property>
+        </composite-id>
+        <property name="refopc" type="string">
+            <column name="Refopc" length="100" not-null="true" />
+        </property>
+        <property name="forpag" type="string">
+            <column name="Forpag" length="200" not-null="true" />
+        </property>
+        <property name="subTotal" type="big_decimal">
+            <column name="SubTotal" precision="18" not-null="true" />
+        </property>
+        <property name="valDesc" type="big_decimal">
+            <column name="ValDesc" precision="18" not-null="true" />
+        </property>
+        <property name="valIva" type="big_decimal">
+            <column name="ValIva" precision="18" not-null="true" />
+        </property>
+        <property name="valCot" type="big_decimal">
+            <column name="ValCot" precision="18" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

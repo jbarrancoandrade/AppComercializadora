@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <h:outputStylesheet name="./css/default.css"/>
+        <h:outputStylesheet name="./css/cssLayout.css"/>
+        <link rel="shortcut icon" type="image/x-icon" href="#{request.contextPath}/Public/Image/iconoo.png"/>
+        <title>Quality System Group</title>
+
+
+    </h:head>
+
+    <h:body >
+
+        <div id="top">
+            <center>
+                <ui:insert name="top">
+                    <h1 >Sistemas De Ventas</h1>
+
+                </ui:insert>
+            </center>
+            <h:form>  
+                <p:growl id="messages" showDetail="true" sticky="true" />
+                <p:megaMenu style="margin-right: 1%;" autoDisplay="false" >
+                    <p:menuitem value="Inicio"  outcome="/Menu/Principal" icon="ui-icon-check"/>
+                    <p:submenu label="Clientes" icon="ui-icon-suitcase">
+                        <p:column>
+                            <p:submenu label="Ventas">
+
+                                <p:menuitem value="Nueva Venta" outcome="/CLientes/ListaClientes" icon="ui-icon-document"/>
+
+                            </p:submenu>
+                            <p:submenu label="Gestion Pedidos">
+                                <p:menuitem value="Lista Pedidos" outcome="/CLientes/ListarPedidos"  icon="ui-icon-pencil"/>
+
+                            </p:submenu>
+                        </p:column>
+                    </p:submenu>
+                    <p:submenu label="Configuracion" icon="ui-icon-wrench">
+                        <p:column>
+                            <p:submenu label="Imagenes">
+
+                                <p:menuitem value="Cargar Imagenes"  icon="ui-icon-folder-open"/>
+
+                            </p:submenu>
+
+                        </p:column>
+                    </p:submenu>
+                    <p:menuitem value="Perfil"  icon="ui-icon-info"/>
+                    <f:facet name="options">
+                        <p:outputLabel value="#{mBLogin.baul}"/>
+                        <p:commandButton  action="#{mBLogin.cerrarSesion(event)}" value="Exit" icon="ui-icon-extlink" />
+                    </f:facet>
+                </p:megaMenu>
+            </h:form>
+        </div>
+        <div>
+            <div id="content" class="center_content">
+                <h:form>
+                    <p:idleMonitor onactive="sessionTimeOutDialog.show();" timeout="5000000" />
+                    <p:confirmDialog message="La Sesión ha caducado, por favor, pulse sobre el siguiente boton para volver a acceder a la aplicacion"  
+                                     showEffect="bounce" hideEffect="explode"  
+                                     header="Sesión Caducada ?" widgetVar="sessionTimeOutDialog" severity="alert"   closable="false">  
+
+                        <p:commandButton value="Volver a acceder a la aplicación" icon="ui-icon-arrowrefresh-1-n" iconPos="left" oncomplete="confirmation.hide()" onclick="window.location = '#{facesContext.externalContext.requestContextPath}/';" />  
+                    </p:confirmDialog> 
+                </h:form>
+                <ui:insert name="content">
+                    <div id="divSesionUsuario">
+                    </div>
+                </ui:insert>
+            </div>
+        </div>
+    </h:body>
+
+</html>

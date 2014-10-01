@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19-sep-2014 10:35:40 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="POJOS.CntLibros" table="Cnt_Libros" schema="dbo" catalog="BD_SEGURIDAD_FELOX">
+        <id name="codLib" type="string">
+            <column name="CodLib" length="2" />
+            <generator class="assigned" />
+        </id>
+        <property name="nomLib" type="string">
+            <column name="NomLib" length="100" not-null="true" />
+        </property>
+        <property name="iniciaEn" type="int">
+            <column name="IniciaEn" not-null="true" />
+        </property>
+        <property name="lastPrint" type="int">
+            <column name="LastPrint" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

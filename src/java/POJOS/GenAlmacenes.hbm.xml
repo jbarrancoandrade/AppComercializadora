@@ -1,0 +1,144 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19-sep-2014 10:35:40 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="POJOS.GenAlmacenes" table="Gen_Almacenes" schema="dbo" catalog="BD_SEGURIDAD_FELOX">
+        <id name="codalm" type="string">
+            <column name="Codalm" length="3" />
+            <generator class="assigned" />
+        </id>
+        <property name="codcen" type="string">
+            <column name="Codcen" length="3" />
+        </property>
+        <property name="nomalm" type="string">
+            <column name="Nomalm" length="70" />
+        </property>
+        <property name="diralm" type="string">
+            <column name="Diralm" length="50" />
+        </property>
+        <property name="tel1" type="string">
+            <column name="Tel_1" length="10" />
+        </property>
+        <property name="tel2" type="string">
+            <column name="Tel_2" length="10" />
+        </property>
+        <property name="tel3" type="string">
+            <column name="Tel_3" length="10" />
+        </property>
+        <property name="facturaIva" type="boolean">
+            <column name="FacturaIVA" not-null="true" />
+        </property>
+        <property name="ivaIncluido" type="boolean">
+            <column name="IvaIncluido" not-null="true" />
+        </property>
+        <property name="realizacompras" type="boolean">
+            <column name="REALIZACOMPRAS" not-null="true" />
+        </property>
+        <property name="nombreComercial" type="string">
+            <column name="NombreComercial" length="100" not-null="true" />
+        </property>
+        <property name="controlFecha" type="string">
+            <column name="ControlFecha" length="2" not-null="true" />
+        </property>
+        <property name="consolidarInfo" type="boolean">
+            <column name="ConsolidarInfo" not-null="true" />
+        </property>
+        <property name="systemSrox" type="string">
+            <column name="SystemSROX" length="50" not-null="true" />
+        </property>
+        <property name="systemSrrx" type="string">
+            <column name="SystemSRRX" length="50" not-null="true" />
+        </property>
+        <property name="systemDbox" type="string">
+            <column name="SystemDBOX" length="50" not-null="true" />
+        </property>
+        <property name="systemDbrx" type="string">
+            <column name="SystemDBRX" length="50" not-null="true" />
+        </property>
+        <property name="codDpto" type="string">
+            <column name="CodDpto" length="2" not-null="true" />
+        </property>
+        <property name="codMcpio" type="string">
+            <column name="CodMcpio" length="3" not-null="true" />
+        </property>
+        <property name="modificado" type="boolean">
+            <column name="Modificado" not-null="true" />
+        </property>
+        <property name="showCambio" type="boolean">
+            <column name="ShowCambio" not-null="true" />
+        </property>
+        <property name="autoaddprod" type="boolean">
+            <column name="AUTOADDPROD" not-null="true" />
+        </property>
+        <property name="qtymaxitemvta" type="int">
+            <column name="QTYMAXITEMVTA" precision="9" scale="0" not-null="true" />
+        </property>
+        <property name="reteicavta" type="boolean">
+            <column name="RETEICAVTA" not-null="true" />
+        </property>
+        <property name="showchoosevend" type="boolean">
+            <column name="SHOWCHOOSEVEND" not-null="true" />
+        </property>
+        <property name="leyendafac" type="string">
+            <column name="LEYENDAFAC" length="200" not-null="true" />
+        </property>
+        <property name="codterResp" type="string">
+            <column name="CODTER_RESP" length="15" not-null="true" />
+        </property>
+        <property name="cel1" type="string">
+            <column name="CEL_1" length="13" not-null="true" />
+        </property>
+        <property name="cel2" type="string">
+            <column name="CEL_2" length="13" not-null="true" />
+        </property>
+        <property name="nombreabrev" type="string">
+            <column name="NOMBREABREV" length="30" not-null="true" />
+        </property>
+        <property name="orden" type="byte">
+            <column name="Orden" precision="2" scale="0" not-null="true" />
+        </property>
+        <property name="ivaCosto" type="boolean">
+            <column name="IvaCosto" not-null="true" />
+        </property>
+        <property name="printerName" type="string">
+            <column name="PrinterName" length="100" not-null="true" />
+        </property>
+        <property name="usePrinter" type="boolean">
+            <column name="UsePrinter" not-null="true" />
+        </property>
+        <property name="ivaIncluidoFac" type="boolean">
+            <column name="IvaIncluidoFac" not-null="true" />
+        </property>
+        <property name="modSelVen" type="int">
+            <column name="ModSelVen" not-null="true" />
+        </property>
+        <property name="repetirProdsVta" type="boolean">
+            <column name="RepetirProdsVta" not-null="true" />
+        </property>
+        <property name="printCopiesFacVtaAsk" type="boolean">
+            <column name="PrintCopiesFacVtaAsk" not-null="true" />
+        </property>
+        <property name="printCopiesFacVtaQty" type="int">
+            <column name="PrintCopiesFacVtaQty" not-null="true" />
+        </property>
+        <property name="ctrlPrecioMinimo" type="int">
+            <column name="CtrlPrecioMinimo" not-null="true" />
+        </property>
+        <property name="observaFac" type="string">
+            <column name="ObservaFac" length="800" not-null="true" />
+        </property>
+        <property name="allowMultiTransfer" type="boolean">
+            <column name="AllowMultiTransfer" not-null="true" />
+        </property>
+        <property name="observaStartCur" type="int">
+            <column name="ObservaStartCur" not-null="true" />
+        </property>
+        <property name="forceScanTra" type="boolean">
+            <column name="ForceScan_TRA" not-null="true" />
+        </property>
+        <property name="showCambioOtr" type="boolean">
+            <column name="ShowCambioOtr" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19-sep-2014 10:35:40 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="POJOS.CxPFacturas" table="CxP_Facturas" schema="dbo" catalog="BD_SEGURIDAD_FELOX">
+        <composite-id name="id" class="POJOS.CxPFacturasId">
+            <key-property name="codalm" type="string">
+                <column name="Codalm" length="3" />
+            </key-property>
+            <key-property name="numfac" type="string">
+                <column name="Numfac" length="8" />
+            </key-property>
+            <key-property name="tipFac" type="string">
+                <column name="TipFac" length="3" />
+            </key-property>
+            <key-property name="codpro" type="string">
+                <column name="Codpro" length="6" />
+            </key-property>
+            <key-property name="estado" type="string">
+                <column name="Estado" length="1" />
+            </key-property>
+        </composite-id>
+        <property name="codter" type="string">
+            <column name="Codter" length="15" not-null="true" />
+        </property>
+        <property name="fecfac" type="timestamp">
+            <column name="Fecfac" length="23" not-null="true" />
+        </property>
+        <property name="fecven" type="timestamp">
+            <column name="Fecven" length="23" not-null="true" />
+        </property>
+        <property name="valFac" type="big_decimal">
+            <column name="ValFac" precision="18" not-null="true" />
+        </property>
+        <property name="valDes" type="big_decimal">
+            <column name="ValDes" precision="18" not-null="true" />
+        </property>
+        <property name="valRet" type="big_decimal">
+            <column name="ValRet" precision="18" not-null="true" />
+        </property>
+        <property name="valIva" type="big_decimal">
+            <column name="ValIva" precision="18" not-null="true" />
+        </property>
+        <property name="valNeto" type="big_decimal">
+            <column name="ValNeto" precision="18" not-null="true" />
+        </property>
+        <property name="valAbo" type="big_decimal">
+            <column name="ValAbo" precision="18" not-null="true" />
+        </property>
+        <property name="fecSys" type="timestamp">
+            <column name="FecSys" length="23" not-null="true" />
+        </property>
+        <property name="codusu" type="string">
+            <column name="Codusu" length="10" not-null="true" />
+        </property>
+        <property name="numRad" type="string">
+            <column name="NumRad" length="8" not-null="true" />
+        </property>
+        <property name="codcueCxP" type="string">
+            <column name="CodcueCxP" length="8" not-null="true" />
+        </property>
+        <property name="valfletes" type="big_decimal">
+            <column name="VALFLETES" precision="18" not-null="true" />
+        </property>
+        <property name="codmon" type="string">
+            <column name="CODMON" length="3" not-null="true" />
+        </property>
+        <property name="valotr" type="big_decimal">
+            <column name="VALOTR" precision="18" not-null="true" />
+        </property>
+        <property name="valant" type="big_decimal">
+            <column name="VALANT" precision="18" not-null="true" />
+        </property>
+        <property name="valIco" type="big_decimal">
+            <column name="ValICO" precision="18" not-null="true" />
+        </property>
+        <property name="codalm" type="string">
+            <column name="_CODALM" length="3" not-null="true" />
+        </property>
+        <property name="codres" type="string">
+            <column name="_CODRES" length="3" not-null="true" />
+        </property>
+        <property name="numfac" type="string">
+            <column name="_NUMFAC" length="8" not-null="true" />
+        </property>
+        <property name="tipfac" type="string">
+            <column name="_TIPFAC" length="3" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

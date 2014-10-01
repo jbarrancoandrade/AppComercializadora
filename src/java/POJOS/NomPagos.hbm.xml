@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19-sep-2014 10:35:40 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="POJOS.NomPagos" table="Nom_Pagos" schema="dbo" catalog="BD_SEGURIDAD_FELOX">
+        <composite-id name="id" class="POJOS.NomPagosId">
+            <key-property name="codEmp" type="string">
+                <column name="CodEmp" length="4" />
+            </key-property>
+            <key-property name="numDoc" type="string">
+                <column name="NumDoc" length="8" />
+            </key-property>
+            <key-property name="tipDoc" type="string">
+                <column name="TipDoc" length="3" />
+            </key-property>
+            <key-property name="año" type="int">
+                <column name="Año" />
+            </key-property>
+            <key-property name="mes" type="byte">
+                <column name="Mes" />
+            </key-property>
+            <key-property name="PIni" type="byte">
+                <column name="P_Ini" />
+            </key-property>
+            <key-property name="PFin" type="byte">
+                <column name="P_Fin" />
+            </key-property>
+        </composite-id>
+        <property name="fecDoc" type="timestamp">
+            <column name="FecDoc" length="23" />
+        </property>
+        <property name="devengado" type="big_decimal">
+            <column name="Devengado" precision="18" not-null="true" />
+        </property>
+        <property name="deducido" type="big_decimal">
+            <column name="Deducido" precision="18" not-null="true" />
+        </property>
+        <property name="neto" type="big_decimal">
+            <column name="Neto" precision="18" not-null="true" />
+        </property>
+        <property name="abonado" type="big_decimal">
+            <column name="Abonado" precision="18" not-null="true" />
+        </property>
+        <property name="codReg" type="long">
+            <column name="CodReg" precision="18" scale="0" not-null="true" />
+        </property>
+        <property name="codCos" type="string">
+            <column name="CodCos" length="3" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

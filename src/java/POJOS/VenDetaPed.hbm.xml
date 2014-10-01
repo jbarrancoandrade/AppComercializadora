@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19-sep-2014 10:35:40 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="POJOS.VenDetaPed" table="Ven_DetaPed" schema="dbo" catalog="BD_SEGURIDAD_FELOX">
+        <composite-id name="id" class="POJOS.VenDetaPedId">
+            <key-property name="codAlm" type="string">
+                <column name="CodAlm" length="3" />
+            </key-property>
+            <key-property name="numFac" type="string">
+                <column name="NumFac" length="8" />
+            </key-property>
+            <key-property name="tipFac" type="string">
+                <column name="TipFac" length="3" />
+            </key-property>
+            <key-property name="codRes" type="string">
+                <column name="CodRes" length="3" />
+            </key-property>
+            <key-property name="codIns" type="string">
+                <column name="CodIns" length="8" />
+            </key-property>
+        </composite-id>
+        <property name="qty" type="big_decimal">
+            <column name="Qty" precision="18" not-null="true" />
+        </property>
+        <property name="valIns" type="big_decimal">
+            <column name="ValIns" precision="18" not-null="true" />
+        </property>
+        <property name="dscto" type="big_decimal">
+            <column name="Dscto" precision="18" not-null="true" />
+        </property>
+        <property name="ivaIns" type="big_decimal">
+            <column name="IvaIns" precision="18" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

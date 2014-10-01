@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19-sep-2014 10:35:40 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="POJOS.GenMenu" table="Gen_Menu" schema="dbo" catalog="BD_SEGURIDAD_FELOX">
+        <id name="formulario" type="string">
+            <column name="Formulario" length="50" />
+            <generator class="assigned" />
+        </id>
+        <property name="modulo" type="string">
+            <column name="Modulo" length="3" not-null="true" />
+        </property>
+        <property name="descripcion" type="string">
+            <column name="Descripcion" length="150" not-null="true" />
+        </property>
+        <property name="grupo" type="string">
+            <column name="Grupo" length="50" not-null="true" />
+        </property>
+        <property name="dll" type="string">
+            <column name="dll" length="50" not-null="true" />
+        </property>
+        <property name="ordenItem" type="int">
+            <column name="OrdenItem" not-null="true" />
+        </property>
+        <property name="ordenGrupo" type="char">
+            <column name="OrdenGrupo" length="1" not-null="true" />
+        </property>
+        <property name="idreg" type="int">
+            <column name="IDReg" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

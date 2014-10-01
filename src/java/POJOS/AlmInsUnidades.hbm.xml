@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19-sep-2014 10:35:40 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="POJOS.AlmInsUnidades" table="Alm_InsUnidades" schema="dbo" catalog="BD_SEGURIDAD_FELOX">
+        <id name="undins" type="string">
+            <column name="UNDINS" length="6" />
+            <generator class="assigned" />
+        </id>
+        <property name="nomuni" type="string">
+            <column name="NOMUNI" length="50" not-null="true" />
+        </property>
+        <property name="modificado" type="boolean">
+            <column name="MODIFICADO" not-null="true" />
+        </property>
+        <property name="codreg" type="int">
+            <column name="CODREG" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

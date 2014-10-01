@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19-sep-2014 10:35:40 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="POJOS.GenConsecutivos" table="Gen_Consecutivos" schema="dbo" catalog="BD_SEGURIDAD_FELOX">
+        <id name="codcon" type="string">
+            <column name="Codcon" length="3" />
+            <generator class="assigned" />
+        </id>
+        <property name="nomcon" type="string">
+            <column name="Nomcon" length="150" not-null="true" />
+        </property>
+        <property name="tipcon" type="char">
+            <column name="Tipcon" length="1" not-null="true" />
+        </property>
+        <property name="modulo" type="string">
+            <column name="Modulo" length="3" not-null="true" />
+        </property>
+        <property name="sistema" type="boolean">
+            <column name="Sistema" not-null="true" />
+        </property>
+        <property name="modificado" type="boolean">
+            <column name="Modificado" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

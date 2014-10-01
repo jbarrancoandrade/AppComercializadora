@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19-sep-2014 10:35:40 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="POJOS.VenDetaNotas" table="Ven_DetaNotas" schema="dbo" catalog="BD_SEGURIDAD_FELOX">
+        <composite-id name="id" class="POJOS.VenDetaNotasId">
+            <key-property name="codalm" type="string">
+                <column name="Codalm" length="3" />
+            </key-property>
+            <key-property name="numNota" type="string">
+                <column name="NumNota" length="8" />
+            </key-property>
+            <key-property name="tipNota" type="string">
+                <column name="TipNota" length="3" />
+            </key-property>
+            <key-property name="tipFac" type="string">
+                <column name="TipFac" length="3" />
+            </key-property>
+            <key-property name="numFac" type="string">
+                <column name="NumFac" length="8" />
+            </key-property>
+            <key-property name="codres" type="string">
+                <column name="Codres" length="3" />
+            </key-property>
+            <key-property name="codsec" type="string">
+                <column name="CODSEC" length="3" />
+            </key-property>
+        </composite-id>
+        <property name="valAbo" type="big_decimal">
+            <column name="ValAbo" precision="18" not-null="true" />
+        </property>
+        <property name="valSaldo" type="big_decimal">
+            <column name="ValSaldo" precision="18" not-null="true" />
+        </property>
+        <property name="codCon" type="string">
+            <column name="CodCon" length="3" not-null="true" />
+        </property>
+        <property name="valNota" type="big_decimal">
+            <column name="ValNota" precision="18" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

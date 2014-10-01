@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19-sep-2014 10:35:40 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="POJOS.VenMaeNotas" table="Ven_MaeNotas" schema="dbo" catalog="BD_SEGURIDAD_FELOX">
+        <composite-id name="id" class="POJOS.VenMaeNotasId">
+            <key-property name="codalm" type="string">
+                <column name="Codalm" length="3" />
+            </key-property>
+            <key-property name="numNota" type="string">
+                <column name="NumNota" length="8" />
+            </key-property>
+            <key-property name="tipNota" type="string">
+                <column name="TipNota" length="3" />
+            </key-property>
+            <key-property name="codSec" type="string">
+                <column name="CodSec" length="3" />
+            </key-property>
+        </composite-id>
+        <property name="codter" type="string">
+            <column name="Codter" length="15" not-null="true" />
+        </property>
+        <property name="valNota" type="big_decimal">
+            <column name="ValNota" precision="18" not-null="true" />
+        </property>
+        <property name="valCartera" type="big_decimal">
+            <column name="ValCartera" precision="18" not-null="true" />
+        </property>
+        <property name="valAnticipo" type="big_decimal">
+            <column name="ValAnticipo" precision="18" not-null="true" />
+        </property>
+        <property name="fecNota" type="timestamp">
+            <column name="FecNota" length="23" not-null="true" />
+        </property>
+        <property name="codUsu" type="string">
+            <column name="CodUsu" length="10" not-null="true" />
+        </property>
+        <property name="fecSys" type="timestamp">
+            <column name="FecSys" length="23" not-null="true" />
+        </property>
+        <property name="estado" type="string">
+            <column name="Estado" length="1" not-null="true" />
+        </property>
+        <property name="numFac" type="string">
+            <column name="NumFac" length="8" not-null="true" />
+        </property>
+        <property name="tipFac" type="string">
+            <column name="TipFac" length="3" not-null="true" />
+        </property>
+        <property name="codres" type="string">
+            <column name="Codres" length="3" not-null="true" />
+        </property>
+        <property name="valret" type="big_decimal">
+            <column name="VALRET" precision="18" not-null="true" />
+        </property>
+        <property name="codterant" type="string">
+            <column name="CODTERANT" length="15" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

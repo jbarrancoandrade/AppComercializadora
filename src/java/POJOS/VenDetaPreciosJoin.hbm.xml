@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19-sep-2014 10:35:40 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="POJOS.VenDetaPreciosJoin" table="Ven_DetaPrecios_Join" schema="dbo" catalog="BD_SEGURIDAD_FELOX">
+        <composite-id name="id" class="POJOS.VenDetaPreciosJoinId">
+            <key-property name="codListPpal" type="string">
+                <column name="CodList_PPal" length="3" />
+            </key-property>
+            <key-property name="codListSec" type="string">
+                <column name="CodList_Sec" length="3" />
+            </key-property>
+            <key-property name="codIns" type="string">
+                <column name="CodIns" length="8" />
+            </key-property>
+        </composite-id>
+        <property name="margenInc" type="big_decimal">
+            <column name="Margen_Inc" precision="9" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

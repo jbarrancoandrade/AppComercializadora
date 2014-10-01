@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19-sep-2014 10:35:40 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="POJOS.TesEgresos" table="Tes_Egresos" schema="dbo" catalog="BD_SEGURIDAD_FELOX">
+        <composite-id name="id" class="POJOS.TesEgresosId">
+            <key-property name="codalm" type="string">
+                <column name="Codalm" length="3" />
+            </key-property>
+            <key-property name="numEgr" type="string">
+                <column name="NumEgr" length="8" />
+            </key-property>
+        </composite-id>
+        <property name="codCaja" type="string">
+            <column name="CodCaja" length="5" not-null="true" />
+        </property>
+        <property name="codCta" type="string">
+            <column name="CodCta" length="5" not-null="true" />
+        </property>
+        <property name="codChq" type="string">
+            <column name="CodChq" length="3" not-null="true" />
+        </property>
+        <property name="numChq" type="string">
+            <column name="NumChq" length="10" not-null="true" />
+        </property>
+        <property name="valEgr" type="big_decimal">
+            <column name="ValEgr" precision="18" not-null="true" />
+        </property>
+        <property name="fecEgr" type="timestamp">
+            <column name="FecEgr" length="23" not-null="true" />
+        </property>
+        <property name="codter" type="string">
+            <column name="Codter" length="15" not-null="true" />
+        </property>
+        <property name="fecSys" type="timestamp">
+            <column name="FecSys" length="23" not-null="true" />
+        </property>
+        <property name="codUsu" type="string">
+            <column name="CodUsu" length="10" not-null="true" />
+        </property>
+        <property name="estEgr" type="char">
+            <column name="EstEgr" length="1" not-null="true" />
+        </property>
+        <property name="clase" type="char">
+            <column name="Clase" length="1" not-null="true" />
+        </property>
+        <property name="fp" type="char">
+            <column name="FP" length="1" not-null="true" />
+        </property>
+        <property name="tipEgr" type="string">
+            <column name="TipEgr" length="3" not-null="true" />
+        </property>
+        <property name="valSobra" type="big_decimal">
+            <column name="ValSobra" precision="18" not-null="true" />
+        </property>
+        <property name="valFalta" type="big_decimal">
+            <column name="ValFalta" precision="18" not-null="true" />
+        </property>
+        <property name="numTurno" type="string">
+            <column name="NumTurno" length="8" not-null="true" />
+        </property>
+        <property name="egrcuadre" type="boolean">
+            <column name="EGRCUADRE" not-null="true" />
+        </property>
+        <property name="valsubtotalegr" type="big_decimal">
+            <column name="VALSUBTOTALEGR" precision="18" not-null="true" />
+        </property>
+        <property name="valotregr" type="big_decimal">
+            <column name="VALOTREGR" precision="18" not-null="true" />
+        </property>
+        <property name="valdctoegr" type="big_decimal">
+            <column name="VALDCTOEGR" precision="18" not-null="true" />
+        </property>
+        <property name="valretegr" type="big_decimal">
+            <column name="VALRETEGR" precision="18" not-null="true" />
+        </property>
+        <property name="docfisico" type="string">
+            <column name="DOCFISICO" length="30" not-null="true" />
+        </property>
+        <property name="codmon" type="string">
+            <column name="CODMON" length="3" not-null="true" />
+        </property>
+        <property name="valant" type="big_decimal">
+            <column name="VALANT" precision="18" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

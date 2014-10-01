@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19-sep-2014 10:35:40 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="POJOS.NomTipoContrato" table="Nom_TipoContrato" schema="dbo" catalog="BD_SEGURIDAD_FELOX">
+        <id name="codTipoCon" type="string">
+            <column name="CodTipoCon" length="3" />
+            <generator class="assigned" />
+        </id>
+        <property name="nomTipo" type="string">
+            <column name="NomTipo" length="50" not-null="true" />
+        </property>
+        <property name="liqArp" type="boolean">
+            <column name="LiqARP" not-null="true" />
+        </property>
+        <property name="liqCajaComp" type="boolean">
+            <column name="LiqCajaComp" not-null="true" />
+        </property>
+        <property name="liqCesantia" type="boolean">
+            <column name="LiqCesantia" not-null="true" />
+        </property>
+        <property name="liqIcbf" type="boolean">
+            <column name="LiqICBF" not-null="true" />
+        </property>
+        <property name="liqIcesantia" type="boolean">
+            <column name="LiqICesantia" not-null="true" />
+        </property>
+        <property name="liqPension" type="boolean">
+            <column name="LiqPension" not-null="true" />
+        </property>
+        <property name="liqPrimas" type="boolean">
+            <column name="LiqPrimas" not-null="true" />
+        </property>
+        <property name="liqSalud" type="boolean">
+            <column name="LiqSalud" not-null="true" />
+        </property>
+        <property name="liqSena" type="boolean">
+            <column name="LiqSENA" not-null="true" />
+        </property>
+        <property name="liqVacaciones" type="boolean">
+            <column name="LiqVacaciones" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

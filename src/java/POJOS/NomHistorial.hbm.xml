@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19-sep-2014 10:35:40 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="POJOS.NomHistorial" table="Nom_Historial" schema="dbo" catalog="BD_SEGURIDAD_FELOX">
+        <composite-id name="id" class="POJOS.NomHistorialId">
+            <key-property name="codAlm" type="string">
+                <column name="CodAlm" length="3" />
+            </key-property>
+            <key-property name="numDoc" type="string">
+                <column name="NumDoc" length="8" />
+            </key-property>
+            <key-property name="tipDoc" type="string">
+                <column name="TipDoc" length="3" />
+            </key-property>
+            <key-property name="codEmp" type="string">
+                <column name="CodEmp" length="4" />
+            </key-property>
+            <key-property name="codTran" type="string">
+                <column name="CodTran" length="4" />
+            </key-property>
+            <key-property name="a&#241;o" type="int">
+                <column name="A&#241;o" />
+            </key-property>
+            <key-property name="mes" type="byte">
+                <column name="Mes" />
+            </key-property>
+            <key-property name="PIni" type="byte">
+                <column name="P_Ini" />
+            </key-property>
+            <key-property name="PFin" type="byte">
+                <column name="P_Fin" />
+            </key-property>
+        </composite-id>
+        <property name="fecDoc" type="timestamp">
+            <column name="FecDoc" length="23" />
+        </property>
+        <property name="codSec" type="string">
+            <column name="CodSec" length="3" not-null="true" />
+        </property>
+        <property name="codTer" type="string">
+            <column name="CodTer" length="15" not-null="true" />
+        </property>
+        <property name="qty" type="big_decimal">
+            <column name="Qty" precision="9" not-null="true" />
+        </property>
+        <property name="vrUnitario" type="big_decimal">
+            <column name="VrUnitario" precision="18" not-null="true" />
+        </property>
+        <property name="devengado" type="big_decimal">
+            <column name="Devengado" precision="18" not-null="true" />
+        </property>
+        <property name="deducido" type="big_decimal">
+            <column name="Deducido" precision="18" not-null="true" />
+        </property>
+        <property name="codCue" type="string">
+            <column name="CodCue" length="8" not-null="true" />
+        </property>
+        <property name="codAlmPre" type="string">
+            <column name="CodAlmPre" length="3" not-null="true" />
+        </property>
+        <property name="numCuo" type="string">
+            <column name="NumCuo" length="2" not-null="true" />
+        </property>
+        <property name="numPre" type="string">
+            <column name="NumPre" length="8" not-null="true" />
+        </property>
+        <property name="ajusteP" type="big_decimal">
+            <column name="AjusteP" precision="9" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

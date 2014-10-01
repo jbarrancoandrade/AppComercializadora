@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19-sep-2014 10:35:40 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="POJOS.CxPProveedor" table="CxP_Proveedor" schema="dbo" catalog="BD_SEGURIDAD_FELOX">
+        <id name="cedula" type="string">
+            <column name="Cedula" length="15" />
+            <generator class="assigned" />
+        </id>
+        <property name="codpro" type="string">
+            <column name="Codpro" length="6" />
+        </property>
+        <property name="nombre1" type="string">
+            <column name="Nombre_1" length="100" />
+        </property>
+        <property name="nombre2" type="string">
+            <column name="Nombre_2" length="50" />
+        </property>
+        <property name="apellido1" type="string">
+            <column name="Apellido_1" length="50" />
+        </property>
+        <property name="apellido2" type="string">
+            <column name="Apellido_2" length="50" />
+        </property>
+        <property name="telefono1" type="string">
+            <column name="Telefono_1" length="10" />
+        </property>
+        <property name="telefono2" type="string">
+            <column name="Telefono_2" length="10" />
+        </property>
+        <property name="celular1" type="string">
+            <column name="Celular_1" length="14" />
+        </property>
+        <property name="celular2" type="string">
+            <column name="Celular_2" length="14" />
+        </property>
+        <property name="direccion" type="string">
+            <column name="Direccion" length="70" />
+        </property>
+        <property name="regimen" type="java.lang.Character">
+            <column name="Regimen" length="1" />
+        </property>
+        <property name="email" type="string">
+            <column name="EMail" length="100" not-null="true" />
+        </property>
+        <property name="registraFecNac" type="boolean">
+            <column name="RegistraFecNac" not-null="true" />
+        </property>
+        <property name="fecNac" type="timestamp">
+            <column name="FecNac" length="23" not-null="true" />
+        </property>
+        <property name="nombreCom" type="string">
+            <column name="NOMBRE_COM" length="100" not-null="true" />
+        </property>
+        <property name="codAct" type="string">
+            <column name="CodAct" length="3" not-null="true" />
+        </property>
+        <property name="autoReteIca" type="boolean">
+            <column name="AutoReteIca" not-null="true" />
+        </property>
+        <property name="autoReteIva" type="boolean">
+            <column name="AutoReteIva" not-null="true" />
+        </property>
+        <property name="autoReteFuente" type="boolean">
+            <column name="AutoReteFuente" not-null="true" />
+        </property>
+        <property name="tipCap" type="boolean">
+            <column name="TipCap" precision="1" scale="0" not-null="true" />
+        </property>
+        <property name="codMcpio" type="string">
+            <column name="CodMcpio" length="3" not-null="true" />
+        </property>
+        <property name="tipId" type="string">
+            <column name="TipID" length="2" not-null="true" />
+        </property>
+        <property name="codDpto" type="string">
+            <column name="CodDpto" length="2" not-null="true" />
+        </property>
+        <property name="modificado" type="boolean">
+            <column name="Modificado" not-null="true" />
+        </property>
+        <property name="tels" type="string">
+            <column name="TELS" length="80" not-null="true" />
+        </property>
+        <property name="nombreCal" type="string">
+            <column name="NOMBRE_CAL" length="100" not-null="true" />
+        </property>
+        <property name="nombreBus" type="string">
+            <column name="NOMBRE_BUS" length="100" not-null="true" />
+        </property>
+        <property name="codmon" type="string">
+            <column name="CODMON" length="3" not-null="true" />
+        </property>
+        <property name="retAnyBase" type="boolean">
+            <column name="RetAnyBase" not-null="true" />
+        </property>
+        <property name="tipcom" type="char">
+            <column name="TIPCOM" length="1" not-null="true" />
+        </property>
+        <property name="margenReteIca" type="big_decimal">
+            <column name="MargenReteICA" precision="9" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

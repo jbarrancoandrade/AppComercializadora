@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19-sep-2014 10:35:40 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="POJOS.VenVendedor" table="Ven_Vendedor" schema="dbo" catalog="BD_SEGURIDAD_FELOX">
+        <id name="codven" type="string">
+            <column name="Codven" length="3" />
+            <generator class="assigned" />
+        </id>
+        <property name="cedula" type="string">
+            <column name="Cedula" length="15" />
+        </property>
+        <property name="nombre1" type="string">
+            <column name="Nombre_1" length="100" />
+        </property>
+        <property name="nombre2" type="string">
+            <column name="Nombre_2" length="50" />
+        </property>
+        <property name="apellido1" type="string">
+            <column name="Apellido_1" length="50" />
+        </property>
+        <property name="apellido2" type="string">
+            <column name="Apellido_2" length="50" />
+        </property>
+        <property name="telefono1" type="string">
+            <column name="Telefono_1" length="20" />
+        </property>
+        <property name="telefono2" type="string">
+            <column name="Telefono_2" length="20" />
+        </property>
+        <property name="direccion" type="string">
+            <column name="Direccion" length="70" />
+        </property>
+        <property name="activo" type="java.lang.Boolean">
+            <column name="Activo" />
+        </property>
+        <property name="celular1" type="string">
+            <column name="Celular_1" length="14" />
+        </property>
+        <property name="celular2" type="string">
+            <column name="Celular_2" length="14" />
+        </property>
+        <property name="codalm" type="string">
+            <column name="Codalm" length="3" />
+        </property>
+        <property name="registraFecNac" type="boolean">
+            <column name="RegistraFecNac" not-null="true" />
+        </property>
+        <property name="fecNac" type="timestamp">
+            <column name="FecNac" length="23" not-null="true" />
+        </property>
+        <property name="nombreCom" type="string">
+            <column name="NOMBRE_COM" length="100" not-null="true" />
+        </property>
+        <property name="modificado" type="boolean">
+            <column name="Modificado" not-null="true" />
+        </property>
+        <property name="tels" type="string">
+            <column name="Tels" length="50" not-null="true" />
+        </property>
+        <property name="codzona" type="string">
+            <column name="CODZONA" length="3" not-null="true" />
+        </property>
+        <property name="codCaja" type="string">
+            <column name="CodCaja" length="5" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

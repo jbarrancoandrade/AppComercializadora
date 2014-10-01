@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19-sep-2014 10:35:40 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="POJOS.CxPMaeCausa" table="CxP_MaeCausa" schema="dbo" catalog="BD_SEGURIDAD_FELOX">
+        <composite-id name="id" class="POJOS.CxPMaeCausaId">
+            <key-property name="codAlm" type="string">
+                <column name="CodAlm" length="3" />
+            </key-property>
+            <key-property name="numCau" type="string">
+                <column name="NumCau" length="8" />
+            </key-property>
+            <key-property name="tipCau" type="string">
+                <column name="TipCau" length="3" />
+            </key-property>
+        </composite-id>
+        <property name="codter" type="string">
+            <column name="Codter" length="15" not-null="true" />
+        </property>
+        <property name="numFac" type="string">
+            <column name="NumFac" length="8" not-null="true" />
+        </property>
+        <property name="fecCau" type="timestamp">
+            <column name="FecCau" length="23" />
+        </property>
+        <property name="valCau" type="big_decimal">
+            <column name="ValCau" precision="18" not-null="true" />
+        </property>
+        <property name="fecSys" type="timestamp">
+            <column name="FecSys" length="23" />
+        </property>
+        <property name="codUsu" type="string">
+            <column name="CodUsu" length="10" not-null="true" />
+        </property>
+        <property name="pc" type="string">
+            <column name="PC" length="50" not-null="true" />
+        </property>
+        <property name="estado" type="string">
+            <column name="Estado" length="1" not-null="true" />
+        </property>
+        <property name="codcueCred" type="string">
+            <column name="CODCUE_CRED" length="8" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

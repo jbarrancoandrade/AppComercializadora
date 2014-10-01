@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19-sep-2014 10:35:40 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="POJOS.GenConsecS" table="Gen_ConsecS" schema="dbo" catalog="BD_SEGURIDAD_FELOX">
+        <composite-id name="id" class="POJOS.GenConsecSId">
+            <key-property name="codalm" type="string">
+                <column name="Codalm" length="3" />
+            </key-property>
+            <key-property name="codcon" type="serializable">
+                <column name="Codcon" />
+            </key-property>
+        </composite-id>
+        <property name="consecutivo" type="java.lang.Integer">
+            <column name="Consecutivo" />
+        </property>
+    </class>
+</hibernate-mapping>

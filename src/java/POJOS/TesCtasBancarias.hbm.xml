@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19-sep-2014 10:35:40 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="POJOS.TesCtasBancarias" table="Tes_CtasBancarias" schema="dbo" catalog="BD_SEGURIDAD_FELOX">
+        <id name="codCta" type="string">
+            <column name="CodCta" length="5" />
+            <generator class="assigned" />
+        </id>
+        <property name="tipoCta" type="char">
+            <column name="TipoCta" length="1" not-null="true" />
+        </property>
+        <property name="numCta" type="string">
+            <column name="NumCta" length="20" not-null="true" />
+        </property>
+        <property name="codcue" type="string">
+            <column name="Codcue" length="8" not-null="true" />
+        </property>
+        <property name="activa" type="boolean">
+            <column name="Activa" not-null="true" />
+        </property>
+        <property name="nomcta" type="string">
+            <column name="NOMCTA" length="100" not-null="true" />
+        </property>
+        <property name="modificado" type="boolean">
+            <column name="MODIFICADO" not-null="true" />
+        </property>
+        <property name="codmon" type="string">
+            <column name="CODMON" length="3" not-null="true" />
+        </property>
+        <property name="refcta" type="string">
+            <column name="REFCTA" length="50" not-null="true" />
+        </property>
+        <property name="orden" type="int">
+            <column name="Orden" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

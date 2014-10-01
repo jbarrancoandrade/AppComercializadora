@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19-sep-2014 10:35:40 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="POJOS.NomMaeVariables" table="Nom_MaeVariables" schema="dbo" catalog="BD_SEGURIDAD_FELOX">
+        <id name="codVar" type="string">
+            <column name="CodVar" length="4" />
+            <generator class="assigned" />
+        </id>
+        <property name="keyVar" type="string">
+            <column name="KeyVar" length="50" not-null="true" />
+        </property>
+        <property name="nomVar" type="string">
+            <column name="NomVar" length="150" not-null="true" />
+        </property>
+        <property name="tipVar" type="char">
+            <column name="TipVar" length="1" not-null="true" />
+        </property>
+        <property name="descrip" type="string">
+            <column name="Descrip" length="240" not-null="true" />
+        </property>
+        <property name="STipo" type="int">
+            <column name="S_Tipo" not-null="true" />
+        </property>
+        <property name="tipValPer" type="int">
+            <column name="TipValPer" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

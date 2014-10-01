@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19-sep-2014 10:35:40 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="POJOS.AlmTomaInv" table="Alm_TomaInv" schema="dbo" catalog="BD_SEGURIDAD_FELOX">
+        <composite-id name="id" class="POJOS.AlmTomaInvId">
+            <key-property name="codToma" type="string">
+                <column name="CodToma" length="8" />
+            </key-property>
+            <key-property name="codalm" type="string">
+                <column name="Codalm" length="3" />
+            </key-property>
+        </composite-id>
+        <property name="fecToma" type="timestamp">
+            <column name="FecToma" length="23" />
+        </property>
+        <property name="observa" type="string">
+            <column name="Observa" length="100" />
+        </property>
+        <property name="aplicada" type="java.lang.Boolean">
+            <column name="Aplicada" />
+        </property>
+        <property name="docEntrada" type="string">
+            <column name="DocEntrada" length="8" />
+        </property>
+        <property name="docSalida" type="string">
+            <column name="DocSalida" length="8" />
+        </property>
+        <property name="codusuAplica" type="string">
+            <column name="CodusuAplica" length="10" not-null="true" />
+        </property>
+        <property name="pcaplica" type="string">
+            <column name="PCAplica" length="50" not-null="true" />
+        </property>
+        <property name="fecSysAplica" type="timestamp">
+            <column name="FecSysAplica" length="23" />
+        </property>
+        <property name="sinStock" type="boolean">
+            <column name="SinStock" not-null="true" />
+        </property>
+        <property name="modoConteo" type="int">
+            <column name="ModoConteo" not-null="true" />
+        </property>
+        <property name="tomaFull" type="boolean">
+            <column name="TomaFull" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19-sep-2014 10:35:40 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="POJOS.VenMaeAnticipos" table="Ven_MaeAnticipos" schema="dbo" catalog="BD_SEGURIDAD_FELOX">
+        <composite-id name="id" class="POJOS.VenMaeAnticiposId">
+            <key-property name="codalm" type="string">
+                <column name="Codalm" length="3" />
+            </key-property>
+            <key-property name="codter" type="string">
+                <column name="Codter" length="15" />
+            </key-property>
+        </composite-id>
+        <property name="valAnt" type="big_decimal">
+            <column name="ValAnt" precision="18" />
+        </property>
+    </class>
+</hibernate-mapping>

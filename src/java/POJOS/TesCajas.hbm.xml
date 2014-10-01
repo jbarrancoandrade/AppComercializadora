@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19-sep-2014 10:35:40 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="POJOS.TesCajas" table="Tes_Cajas" schema="dbo" catalog="BD_SEGURIDAD_FELOX">
+        <id name="codCaja" type="string">
+            <column name="CodCaja" length="5" />
+            <generator class="assigned" />
+        </id>
+        <property name="nomcaja" type="string">
+            <column name="Nomcaja" length="80" />
+        </property>
+        <property name="ctaEfectivo" type="string">
+            <column name="CtaEfectivo" length="8" not-null="true" />
+        </property>
+        <property name="ctaCheques" type="string">
+            <column name="CtaCheques" length="8" not-null="true" />
+        </property>
+        <property name="ctaTarjetas" type="string">
+            <column name="CtaTarjetas" length="8" not-null="true" />
+        </property>
+        <property name="estado" type="string">
+            <column name="Estado" length="1" not-null="true" />
+        </property>
+        <property name="modificado" type="boolean">
+            <column name="Modificado" not-null="true" />
+        </property>
+        <property name="cajaPpal" type="boolean">
+            <column name="CajaPpal" not-null="true" />
+        </property>
+        <property name="estacion" type="string">
+            <column name="Estacion" length="50" not-null="true" />
+        </property>
+        <property name="cedula" type="string">
+            <column name="CEDULA" length="15" not-null="true" />
+        </property>
+        <property name="cajamenor" type="boolean">
+            <column name="CAJAMENOR" not-null="true" />
+        </property>
+        <property name="requierecuadre" type="boolean">
+            <column name="REQUIERECUADRE" not-null="true" />
+        </property>
+        <property name="cupocm" type="big_decimal">
+            <column name="CUPOCM" precision="18" not-null="true" />
+        </property>
+        <property name="autoTransfer" type="boolean">
+            <column name="AutoTransfer" not-null="true" />
+        </property>
+        <property name="codCajaTransfer" type="string">
+            <column name="CodCajaTransfer" length="5" not-null="true" />
+        </property>
+        <property name="auxiliar" type="boolean">
+            <column name="Auxiliar" not-null="true" />
+        </property>
+        <property name="codCajaPadre" type="string">
+            <column name="CodCajaPadre" length="5" not-null="true" />
+        </property>
+        <property name="ajustaSaldo" type="boolean">
+            <column name="AjustaSaldo" not-null="true" />
+        </property>
+        <property name="printPosDt" type="boolean">
+            <column name="PrintPosDT" not-null="true" />
+        </property>
+        <property name="printPosFp" type="boolean">
+            <column name="PrintPosFP" not-null="true" />
+        </property>
+        <property name="printPosHd" type="boolean">
+            <column name="PrintPosHD" not-null="true" />
+        </property>
+        <property name="printPosRp" type="boolean">
+            <column name="PrintPosRP" not-null="true" />
+        </property>
+        <property name="printerPackage" type="string">
+            <column name="PrinterPackage" length="30" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

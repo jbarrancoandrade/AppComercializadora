@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19-sep-2014 10:35:40 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="POJOS.CxPRadicacion" table="CxP_Radicacion" schema="dbo" catalog="BD_SEGURIDAD_FELOX">
+        <composite-id name="id" class="POJOS.CxPRadicacionId">
+            <key-property name="codalm" type="string">
+                <column name="Codalm" length="3" />
+            </key-property>
+            <key-property name="numCom" type="string">
+                <column name="NumCom" length="8" />
+            </key-property>
+            <key-property name="nitpro" type="string">
+                <column name="Nitpro" length="15" />
+            </key-property>
+            <key-property name="tipEnt" type="string">
+                <column name="TipEnt" length="3" />
+            </key-property>
+            <key-property name="docEnt" type="string">
+                <column name="DocEnt" length="8" />
+            </key-property>
+        </composite-id>
+        <property name="valCom" type="big_decimal">
+            <column name="ValCom" precision="18" not-null="true" />
+        </property>
+        <property name="desCom" type="big_decimal">
+            <column name="DesCom" precision="18" not-null="true" />
+        </property>
+        <property name="ivaCom" type="big_decimal">
+            <column name="IvaCom" precision="18" not-null="true" />
+        </property>
+        <property name="netCom" type="big_decimal">
+            <column name="NetCom" precision="18" not-null="true" />
+        </property>
+        <property name="facCom" type="string">
+            <column name="FacCom" length="8" not-null="true" />
+        </property>
+        <property name="ok" type="boolean">
+            <column name="OK" not-null="true" />
+        </property>
+        <property name="numRad" type="string">
+            <column name="NumRad" length="8" not-null="true" />
+        </property>
+        <property name="estrad" type="string">
+            <column name="ESTRAD" length="1" not-null="true" />
+        </property>
+        <property name="valfletes" type="big_decimal">
+            <column name="VALFLETES" precision="18" not-null="true" />
+        </property>
+        <property name="codmon" type="string">
+            <column name="CODMON" length="3" not-null="true" />
+        </property>
+        <property name="trm" type="big_decimal">
+            <column name="TRM" precision="18" not-null="true" />
+        </property>
+        <property name="icoCom" type="big_decimal">
+            <column name="IcoCom" precision="18" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19-sep-2014 10:35:40 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="POJOS.CxPRetIcaxFac" table="CxP_RetICAxFac" schema="dbo" catalog="BD_SEGURIDAD_FELOX">
+        <composite-id name="id" class="POJOS.CxPRetIcaxFacId">
+            <key-property name="codAlm" type="string">
+                <column name="CodAlm" length="3" />
+            </key-property>
+            <key-property name="numFac" type="string">
+                <column name="NumFac" length="8" />
+            </key-property>
+            <key-property name="tipFac" type="string">
+                <column name="TipFac" length="3" />
+            </key-property>
+            <key-property name="numRad" type="string">
+                <column name="NumRad" length="8" />
+            </key-property>
+            <key-property name="codAct" type="string">
+                <column name="CodAct" length="3" />
+            </key-property>
+        </composite-id>
+        <property name="base" type="big_decimal">
+            <column name="Base" precision="18" not-null="true" />
+        </property>
+        <property name="valRet" type="big_decimal">
+            <column name="ValRet" precision="18" not-null="true" />
+        </property>
+        <property name="margen" type="big_decimal">
+            <column name="Margen" precision="9" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

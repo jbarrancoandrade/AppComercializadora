@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19-sep-2014 10:35:40 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="POJOS.CntMaeFormatExcel" table="Cnt_MaeFormatExcel" schema="dbo" catalog="BD_SEGURIDAD_FELOX">
+        <id name="codMod" type="string">
+            <column name="CodMod" length="3" />
+            <generator class="assigned" />
+        </id>
+        <property name="nomMod" type="string">
+            <column name="NomMod" length="100" not-null="true" />
+        </property>
+        <property name="tipMod" type="string">
+            <column name="TipMod" length="3" not-null="true" />
+        </property>
+        <property name="filename" type="string">
+            <column name="FILENAME" length="100" not-null="true" />
+        </property>
+        <property name="filesource" type="string">
+            <column name="FILESOURCE" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

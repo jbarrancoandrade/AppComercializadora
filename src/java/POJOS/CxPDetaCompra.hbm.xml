@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19-sep-2014 10:35:40 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="POJOS.CxPDetaCompra" table="CxP_DetaCompra" schema="dbo" catalog="BD_SEGURIDAD_FELOX">
+        <composite-id name="id" class="POJOS.CxPDetaCompraId">
+            <key-property name="codalm" type="string">
+                <column name="Codalm" length="3" />
+            </key-property>
+            <key-property name="numcom" type="string">
+                <column name="Numcom" length="8" />
+            </key-property>
+            <key-property name="codins" type="string">
+                <column name="Codins" length="8" />
+            </key-property>
+            <key-property name="codtalla" type="string">
+                <column name="CODTALLA" length="5" />
+            </key-property>
+        </composite-id>
+        <property name="codInsRel" type="string">
+            <column name="CodIns_REL" length="8" not-null="true" />
+        </property>
+        <property name="qtyPed" type="big_decimal">
+            <column name="QtyPed" precision="18" not-null="true" />
+        </property>
+        <property name="qtyRec" type="big_decimal">
+            <column name="QtyRec" precision="18" not-null="true" />
+        </property>
+        <property name="valIns" type="big_decimal">
+            <column name="ValIns" precision="18" not-null="true" />
+        </property>
+        <property name="margenIva" type="big_decimal">
+            <column name="MargenIva" precision="9" not-null="true" />
+        </property>
+        <property name="valIva" type="big_decimal">
+            <column name="ValIva" precision="18" not-null="true" />
+        </property>
+        <property name="margenDes" type="big_decimal">
+            <column name="MargenDes" precision="9" />
+        </property>
+        <property name="valDes" type="big_decimal">
+            <column name="ValDes" precision="18" not-null="true" />
+        </property>
+        <property name="estCom" type="char">
+            <column name="EstCom" length="1" not-null="true" />
+        </property>
+        <property name="codUsu" type="string">
+            <column name="CodUsu" length="10" not-null="true" />
+        </property>
+        <property name="fecSys" type="timestamp">
+            <column name="FecSys" length="23" not-null="true" />
+        </property>
+        <property name="codIva" type="string">
+            <column name="CodIva" length="3" not-null="true" />
+        </property>
+        <property name="qtydev" type="big_decimal">
+            <column name="QTYDEV" precision="18" not-null="true" />
+        </property>
+        <property name="valinsSiniva" type="big_decimal">
+            <column name="VALINS_SINIVA" precision="18" not-null="true" />
+        </property>
+        <property name="qtyDañada" type="big_decimal">
+            <column name="QtyDañada" precision="18" not-null="true" />
+        </property>
+        <property name="qtySendProv" type="big_decimal">
+            <column name="QtySendProv" precision="18" not-null="true" />
+        </property>
+        <property name="lote" type="string">
+            <column name="LOTE" length="20" not-null="true" />
+        </property>
+        <property name="margenIco" type="big_decimal">
+            <column name="MargenICO" precision="9" not-null="true" />
+        </property>
+        <property name="valIco" type="big_decimal">
+            <column name="ValICO" precision="18" not-null="true" />
+        </property>
+        <property name="margenUtil" type="big_decimal">
+            <column name="MargenUtil" precision="9" not-null="true" />
+        </property>
+        <property name="ordenItem" type="string">
+            <column name="OrdenItem" length="4" not-null="true" />
+        </property>
+        <property name="valFleteUnd" type="big_decimal">
+            <column name="ValFleteUnd" precision="18" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19-sep-2014 10:35:40 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="POJOS.TesMaeCajaMenor" table="Tes_MaeCajaMenor" schema="dbo" catalog="BD_SEGURIDAD_FELOX">
+        <composite-id name="id" class="POJOS.TesMaeCajaMenorId">
+            <key-property name="codAlm" type="string">
+                <column name="CodAlm" length="3" />
+            </key-property>
+            <key-property name="codCaja" type="string">
+                <column name="CodCaja" length="5" />
+            </key-property>
+            <key-property name="tipRem" type="string">
+                <column name="TipRem" length="3" />
+            </key-property>
+            <key-property name="numRem" type="string">
+                <column name="NumRem" length="8" />
+            </key-property>
+        </composite-id>
+        <property name="cupoCm" type="big_decimal">
+            <column name="CupoCM" precision="18" not-null="true" />
+        </property>
+        <property name="saldoAnt" type="big_decimal">
+            <column name="SaldoAnt" precision="18" not-null="true" />
+        </property>
+        <property name="reembolso" type="big_decimal">
+            <column name="Reembolso" precision="18" not-null="true" />
+        </property>
+        <property name="nuevoSaldo" type="big_decimal">
+            <column name="NuevoSaldo" precision="18" not-null="true" />
+        </property>
+        <property name="fecSys" type="timestamp">
+            <column name="FecSys" length="23" not-null="true" />
+        </property>
+        <property name="codUsu" type="string">
+            <column name="CodUsu" length="10" not-null="true" />
+        </property>
+        <property name="pc" type="string">
+            <column name="PC" length="50" not-null="true" />
+        </property>
+        <property name="estado" type="char">
+            <column name="Estado" length="1" not-null="true" />
+        </property>
+        <property name="numEgr" type="string">
+            <column name="NumEgr" length="8" not-null="true" />
+        </property>
+        <property name="tipEgr" type="string">
+            <column name="TipEgr" length="3" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

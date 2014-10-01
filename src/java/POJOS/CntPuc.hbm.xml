@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19-sep-2014 10:35:40 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="POJOS.CntPuc" table="Cnt_PUC" schema="dbo" catalog="BD_SEGURIDAD_FELOX">
+        <id name="codcue" type="string">
+            <column name="Codcue" length="8" />
+            <generator class="assigned" />
+        </id>
+        <property name="nomCue" type="string">
+            <column name="NomCue" length="100" not-null="true" />
+        </property>
+        <property name="natCue" type="char">
+            <column name="NatCue" length="1" not-null="true" />
+        </property>
+        <property name="modificado" type="boolean">
+            <column name="Modificado" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

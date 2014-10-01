@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19-sep-2014 10:35:40 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="POJOS.AlmMaeTraslado" table="Alm_MaeTraslado" schema="dbo" catalog="BD_SEGURIDAD_FELOX">
+        <composite-id name="id" class="POJOS.AlmMaeTrasladoId">
+            <key-property name="codAlmOri" type="string">
+                <column name="CodAlmOri" length="3" />
+            </key-property>
+            <key-property name="numSalOri" type="string">
+                <column name="NumSalOri" length="8" />
+            </key-property>
+        </composite-id>
+        <property name="codAlmDes" type="string">
+            <column name="CodAlmDes" length="3" not-null="true" />
+        </property>
+        <property name="fecha" type="timestamp">
+            <column name="Fecha" length="23" />
+        </property>
+        <property name="estado" type="string">
+            <column name="Estado" length="1" not-null="true" />
+        </property>
+        <property name="codUsu" type="string">
+            <column name="CodUsu" length="10" not-null="true" />
+        </property>
+        <property name="fecSys" type="timestamp">
+            <column name="FecSys" length="23" />
+        </property>
+        <property name="pc" type="string">
+            <column name="PC" length="50" not-null="true" />
+        </property>
+        <property name="observa" type="string">
+            <column name="Observa" length="150" not-null="true" />
+        </property>
+        <property name="tiptra" type="char">
+            <column name="TIPTRA" length="1" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19-sep-2014 10:35:40 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="POJOS.NomCtasParafiscales" table="Nom_Ctas_Parafiscales" schema="dbo" catalog="BD_SEGURIDAD_FELOX">
+        <id name="codSec" type="string">
+            <column name="CodSec" length="3" />
+            <generator class="assigned" />
+        </id>
+        <property name="ctaDebSalud" type="string">
+            <column name="CtaDeb_Salud" length="8" not-null="true" />
+        </property>
+        <property name="ctaDebPension" type="string">
+            <column name="CtaDeb_Pension" length="8" not-null="true" />
+        </property>
+        <property name="ctaDebArp" type="string">
+            <column name="CtaDeb_ARP" length="8" not-null="true" />
+        </property>
+        <property name="ctaDebCaja" type="string">
+            <column name="CtaDeb_Caja" length="8" not-null="true" />
+        </property>
+        <property name="ctaDebIcbf" type="string">
+            <column name="CtaDeb_ICBF" length="8" not-null="true" />
+        </property>
+        <property name="ctaDebSena" type="string">
+            <column name="CtaDeb_Sena" length="8" not-null="true" />
+        </property>
+        <property name="ctaCreSalud" type="string">
+            <column name="CtaCre_Salud" length="8" not-null="true" />
+        </property>
+        <property name="ctaCrePension" type="string">
+            <column name="CtaCre_Pension" length="8" not-null="true" />
+        </property>
+        <property name="ctaCreArp" type="string">
+            <column name="CtaCre_Arp" length="8" not-null="true" />
+        </property>
+        <property name="ctaCreCaja" type="string">
+            <column name="CtaCre_Caja" length="8" not-null="true" />
+        </property>
+        <property name="ctaCreIcbf" type="string">
+            <column name="CtaCre_ICBF" length="8" not-null="true" />
+        </property>
+        <property name="ctaCreSena" type="string">
+            <column name="CtaCre_Sena" length="8" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

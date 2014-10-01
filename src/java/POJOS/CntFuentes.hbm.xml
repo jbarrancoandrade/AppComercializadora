@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19-sep-2014 10:35:40 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="POJOS.CntFuentes" table="Cnt_Fuentes" schema="dbo" catalog="BD_SEGURIDAD_FELOX">
+        <id name="codFue" type="string">
+            <column name="CodFue" length="3" />
+            <generator class="assigned" />
+        </id>
+        <property name="codAnu" type="string">
+            <column name="CodAnu" length="3" not-null="true" />
+        </property>
+        <property name="nomFue" type="string">
+            <column name="NomFue" length="150" not-null="true" />
+        </property>
+        <property name="anulacion" type="boolean">
+            <column name="Anulacion" not-null="true" />
+        </property>
+        <property name="sistema" type="boolean">
+            <column name="Sistema" not-null="true" />
+        </property>
+        <property name="modificado" type="boolean">
+            <column name="Modificado" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

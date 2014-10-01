@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19-sep-2014 10:35:40 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="POJOS.VenResoluciones" table="Ven_Resoluciones" schema="dbo" catalog="BD_SEGURIDAD_FELOX">
+        <id name="codres" type="string">
+            <column name="Codres" length="3" />
+            <generator class="assigned" />
+        </id>
+        <property name="numres" type="string">
+            <column name="Numres" length="12" />
+        </property>
+        <property name="fecres" type="timestamp">
+            <column name="Fecres" length="23" />
+        </property>
+        <property name="prefijo" type="string">
+            <column name="Prefijo" length="5" />
+        </property>
+        <property name="rangoIni" type="string">
+            <column name="RangoIni" length="8" />
+        </property>
+        <property name="rangoFin" type="string">
+            <column name="RangoFin" length="8" />
+        </property>
+        <property name="numfact" type="java.lang.Integer">
+            <column name="Numfact" />
+        </property>
+        <property name="modificado" type="boolean">
+            <column name="Modificado" not-null="true" />
+        </property>
+        <property name="nomres" type="string">
+            <column name="NOMRES" length="100" not-null="true" />
+        </property>
+        <property name="codAlm" type="string">
+            <column name="CodAlm" length="3" not-null="true" />
+        </property>
+        <property name="qtydiaswarning" type="int">
+            <column name="QTYDIASWARNING" precision="9" scale="0" not-null="true" />
+        </property>
+        <property name="qtyfactwarning" type="int">
+            <column name="QTYFACTWARNING" precision="9" scale="0" not-null="true" />
+        </property>
+        <property name="notificar" type="boolean">
+            <column name="NOTIFICAR" not-null="true" />
+        </property>
+        <property name="frecdias" type="int">
+            <column name="FRECDIAS" precision="9" scale="0" not-null="true" />
+        </property>
+        <property name="frecfact" type="int">
+            <column name="FRECFACT" precision="9" scale="0" not-null="true" />
+        </property>
+        <property name="fecven" type="timestamp">
+            <column name="FECVEN" length="23" not-null="true" />
+        </property>
+        <property name="resManual" type="boolean">
+            <column name="RES_MANUAL" not-null="true" />
+        </property>
+        <property name="activa" type="boolean">
+            <column name="ACTIVA" not-null="true" />
+        </property>
+        <property name="tipres" type="string">
+            <column name="TIPRES" length="30" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

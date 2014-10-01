@@ -1,0 +1,204 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19-sep-2014 10:35:40 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="POJOS.AlmInsumos" table="Alm_Insumos" schema="dbo" catalog="BD_SEGURIDAD_FELOX">
+        <id name="codins" type="string">
+            <column name="Codins" length="8" />
+            <generator class="assigned" />
+        </id>
+        <property name="nomins" type="string">
+            <column name="Nomins" length="80" />
+        </property>
+        <property name="refins" type="string">
+            <column name="Refins" length="30" />
+        </property>
+        <property name="undIns" type="string">
+            <column name="UndIns" length="3" />
+        </property>
+        <property name="undxEmp" type="big_decimal">
+            <column name="UndxEmp" precision="9" />
+        </property>
+        <property name="codLinea" type="string">
+            <column name="CodLinea" length="2" />
+        </property>
+        <property name="codSub" type="string">
+            <column name="CodSub" length="2" />
+        </property>
+        <property name="clase" type="java.lang.Character">
+            <column name="Clase" length="1" />
+        </property>
+        <property name="garantia" type="java.lang.Boolean">
+            <column name="Garantia" />
+        </property>
+        <property name="qtyDiasGar" type="java.lang.Integer">
+            <column name="QtyDiasGar" />
+        </property>
+        <property name="activo" type="java.lang.Boolean">
+            <column name="Activo" />
+        </property>
+        <property name="fichaTec" type="string">
+            <column name="FichaTec" length="250" />
+        </property>
+        <property name="ucoins" type="big_decimal">
+            <column name="uCoins" precision="18" />
+        </property>
+        <property name="codrap" type="string">
+            <column name="Codrap" length="8" unique="true" />
+        </property>
+        <property name="ultimoPrecio" type="big_decimal">
+            <column name="UltimoPrecio" precision="18" />
+        </property>
+        <property name="codbar" type="string">
+            <column name="Codbar" length="30" not-null="true" />
+        </property>
+        <property name="consumoPeriodico" type="boolean">
+            <column name="ConsumoPeriodico" not-null="true" />
+        </property>
+        <property name="permitirFraccion" type="boolean">
+            <column name="PermitirFraccion" not-null="true" />
+        </property>
+        <property name="nitPro" type="string">
+            <column name="NitPro" length="15" not-null="true" />
+        </property>
+        <property name="codAnt" type="string">
+            <column name="CodAnt" length="8" not-null="true" />
+        </property>
+        <property name="codIva" type="string">
+            <column name="CodIva" length="3" not-null="true" />
+        </property>
+        <property name="modificado" type="boolean">
+            <column name="Modificado" not-null="true" />
+        </property>
+        <property name="codCueIvaGen" type="string">
+            <column name="CodCueIvaGen" length="8" not-null="true" />
+        </property>
+        <property name="codCueIvaDes" type="string">
+            <column name="CodCueIvaDes" length="8" not-null="true" />
+        </property>
+        <property name="codCueAdivaGen" type="string">
+            <column name="CodCueADIvaGen" length="8" not-null="true" />
+        </property>
+        <property name="codCueAdivaDes" type="string">
+            <column name="CodCueADIvaDes" length="8" not-null="true" />
+        </property>
+        <property name="mlcodterp" type="string">
+            <column name="MLCODTERP" length="3" not-null="true" />
+        </property>
+        <property name="mlcodclase" type="string">
+            <column name="MLCODCLASE" length="3" not-null="true" />
+        </property>
+        <property name="mlcodprod" type="string">
+            <column name="MLCODPROD" length="3" not-null="true" />
+        </property>
+        <property name="mlcodtipo" type="string">
+            <column name="MLCODTIPO" length="3" not-null="true" />
+        </property>
+        <property name="codCueIngresos" type="string">
+            <column name="CodCueIngresos" length="8" not-null="true" />
+        </property>
+        <property name="codCueAdingresos" type="string">
+            <column name="CodCueADIngresos" length="8" not-null="true" />
+        </property>
+        <property name="codCueCostos" type="string">
+            <column name="CodCueCostos" length="8" not-null="true" />
+        </property>
+        <property name="codCueAdcostos" type="string">
+            <column name="CodCueADCostos" length="8" not-null="true" />
+        </property>
+        <property name="codCueInventario" type="string">
+            <column name="CodCueInventario" length="8" not-null="true" />
+        </property>
+        <property name="codCueAdinventario" type="string">
+            <column name="CodCueADInventario" length="8" not-null="true" />
+        </property>
+        <property name="tmpnomline" type="string">
+            <column name="TMPNOMLINE" length="100" not-null="true" />
+        </property>
+        <property name="tmpnomsub" type="string">
+            <column name="TMPNOMSUB" length="100" not-null="true" />
+        </property>
+        <property name="numimp" type="string">
+            <column name="NUMIMP" length="15" not-null="true" />
+        </property>
+        <property name="descrip" type="string">
+            <column name="DESCRIP" length="240" not-null="true" />
+        </property>
+        <property name="controlbascula" type="boolean">
+            <column name="CONTROLBASCULA" not-null="true" />
+        </property>
+        <property name="plangim" type="boolean">
+            <column name="PLANGIM" not-null="true" />
+        </property>
+        <property name="plangimqtydias" type="int">
+            <column name="PLANGIMQTYDIAS" precision="9" scale="0" not-null="true" />
+        </property>
+        <property name="plangimxsesion" type="boolean">
+            <column name="PLANGIMXSESION" not-null="true" />
+        </property>
+        <property name="plangimqtysesion" type="int">
+            <column name="PLANGIMQTYSESION" precision="9" scale="0" not-null="true" />
+        </property>
+        <property name="codmar" type="string">
+            <column name="CODMAR" length="4" not-null="true" />
+        </property>
+        <property name="idcum" type="string">
+            <column name="IDCUM" length="20" not-null="true" />
+        </property>
+        <property name="boxAlto" type="big_decimal">
+            <column name="BOX_ALTO" precision="9" not-null="true" />
+        </property>
+        <property name="boxLargo" type="big_decimal">
+            <column name="BOX_LARGO" precision="9" not-null="true" />
+        </property>
+        <property name="boxAncho" type="big_decimal">
+            <column name="BOX_ANCHO" precision="9" not-null="true" />
+        </property>
+        <property name="ubiFisica" type="string">
+            <column name="UBI_FISICA" length="50" not-null="true" />
+        </property>
+        <property name="codUsuDescontinua" type="string">
+            <column name="CodUsu_Descontinua" length="10" not-null="true" />
+        </property>
+        <property name="fechaDescontinua" type="timestamp">
+            <column name="Fecha_Descontinua" length="23" not-null="true" />
+        </property>
+        <property name="boxPeso" type="big_decimal">
+            <column name="BOX_PESO" precision="9" not-null="true" />
+        </property>
+        <property name="margenHipo" type="big_decimal">
+            <column name="MargenHipo" precision="9" not-null="true" />
+        </property>
+        <property name="margenIco" type="big_decimal">
+            <column name="MargenICO" precision="9" not-null="true" />
+        </property>
+        <property name="codIvaCxP" type="string">
+            <column name="CodIvaCxP" length="3" not-null="true" />
+        </property>
+        <property name="margenIcocxP" type="big_decimal">
+            <column name="MargenICOCxP" precision="9" not-null="true" />
+        </property>
+        <property name="margenIcoven" type="big_decimal">
+            <column name="MargenICOVEN" precision="9" not-null="true" />
+        </property>
+        <property name="codgrut" type="string">
+            <column name="CODGRUT" length="3" not-null="true" />
+        </property>
+        <property name="descargueSel" type="boolean">
+            <column name="DescargueSel" not-null="true" />
+        </property>
+        <property name="eanins" type="string">
+            <column name="EANINS" length="30" not-null="true" />
+        </property>
+        <property name="reqSerialInFac" type="boolean">
+            <column name="ReqSerialInFac" not-null="true" />
+        </property>
+        <property name="qtySerial" type="int">
+            <column name="QtySerial" not-null="true" />
+        </property>
+        <property name="infoExtendida" type="boolean">
+            <column name="InfoExtendida" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

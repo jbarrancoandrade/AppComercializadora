@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19-sep-2014 10:35:40 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="POJOS.CfgUsuarios" table="Cfg_Usuarios" schema="dbo" catalog="BD_SEGURIDAD_FELOX">
+        <id name="userName" type="string">
+            <column name="UserName" length="10" />
+            <generator class="assigned" />
+        </id>
+        <property name="nombre1" type="string">
+            <column name="Nombre_1" length="100" not-null="true" />
+        </property>
+        <property name="nombre2" type="string">
+            <column name="Nombre_2" length="80" not-null="true" />
+        </property>
+        <property name="apellido1" type="string">
+            <column name="Apellido_1" length="80" />
+        </property>
+        <property name="apellido2" type="string">
+            <column name="Apellido_2" length="80" />
+        </property>
+        <property name="cedula" type="string">
+            <column name="Cedula" length="15" not-null="true" unique="true" />
+        </property>
+        <property name="cargo" type="string">
+            <column name="Cargo" length="50" not-null="true" />
+        </property>
+        <property name="activo" type="java.lang.Boolean">
+            <column name="Activo" />
+        </property>
+        <property name="pwd" type="string">
+            <column name="PWD" length="50" not-null="true" />
+        </property>
+        <property name="nombreCom" type="string">
+            <column name="NOMBRE_COM" length="100" not-null="true" />
+        </property>
+        <property name="visualizaCostos" type="boolean">
+            <column name="VisualizaCostos" not-null="true" />
+        </property>
+        <property name="notificarupd" type="boolean">
+            <column name="NOTIFICARUPD" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
