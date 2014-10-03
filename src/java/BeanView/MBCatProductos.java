@@ -67,33 +67,18 @@ import org.primefaces.event.RowEditEvent;
 public class MBCatProductos implements Serializable {
 
     private AlmInsumos almInsumos;
-    private AlmInsumos select;
-    private VenDetaCart sel;
-    private AlmLineas almLineas;
-    private AlmSubLineas almSubLineas;
-
-    private List<Productos> tempoProduc;
-    private Productos produc;
 
     private List<AlmLineas> listaCate;
     private List<AlmInvent> listInven;
-
     private List<AlmSubLineas> listaSubCat;
-
     private List<AlmInsumos> listInsumos;
-    private List<AlmInsumos> listInsumos2;
-
     private Dao_Producctos dao_Producctos;
     private String parametroBus;
     private Dao_Lineas dao_Lineas;
-
     private Session session;
     private Transaction transaccion;
-
-    private String CatE;
-    private String SubCatE;
+    private String CatE,SubCatE;
     private Date fechaVenta;
-    private boolean BtnCart;
     private List<VenDetaPrecios> productosprecios;
     private List<VenDetaCart> ListdetaCarts;
     private List<VenDetaCart> ListdetaCarts2;
@@ -129,19 +114,13 @@ public class MBCatProductos implements Serializable {
     public MBCatProductos() {
         dao_Clientes = new Dao_Clientes();
         almInsumos = new AlmInsumos();
-        almLineas = new AlmLineas();
-        almSubLineas = new AlmSubLineas();
         dao_DetalCart = new Dao_DetalCart();
         dao_MaeCart = new Dao_MaeCart();
-        produc = new Productos();
         dao_Lineas = new Dao_Lineas();
         dao_Producctos = new Dao_Producctos();
         dao_GenAlmacen = new Dao_GenAlmacen();
-        sel = new VenDetaCart();
-        BtnCart = true;
         this.ListdetaCarts2 = new ArrayList<>();
         this.ListMaeCart = new ArrayList<>();
-        this.tempoProduc = new ArrayList<>();
         vendedor = (String) httpSession.getAttribute("NombreVendedor");
         Cliente = (String) httpSession.getAttribute("NombreCliente");
         almacen = (String) httpSession.getAttribute("almacen");
@@ -149,7 +128,7 @@ public class MBCatProductos implements Serializable {
         parametroBus = "";
         getCategorias();
         getProductos("", "");
-      //  Calculos(new BigDecimal(16.0), new BigDecimal(100000.00), new BigDecimal(10.00), new BigDecimal("1"), true, false);
+        //  Calculos(new BigDecimal(16.0), new BigDecimal(100000.00), new BigDecimal(10.00), new BigDecimal("1"), true, false);
 
     }
 
@@ -397,7 +376,7 @@ public class MBCatProductos implements Serializable {
             this.session = HibernateUtil.getSessionFactory().openSession();
             this.transaccion = this.session.beginTransaction();
 
-            BigDecimal a = dao_Producctos.Cantidad(this.session, codins);
+            BigDecimal a = dao_Producctos.Cantidad(this.session,Codalm,consecutivocompleto,"_PV",codins,"");
 
             this.transaccion.commit();
 
@@ -451,11 +430,11 @@ public class MBCatProductos implements Serializable {
         }
 
     }
-    
+
     /**
-     * 
+     *
      * @param codins
-     * @return 
+     * @return
      */
     public String Comprometidas(String codins) {
         this.session = null;
@@ -465,9 +444,7 @@ public class MBCatProductos implements Serializable {
             this.session = HibernateUtil.getSessionFactory().openSession();
             this.transaccion = this.session.beginTransaction();
 
-         //for que recorra las comprometidas
-            
-            
+            //for que recorra las comprometidas
             this.transaccion.commit();
 
             return "";
@@ -602,14 +579,14 @@ public class MBCatProductos implements Serializable {
 
             if (dao_DetalCart.ExisteCodins(this.session, codins, consecutivocompleto)) {
 
-                BigDecimal precioCuen = dao_Producctos.precio(this.session, codins);
-                precioCuen = precioCuen.add(dao_Producctos.precio(this.session, codins));
-                BigDecimal nuevode = dao_Producctos.Cantidad(this.session, codins);
+                BigDecimal precioCuen = dao_Producctos.precio(this.session,Codalm,consecutivocompleto,"_PV",codins,"");
+                precioCuen = precioCuen.add(dao_Producctos.precio(this.session,Codalm,consecutivocompleto,"_PV",codins,""));
+                BigDecimal nuevode = dao_Producctos.Cantidad(this.session,Codalm,consecutivocompleto,"_PV",codins,"");
 
                 nuevode = nuevode.add(BigDecimal.ONE);
 
                 dao_Producctos.updateCartCant(this.session, codins, nuevode);
-            
+
             } else {
                 BigDecimal precio = convertirBig(dao_Producctos.precios(this.session, codins, Codalm, CodList));
                 BigDecimal Iva = convertirBig(dao_Producctos.getmargeIva(this.session, dao_Producctos.getIdIva(this.session, codins)));
@@ -697,7 +674,7 @@ public class MBCatProductos implements Serializable {
             if (dao_MaeCart.getConsecutivoMae(this.session, consecutivocompleto)) {
                 for (VenDetaCart item : ListdetaCarts) {
                     dao_DetalCart.insert(this.session, item);
-                    
+
                 }
 
             } else {
@@ -708,7 +685,6 @@ public class MBCatProductos implements Serializable {
                     dao_DetalCart.insert(this.session, item);
                 }
             }
-
 
         } catch (Exception e) {
 
@@ -763,17 +739,16 @@ public class MBCatProductos implements Serializable {
             boolean IvaIncluido = false;
             listAlm = dao_GenAlmacen.getAll(this.session);
             //saber si el almacen factura iva y si esta esta incluid
-            for (GenAlmacenes item: listAlm) {
-               if(item.getCodalm().equalsIgnoreCase(Codalm)){
+            for (GenAlmacenes item : listAlm) {
+                if (item.getCodalm().equalsIgnoreCase(Codalm)) {
                     FacturaIva = item.isFacturaIva();
                     IvaIncluido = item.isIvaIncluido();
-               }                 
+                }
             }
             for (VenDetaCart item : ListdetaCarts2) {
-                     Calculos(item.getMargenIva(),item.getValUnitario(),item.getMargenDcto(),item.getQtyPed(),FacturaIva,IvaIncluido);
-                }
-           
-                    
+                Calculos(item.getMargenIva(), item.getValUnitario(), item.getMargenDcto(), item.getQtyPed(), FacturaIva, IvaIncluido);
+            }
+
             this.transaccion.commit();
 
             return this.ListdetaCarts2;
@@ -1223,12 +1198,11 @@ public class MBCatProductos implements Serializable {
         TotalVenta = formatter.format(totaldefinitivo);
         //Fin
 
-        System.out.println("Subtotal = " + resultado + "\n" + "Descuento :" + valdescuento + "\n" + "valIvaGeneral " + valNIva + "\n" + "total a pagar" + totaldefinitivo);
+     //   System.out.println("Subtotal = " + resultado + "\n" + "Descuento :" + valdescuento + "\n" + "valIvaGeneral " + valNIva + "\n" + "total a pagar" + totaldefinitivo);
 
     }
 
     ///Fin Metodos
-
     /**
      * get and set
      */
@@ -1238,22 +1212,6 @@ public class MBCatProductos implements Serializable {
 
     public void setAlmInsumos(AlmInsumos almInsumos) {
         this.almInsumos = almInsumos;
-    }
-
-    public AlmLineas getAlmLineas() {
-        return almLineas;
-    }
-
-    public void setAlmLineas(AlmLineas almLineas) {
-        this.almLineas = almLineas;
-    }
-
-    public AlmSubLineas getAlmSubLineas() {
-        return almSubLineas;
-    }
-
-    public void setAlmSubLineas(AlmSubLineas almSubLineas) {
-        this.almSubLineas = almSubLineas;
     }
 
     public List<AlmLineas> getListaCate() {
@@ -1334,13 +1292,6 @@ public class MBCatProductos implements Serializable {
 
     }
 
-    public boolean isBtnCart() {
-        return BtnCart;
-    }
-
-    public void setBtnCart(boolean BtnCart) {
-        this.BtnCart = BtnCart;
-    }
 
     public String getCliente() {
         return Cliente;
@@ -1390,14 +1341,6 @@ public class MBCatProductos implements Serializable {
         this.dao_DetalCart = dao_DetalCart;
     }
 
-    public AlmInsumos getSelect() {
-        return select;
-    }
-
-    public void setSelect(AlmInsumos select) {
-        this.select = select;
-    }
-
     public List<VenDetaCart> getListdetaCarts2() {
         return ListdetaCarts2;
     }
@@ -1420,22 +1363,6 @@ public class MBCatProductos implements Serializable {
 
     public void setFechaVenta(Date fechaVenta) {
         this.fechaVenta = fechaVenta;
-    }
-
-    public List<Productos> getTempoProduc() {
-        return tempoProduc;
-    }
-
-    public void setTempoProduc(List<Productos> tempoProduc) {
-        this.tempoProduc = tempoProduc;
-    }
-
-    public Productos getProduc() {
-        return produc;
-    }
-
-    public void setProduc(Productos produc) {
-        this.produc = produc;
     }
 
     public List<AlmInvent> getListInven() {
@@ -1478,14 +1405,6 @@ public class MBCatProductos implements Serializable {
         this.dao_MaeCart = dao_MaeCart;
     }
 
-    public VenDetaCart getSel() {
-        return sel;
-    }
-
-    public void setSel(VenDetaCart sel) {
-        this.sel = sel;
-    }
-
     public String getMinimo() {
         return minimo;
     }
@@ -1500,14 +1419,6 @@ public class MBCatProductos implements Serializable {
 
     public void setMaximo(String maximo) {
         this.maximo = maximo;
-    }
-
-    public List<AlmInsumos> getListInsumos2() {
-        return listInsumos2;
-    }
-
-    public void setListInsumos2(List<AlmInsumos> listInsumos2) {
-        this.listInsumos2 = listInsumos2;
     }
 
     public String getParametroBus() {
@@ -1589,7 +1500,5 @@ public class MBCatProductos implements Serializable {
     public void setDao_GenAlmacen(Dao_GenAlmacen dao_GenAlmacen) {
         this.dao_GenAlmacen = dao_GenAlmacen;
     }
-    
-    
 
 }

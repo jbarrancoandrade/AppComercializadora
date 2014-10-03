@@ -290,10 +290,32 @@ public interface Interface_Productos {
      */
     public String margendescuento(Session session, String codins, String codalm, String codList) throws Exception;
     
+    /**
+     * 
+     * @param session
+     * @param codAlm
+     * @param numPed
+     * @param tipPed
+     * @param codIns
+     * @param codTalla
+     * @return
+     * @throws Exception 
+     */
+    public BigDecimal Cantidad (Session session,String codAlm,String numPed,String tipPed,String codIns,String codTalla)  throws Exception;
     
-    public BigDecimal Cantidad(Session session, String codins)  throws Exception;
-    
-    public BigDecimal precio(Session session, String codins)  throws Exception;
+    /**
+     * Retorna el precio Del producto En El detacart
+     * Usando la llave Primaria Para obtener un unico Resultado
+     * @param session
+     * @param codAlm
+     * @param numPed
+     * @param tipPed
+     * @param codIns
+     * @param codTalla
+     * @return
+     * @throws Exception 
+     */
+    public BigDecimal precio (Session session,String codAlm,String numPed,String tipPed,String codIns,String codTalla) throws Exception;
      
     public boolean delete (Session session, String codins) throws Exception;
      

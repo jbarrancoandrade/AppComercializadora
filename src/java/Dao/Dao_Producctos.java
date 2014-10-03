@@ -199,7 +199,7 @@ public class Dao_Producctos implements Interface_Productos {
     @Override
     public int IncrementarConsecutivoA(Session session, String codalm, String codcon, int año, int consecutivo) throws Exception {
         String hqlUpdate = "update GenConsecA c set c.consecutivo = :consecutivo where  c.id.codalm=:codalm and  c.id.codcon=:codcon and  c.id.año=:año";
-        
+
         int updatedEntities = session.createQuery(hqlUpdate)
                 .setInteger("consecutivo", consecutivo)
                 .setString("codalm", codalm)
@@ -291,16 +291,16 @@ public class Dao_Producctos implements Interface_Productos {
     public boolean createConsecS(Session session, GenConsecS a) throws Exception {
         session.save(a);
         return true;
-    }                
+    }
 
     @Override
-    public int updateConsecA(Session session,String codcon,int año,int consecutivo,String codalm) throws Exception {
-         String hqlUpdate = "update GenConsecA c set c.consecutivo=:consecutivo where  c.id.codcon=:codcon and  c.id.año=:año and c.id.codalm=:codalm";
+    public int updateConsecA(Session session, String codcon, int año, int consecutivo, String codalm) throws Exception {
+        String hqlUpdate = "update GenConsecA c set c.consecutivo=:consecutivo where  c.id.codcon=:codcon and  c.id.año=:año and c.id.codalm=:codalm";
         int updatedEntities = session.createQuery(hqlUpdate)
-               .setInteger("consecutivo",consecutivo)
-               .setString("codcon", codcon)
-               .setInteger("año", año)
-               .setString("codalm",codalm)
+                .setInteger("consecutivo", consecutivo)
+                .setString("codcon", codcon)
+                .setInteger("año", año)
+                .setString("codalm", codalm)
                 .executeUpdate();
         return updatedEntities;//respuesta es un entero de fila afectada debe ser 1
 
@@ -318,6 +318,7 @@ public class Dao_Producctos implements Interface_Productos {
         session.update(a);
         return true;
     }
+
     @Override
     public int actualizarValorDescuento(Session session, String codins, BigDecimal valDcto) throws Exception {
         String hqlUpdate = "update VenDetaCart c set c.id.codins=:codins where  c.valDcto=:margenDcto";
@@ -330,9 +331,14 @@ public class Dao_Producctos implements Interface_Productos {
     }
 
     @Override
-    public BigDecimal Cantidad(Session session, String codIns) throws Exception {
-        Query query = session.createQuery("From VenDetaCart u Where u.id.codIns=:codIns");
+    public BigDecimal Cantidad(Session session, String codAlm, String numPed, String tipPed, String codIns, String codTalla) throws Exception {
+
+        Query query = session.createQuery("From VenDetaCart u Where u.id.codAlm=:codAlm and u.id.numPed=:numPed  and u.id.tipPed=:tipPed  and u.id.codIns=:codIns  and u.id.codTalla=:codTalla");
+        query.setParameter("codAlm", codAlm);
+        query.setParameter("numPed", numPed);
+        query.setParameter("tipPed", tipPed);
         query.setParameter("codIns", codIns);
+        query.setParameter("codTalla", codTalla);
         VenDetaCart precio = (VenDetaCart) query.uniqueResult();
 
         return precio.getQtyPed();
@@ -340,9 +346,14 @@ public class Dao_Producctos implements Interface_Productos {
     }
 
     @Override
-    public BigDecimal precio(Session session, String codIns) throws Exception {
-        Query query = session.createQuery("From VenDetaCart u Where u.id.codIns=:codIns");
+    public BigDecimal precio(Session session, String codAlm, String numPed, String tipPed, String codIns, String codTalla) throws Exception {
+
+        Query query = session.createQuery("From VenDetaCart u Where u.id.codAlm=:codAlm and u.id.numPed=:numPed  and u.id.tipPed=:tipPed  and u.id.codIns=:codIns  and u.id.codTalla=:codTalla");
+        query.setParameter("codAlm", codAlm);
+        query.setParameter("numPed", numPed);
+        query.setParameter("tipPed", tipPed);
         query.setParameter("codIns", codIns);
+        query.setParameter("codTalla", codTalla);
         VenDetaCart precio = (VenDetaCart) query.uniqueResult();
 
         return precio.getValUnitario();
@@ -366,13 +377,13 @@ public class Dao_Producctos implements Interface_Productos {
 
     @Override
     public List<AlmInsumos> FiltradoProductos(Session session, String Parametro) throws Exception {
-        
-       Query query =session.createQuery("From AlmInsumos as u where u.nomins like '"+Parametro+"' or refins like '"+Parametro+"' or eanins like '"+Parametro+"' or codins like '"+Parametro+"' or codbar like '"+Parametro+"' or codrap like '"+Parametro+"'"); 
-       
-       List<AlmInsumos> ListInsumos = (List<AlmInsumos>) query.list();
-        
-       return ListInsumos;
-    
+
+        Query query = session.createQuery("From AlmInsumos as u where u.nomins like '" + Parametro + "' or refins like '" + Parametro + "' or eanins like '" + Parametro + "' or codins like '" + Parametro + "' or codbar like '" + Parametro + "' or codrap like '" + Parametro + "'");
+
+        List<AlmInsumos> ListInsumos = (List<AlmInsumos>) query.list();
+
+        return ListInsumos;
+
     }
 
 }

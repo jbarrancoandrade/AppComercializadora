@@ -7,19 +7,12 @@
     <h:head>
         <title>Zona Acceso</title>
         <link rel="shortcut icon" type="image/x-icon" href="#{request.contextPath}/Public/Image/iconoo.png"/>
-
-        <script type="application/javascript">
-       function getip(json) {
-           alert(json.ip);
-       }
-        </script>
-
-        <script type="application/javascript" src="http://jsonip.appspot.com/?callback=getip">  </script>
+ 
     </h:head>
     <h:body>
         <center> 
             <div id="BoxLogin" style="margin-top: 10%">
-                <p:outputLabel value="#{mBLogin.obtenerMacWin()}"  />
+              
                 <h:form>  
 
                     <p:growl id="growl" showDetail="true" life="3000" />  

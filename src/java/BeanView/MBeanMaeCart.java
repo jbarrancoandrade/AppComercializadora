@@ -251,18 +251,15 @@ public class MBeanMaeCart implements Serializable {
      *
      * @param d
      */
-    public void datos(VenMaeCart d){
+    public void datos(VenMaeCart d) {
 
         HttpSession httpSessions = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
-
         httpSessions.setAttribute("codalm", d.getId().getCodAlm());//nombre del almacen
         httpSessions.setAttribute("codList", d.getCodList());//nombre codigo lista
         httpSessions.setAttribute("numePedido", d.getId().getNumPed());//nombre pedido
         httpSessions.setAttribute("NombreVendedor", getNombreven(d.getCodVen()));// nombre del vendedor
-        httpSessions.setAttribute("NombreCliente",getNombreCliente(d.getCodter()));// Nombre Del Cliente
+        httpSessions.setAttribute("NombreCliente", getNombreCliente(d.getCodter()));// Nombre Del Cliente
         httpSessions.setAttribute("almacen", getAlm(d.getId().getCodAlm()));// Nombre Almacenes
-        
-
     }
 
     //obtener vendedor
@@ -320,13 +317,13 @@ public class MBeanMaeCart implements Serializable {
             }
         }
     }
-    
+
     /**
-     * 
+     *
      * @param dato
-     * @return 
+     * @return
      */
-     public String getNombreCliente(String dato) {
+    public String getNombreCliente(String dato) {
         this.session = null;
         this.transaccion = null;
 
@@ -335,7 +332,7 @@ public class MBeanMaeCart implements Serializable {
             this.session = HibernateUtil.getSessionFactory().openSession();
             this.transaccion = this.session.beginTransaction();
             String res = "";
-            res = dao_Clientes.ClienteId(this.session,dato);
+            res = dao_Clientes.ClienteId(this.session, dato);
             //codigoo
             this.transaccion.commit();
             return res;

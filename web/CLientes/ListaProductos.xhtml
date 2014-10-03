@@ -206,14 +206,13 @@
                                         <p:dialog header="Editar O Eliminar " widgetVar="dialogoUsuario" resizable="false">
                                             <h:panelGrid id="Usuario" columns="2">
                                                 <p:outputLabel value="Nombre"/>
-                                                <h:outputText value="#{mBCatProductos.sel.id.codIns}"/>
-                                            </h:panelGrid>
+                                                </h:panelGrid>
                                         </p:dialog>
 
                                     </h:form> 
                                 </p:panel>
 
-                                <h:panelGrid columns="2" columnClasses="label, value" cellpadding="5" style=" margin-left:65%">
+                                <h:panelGrid columns="2" columnClasses="label,value" cellpadding="5" style=" margin-left:65%">
 
                                     <p:outputLabel for="subtotal" value="Sub Total :" />
                                     <p:inputText id="subtotal"  value="#{mBCatProductos.subtotalDefinitivo}" readonly="true" style="text-align: right"/>
