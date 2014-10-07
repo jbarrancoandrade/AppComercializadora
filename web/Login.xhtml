@@ -6,19 +6,22 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Zona Acceso</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+        <link href="login.css" rel="stylesheet" type="text/css"/>
         <link rel="shortcut icon" type="image/x-icon" href="#{request.contextPath}/Public/Image/iconoo.png"/>
- 
+
     </h:head>
     <h:body>
         <center> 
             <div id="BoxLogin" style="margin-top: 10%">
-              
+
                 <h:form>  
 
                     <p:growl id="growl" showDetail="true" life="3000" />  
                     <p:panel id="ph" header="Acceso" style="width:400px" >
                         <p:focus context="ph"/>
-                        <h:panelGrid  columns="1" cellpadding="5">  
+                        <h:panelGrid id="p1" columns="1" cellpadding="5">  
                             <p:inputText id="username" value="#{mBLogin.username}" required="true" label="Usuario" title="usuario" placeholder="Usuario" />
 
                             <p:password value="#{mBLogin.password}" id="password" label="Contraseña" title="Contraseña"  placeholder="Contraseña"/>

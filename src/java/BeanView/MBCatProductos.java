@@ -77,7 +77,7 @@ public class MBCatProductos implements Serializable {
     private Dao_Lineas dao_Lineas;
     private Session session;
     private Transaction transaccion;
-    private String CatE,SubCatE;
+    private String CatE, SubCatE;
     private Date fechaVenta;
     private List<VenDetaPrecios> productosprecios;
     private List<VenDetaCart> ListdetaCarts;
@@ -128,7 +128,6 @@ public class MBCatProductos implements Serializable {
         parametroBus = "";
         getCategorias();
         getProductos("", "");
-        //  Calculos(new BigDecimal(16.0), new BigDecimal(100000.00), new BigDecimal(10.00), new BigDecimal("1"), true, false);
 
     }
 
@@ -336,6 +335,11 @@ public class MBCatProductos implements Serializable {
 
     }
 
+    /**
+     *
+     * @param codins
+     * @return
+     */
     public String Precios2(String codins) {
         this.session = null;
         this.transaccion = null;
@@ -368,6 +372,11 @@ public class MBCatProductos implements Serializable {
 
     }
 
+    /**
+     *
+     * @param codins
+     * @return
+     */
     public BigDecimal Descuentos(String codins) {
         this.session = null;
         this.transaccion = null;
@@ -376,7 +385,7 @@ public class MBCatProductos implements Serializable {
             this.session = HibernateUtil.getSessionFactory().openSession();
             this.transaccion = this.session.beginTransaction();
 
-            BigDecimal a = dao_Producctos.Cantidad(this.session,Codalm,consecutivocompleto,"_PV",codins,"");
+            BigDecimal a = dao_Producctos.Cantidad(this.session, Codalm, consecutivocompleto, "_PV", codins, "");
 
             this.transaccion.commit();
 
@@ -414,7 +423,6 @@ public class MBCatProductos implements Serializable {
             this.transaccion = this.session.beginTransaction();
 
             String Inventar = "";
-            //  System.out.println(codins);
 
             Inventar = dao_Producctos.getCantInven(this.session, codins, Codalm);
 
@@ -579,9 +587,9 @@ public class MBCatProductos implements Serializable {
 
             if (dao_DetalCart.ExisteCodins(this.session, codins, consecutivocompleto)) {
 
-                BigDecimal precioCuen = dao_Producctos.precio(this.session,Codalm,consecutivocompleto,"_PV",codins,"");
-                precioCuen = precioCuen.add(dao_Producctos.precio(this.session,Codalm,consecutivocompleto,"_PV",codins,""));
-                BigDecimal nuevode = dao_Producctos.Cantidad(this.session,Codalm,consecutivocompleto,"_PV",codins,"");
+                BigDecimal precioCuen = dao_Producctos.precio(this.session, Codalm, consecutivocompleto, "_PV", codins, "");
+                precioCuen = precioCuen.add(dao_Producctos.precio(this.session, Codalm, consecutivocompleto, "_PV", codins, ""));
+                BigDecimal nuevode = dao_Producctos.Cantidad(this.session, Codalm, consecutivocompleto, "_PV", codins, "");
 
                 nuevode = nuevode.add(BigDecimal.ONE);
 
@@ -1199,7 +1207,6 @@ public class MBCatProductos implements Serializable {
         //Fin
 
      //   System.out.println("Subtotal = " + resultado + "\n" + "Descuento :" + valdescuento + "\n" + "valIvaGeneral " + valNIva + "\n" + "total a pagar" + totaldefinitivo);
-
     }
 
     ///Fin Metodos
@@ -1291,7 +1298,6 @@ public class MBCatProductos implements Serializable {
         return event.getNewStep();
 
     }
-
 
     public String getCliente() {
         return Cliente;

@@ -9,8 +9,9 @@
     <h:body id="body">
         <a href="ListaProductos.xhtml"></a>
         <ui:composition template="./../Menu/Principal.xhtml">
+            
             <ui:define name="content">
-
+                <link href="../resources/css/productos.css" rel="stylesheet" type="text/css"/>
                 <h:form id="form"  >
                     <p:growl id="msgs" showDetail="true" />
 
@@ -40,6 +41,7 @@
                                 <f:selectItem itemLabel="Seleccione Subacategoria" itemValue="" noSelectionOption="true" />
                                 <f:selectItems value="#{mBCatProductos.listaSubCat}" var="subC" itemLabel="#{subC.nomSub}" itemValue="#{subC.id.codSub}" />
                             </p:selectOneMenu>
+                            
                         </h:panelGrid>
                     </p:panel>
 
@@ -47,7 +49,7 @@
 
                     <!--Tabla o DataGrid Con busqueda filtro-->
                     <p:dataGrid  id="datProd" var="pro" value="#{mBCatProductos.listInsumos}"  columns="5" rows="60" 
-                                 paginator="true"  rowsPerPageTemplate="60,120,150"   > 
+                                 paginator="true"  rowsPerPageTemplate="60,120,150" layout="grid"  > 
 
                         <f:facet name="header">
 
@@ -59,50 +61,46 @@
 
 
                         </f:facet>
-                        <p:column>  
-                            <!-- boton agregar dirrecto al carro, un producto por defecto, precio por defecto -->
+                      
+                            <p:column>  
+                                <!-- boton agregar dirrecto al carro, un producto por defecto, precio por defecto -->
 
-                            <p:commandButton id="ajax" icon="ui-icon-plusthick" title="Agregar Carrito " actionListener="#{mBCatProductos.agregarListaVentaDetalle(pro.codins)}" styleClass="ui-priority-primary" style="float:right;" update="@form" />
+                          <p:commandButton id="ajax" icon="ui-icon-plusthick" title="Agregar Carrito " actionListener="#{mBCatProductos.agregarListaVentaDetalle(pro.codins)}" styleClass="ui-priority-primary" style="float:right;" update="@form" />
 
-                         
+                                <!-- fin boton agregar dirrecto al carro -->
+                                <p:panel header="#{pro.nomins}" style="text-align:center">  
+                                    <p:panelGrid columns="2" style="width:100%">  
+                                        <f:facet name="header">
+                                            <p:commandLink   update=":form:carDetail" oncomplete="PF
+                                                             ('carDialog').show()" title="View Detail">  
+                                                <p:graphicImage  style="height: 200px; width: 100%" />  
+                                                <f:setPropertyActionListener value="#{pro}" target="#{mBCatProductos.almInsumos}" />  
+                                            </p:commandLink>
+                                        </f:facet>
+                                        <h:outputText value="Precio"  style="float: left;font-weight: bold" />
+                                        <h:outputText  value="#{mBCatProductos.Precios(pro.codins)}" style="float: right" />
+                                        <h:outputText value="Inventarios"  style="float: left;font-weight: bold"/>
+                                        <h:outputText value="#{mBCatProductos.Inventarios(pro.codins)}"  style="float: right" />
+                                        <h:outputText value="Comprometidas"   style="float: left;font-weight: bold"  />
+                                        <h:outputText value="#{mBCatProductos.comprados}" style="float: right"  />
+                                        <h:outputText value="Disponibles "   style="float: left;font-weight: bold"  />
+                                        <h:outputText value="#{mBCatProductos.comprados}" style="float: right"  />
+                                    </p:panelGrid>  
+                                </p:panel>  
+                            </p:column>  
 
-                            <!-- fin boton agregar dirrecto al carro -->
-
-                            <p:panel header="#{pro.nomins}" style="text-align:center">  
-                                <p:panelGrid columns="2" style="width:100%">  
-                                    <f:facet name="header">
-                                        <p:commandLink   update=":form:carDetail" oncomplete="PF
-                                                         ('carDialog').show()" title="View Detail">  
-                                            <p:graphicImage value="/Public/Image/#{pro.codins}.JPG" style="height: 200px; width: 100%" />  
-                                            <f:setPropertyActionListener value="#{pro}" target="#{mBCatProductos.almInsumos}" />  
-                                        </p:commandLink>
-                                    </f:facet>
-
-                                    <h:outputText value="Precio"  style="float: left;font-weight: bold" />
-                                    <h:outputText  value="#{mBCatProductos.Precios(pro.codins)}" style="float: right" />
-                                    <h:outputText value="Inventarios"  style="float: left;font-weight: bold"/>
-                                    <h:outputText value="#{mBCatProductos.Inventarios(pro.codins)}"  style="float: right" />
-                                    <h:outputText value="Comprometidas"   style="float: left;font-weight: bold"  />
-                                    <h:outputText value="#{mBCatProductos.comprados}" style="float: right"  />
-                                    <h:outputText value="Disponibles "   style="float: left;font-weight: bold"  />
-                                    <h:outputText value="#{mBCatProductos.comprados}" style="float: right"  />
-
-
-                                </p:panelGrid>  
-                            </p:panel>  
-                        </p:column>  
-
-
+                        
                     </p:dataGrid>
                     <!-- Detalle Producto -->
                     <p:dialog  header="Detalle Producto" widgetVar="carDialog" width="600" height="578" 
                                modal="true" showEffect="explode" hideEffect="fade" >  
                         <p:outputPanel id="carDetail" style="text-align:center;" >
+
                             <p:panelGrid  columns="2" rendered="#{not empty mBCatProductos.almInsumos}" style="width: 100%" columnClasses="label,value" >
-                              
-                                <f:facet name="header">
-                                    <p:graphicImage value="/Public/Image/#{mBCatProductos.almInsumos.codins}.JPG" style="height: 400px; width: 100%"/> 
-                                    
+
+  <f:facet name="header"> <!---value="/Public/Image/#{mBCatProductos.almInsumos.codins}.JPG"-->
+                                    <p:graphicImage  style="height: 400px; width: 100%"/> 
+
                                 </f:facet>
                                 <h:outputText value="Nombre  " style="float: left;font-weight: bold" />
                                 <h:outputText value="#{mBCatProductos.almInsumos.nomins}" />
@@ -116,11 +114,11 @@
                                 <h:outputText value="$ 0" style="float: right;" />
                                 <f:facet name="footer">
                                     <p:commandButton id="Add" value="Agregar" title="Agregar Carrito "  styleClass="ui-priority-primary" style="float:right;"/>
-                               </f:facet>
-                             
+                                </f:facet>
+
                             </p:panelGrid>
 
-                            
+
                         </p:outputPanel> 
 
 
@@ -206,7 +204,7 @@
                                         <p:dialog header="Editar O Eliminar " widgetVar="dialogoUsuario" resizable="false">
                                             <h:panelGrid id="Usuario" columns="2">
                                                 <p:outputLabel value="Nombre"/>
-                                                </h:panelGrid>
+                                            </h:panelGrid>
                                         </p:dialog>
 
                                     </h:form> 
@@ -253,7 +251,7 @@
 
                                         <p:outputLabel for="Almacen" value="Almacen :"  />
                                         <p:inputText id="Almacen" value="#{mBCatProductos.almacen}" size="70" readonly="true"/>
-                                        
+
                                         <p:outputLabel for="List" value="Lista Precios :"  />
                                         <p:inputText id="List"  size="70" readonly="true"/>
 
