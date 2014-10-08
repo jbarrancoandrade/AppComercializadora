@@ -260,6 +260,7 @@ public class MBeanMaeCart implements Serializable {
         httpSessions.setAttribute("NombreVendedor", getNombreven(d.getCodVen()));// nombre del vendedor
         httpSessions.setAttribute("NombreCliente", getNombreCliente(d.getCodter()));// Nombre Del Cliente
         httpSessions.setAttribute("almacen", getAlm(d.getId().getCodAlm()));// Nombre Almacenes
+        httpSessions.setAttribute("tipPed", d.getId().getTipPed());
     }
 
     //obtener vendedor
@@ -364,6 +365,42 @@ public class MBeanMaeCart implements Serializable {
             addMessage("Error Redirreccion " + e.getMessage());
         }
 
+    }
+
+    /**
+     *
+     * @param event
+     */
+    public void getElimininar(ActionEvent event) {
+        //
+        this.session = null;
+        this.transaccion = null;
+
+        try {
+
+            this.session = HibernateUtil.getSessionFactory().openSession();
+            this.transaccion = this.session.beginTransaction();
+            HttpSession httpSessions = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
+            String codalm = (String) httpSessions.getAttribute("codalm");
+            String pedido = (String) httpSessions.getAttribute("numePedido");
+            System.out.println("Datos Valores "+codalm+ "pedido"+pedido);
+            boolean prueba = false;
+            prueba = dao_MaeCart.Eliminar(this.session, codalm, pedido, "_PV");
+            System.out.println("Respuesta "+prueba);
+            this.transaccion.commit();
+
+        } catch (Exception ex) {
+            if (this.transaccion != null) {
+                this.transaccion.rollback();
+            }
+
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Error fatal:", "Por favor contacte con su administrador " + ex.getMessage()));
+
+        } finally {
+            if (this.session != null) {
+                this.session.close();
+            }
+        }
     }
 
     public void addMessage(String summary) {

@@ -60,6 +60,16 @@ public interface Interface_MaeCart {
     
     public Date fechaVenta(Session session, String numPed )throws  Exception;
     
+    /**
+     * Eliminar Por Medio De la LLave Primaria
+     * @param session
+     * @param codAlm
+     * @param numPed
+     * @param tipPed
+     * @return
+     * @throws Exception 
+     */
+    public boolean Eliminar(Session session,String codAlm,String numPed,String tipPed) throws Exception;
     
     
            

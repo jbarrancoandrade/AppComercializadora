@@ -41,9 +41,8 @@ public class Dao_MaeCart implements Interface_MaeCart {
         VenMaeCart ven = (VenMaeCart) query.uniqueResult();
         return (ven != null);
     }
-    
-    
-      @Override
+
+    @Override
     public String ClienteNombre(Session session, String codter) throws Exception {
         Query query = session.createQuery("From CntTerceros u WHERE u.codter=:codter");
         query.setParameter("codter", codter);
@@ -64,20 +63,33 @@ public class Dao_MaeCart implements Interface_MaeCart {
         Query query = session.createQuery("From CntTerceros u WHERE u.codter=:codter");
         query.setParameter("codter", codter);
         CntTerceros cliente = (CntTerceros) query.uniqueResult();
-        return cliente.getTelefono1()+"-"+cliente.getTelefono2();
+        return cliente.getTelefono1() + "-" + cliente.getTelefono2();
 
     }
 
     @Override
     public Date fechaVenta(Session session, String numPed) throws Exception {
-       Query query = session.createQuery("From  VenMaeCart u where u.id.numPed=:numPed");
+        Query query = session.createQuery("From  VenMaeCart u where u.id.numPed=:numPed");
         query.setParameter("numPed", numPed);
         VenMaeCart ven = (VenMaeCart) query.uniqueResult();
         return ven.getFecPed();
     }
 
-    
-    
-    
+    @Override
+    public boolean Eliminar(Session session, String codAlm, String numPed, String tipPed) throws Exception {
+        boolean respuesta= false;
+        String hql = "DELETE FROM VenMaeCart u WHERE u.id.codAlm = :codAlm and u.id.numPed=:numPed  and u.id.tipPed=:tipPed";
+        Query query = session.createQuery(hql);
+        query.setParameter("codAlm", codAlm);
+        query.setParameter("numPed", numPed);
+        query.setParameter("tipPed", tipPed);
+        int result = query.executeUpdate();
+        if(result!=0){
+            respuesta=true;
+        }else{
+            System.err.println("Error");
+        }
+      return respuesta;
+    }
 
 }

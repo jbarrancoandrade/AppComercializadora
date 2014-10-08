@@ -36,7 +36,7 @@
                     <!---Pruebaas_-->
                     <p:panel  style="margin-bottom:10px; "> 
 
-                        <p:dataScroller value="#{mBeanMaeCart.all}" var="car" chunkSize="10"  binding="#{mBeanMaeCart.dat}"  >
+                        <p:dataScroller  id="datescroller" value="#{mBeanMaeCart.all}" var="car" chunkSize="10"  binding="#{mBeanMaeCart.dat}"  >
                             <f:facet name="header">
                                 Pedidos Realizados
                             </f:facet>
@@ -90,7 +90,7 @@
 
 
                             <p:commandButton value="Editar"  icon="ui-icon-pencil" iconPos="left" oncomplete="PF('confirmation').hide()" actionListener="#{mBeanMaeCart.getEditar(event)}" />  
-                            <p:commandButton value="Eliminar" icon="ui-icon-close" iconPos="left" styleClass="ui-confirmdialog-no" />    
+                            <p:commandButton value="Eliminar" icon="ui-icon-close" iconPos="left" oncomplete="PF('confirmation').hide()"  actionListener="#{mBeanMaeCart.getElimininar(event)}" update=":frmListaTUsuario" />    
 
 
                         </p:confirmDialog> 

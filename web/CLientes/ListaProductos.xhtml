@@ -9,7 +9,7 @@
     <h:body id="body">
         <a href="ListaProductos.xhtml"></a>
         <ui:composition template="./../Menu/Principal.xhtml">
-            
+
             <ui:define name="content">
                 <link href="../resources/css/productos.css" rel="stylesheet" type="text/css"/>
                 <h:form id="form"  >
@@ -41,7 +41,7 @@
                                 <f:selectItem itemLabel="Seleccione Subacategoria" itemValue="" noSelectionOption="true" />
                                 <f:selectItems value="#{mBCatProductos.listaSubCat}" var="subC" itemLabel="#{subC.nomSub}" itemValue="#{subC.id.codSub}" />
                             </p:selectOneMenu>
-                            
+
                         </h:panelGrid>
                     </p:panel>
 
@@ -61,35 +61,32 @@
 
 
                         </f:facet>
-                      
-                            <p:column>  
-                                <!-- boton agregar dirrecto al carro, un producto por defecto, precio por defecto -->
+                        <p:column>  
+                            <!-- boton agregar dirrecto al carro, un producto por defecto, precio por defecto -->
+                            <p:commandButton id="ajax" icon="ui-icon-plusthick" title="Agregar Carrito " actionListener="#{mBCatProductos.agregarListaVentaDetalle(pro.codins)}" styleClass="ui-priority-primary" style="float:right;" update="@form" />
+                            <!-- fin boton agregar dirrecto al carro -->
+                            <p:panel header="#{pro.nomins}" style="text-align:center">  
+                                <p:panelGrid columns="2" style="width:100%">  
+                                    <f:facet name="header">
+                                        <p:commandLink   update=":form:carDetail" oncomplete="PF
+                                                         ('carDialog').show()" title="View Detail">  
+                                            <p:graphicImage  style="height: 200px; width: 100%" />  
+                                            <f:setPropertyActionListener value="#{pro}" target="#{mBCatProductos.almInsumos}" />  
+                                        </p:commandLink>
+                                    </f:facet>
+                                    <h:outputText value="Precio"  style="float: left;font-weight: bold" />
+                                    <h:outputText  value="#{mBCatProductos.Precios(pro.codins)}" style="float: right" />
+                                    <h:outputText value="Inventarios"  style="float: left;font-weight: bold"/>
+                                    <h:outputText value="#{mBCatProductos.Inventarios(pro.codins)}"  style="float: right" />
+                                    <h:outputText value="Comprometidas"   style="float: left;font-weight: bold"  />
+                                    <h:outputText value="#{mBCatProductos.comprados}" style="float: right"  />
+                                    <h:outputText value="Disponibles "   style="float: left;font-weight: bold"  />
+                                    <h:outputText value="#{mBCatProductos.comprados}" style="float: right"  />
+                                </p:panelGrid>  
+                            </p:panel>  
+                        </p:column>  
 
-                          <p:commandButton id="ajax" icon="ui-icon-plusthick" title="Agregar Carrito " actionListener="#{mBCatProductos.agregarListaVentaDetalle(pro.codins)}" styleClass="ui-priority-primary" style="float:right;" update="@form" />
 
-                                <!-- fin boton agregar dirrecto al carro -->
-                                <p:panel header="#{pro.nomins}" style="text-align:center">  
-                                    <p:panelGrid columns="2" style="width:100%">  
-                                        <f:facet name="header">
-                                            <p:commandLink   update=":form:carDetail" oncomplete="PF
-                                                             ('carDialog').show()" title="View Detail">  
-                                                <p:graphicImage  style="height: 200px; width: 100%" />  
-                                                <f:setPropertyActionListener value="#{pro}" target="#{mBCatProductos.almInsumos}" />  
-                                            </p:commandLink>
-                                        </f:facet>
-                                        <h:outputText value="Precio"  style="float: left;font-weight: bold" />
-                                        <h:outputText  value="#{mBCatProductos.Precios(pro.codins)}" style="float: right" />
-                                        <h:outputText value="Inventarios"  style="float: left;font-weight: bold"/>
-                                        <h:outputText value="#{mBCatProductos.Inventarios(pro.codins)}"  style="float: right" />
-                                        <h:outputText value="Comprometidas"   style="float: left;font-weight: bold"  />
-                                        <h:outputText value="#{mBCatProductos.comprados}" style="float: right"  />
-                                        <h:outputText value="Disponibles "   style="float: left;font-weight: bold"  />
-                                        <h:outputText value="#{mBCatProductos.comprados}" style="float: right"  />
-                                    </p:panelGrid>  
-                                </p:panel>  
-                            </p:column>  
-
-                        
                     </p:dataGrid>
                     <!-- Detalle Producto -->
                     <p:dialog  header="Detalle Producto" widgetVar="carDialog" width="600" height="578" 

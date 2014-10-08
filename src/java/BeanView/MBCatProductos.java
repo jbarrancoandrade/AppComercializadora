@@ -5,7 +5,6 @@
  */
 package BeanView;
 
-import Clases.Sentencias;
 import Dao.Dao_Clientes;
 import Dao.Dao_DetalCart;
 import Dao.Dao_GenAlmacen;
@@ -17,46 +16,30 @@ import POJOS.AlmInvent;
 import POJOS.AlmLineas;
 import POJOS.AlmSubLineas;
 import POJOS.GenAlmacenes;
-import POJOS.GenConsecA;
-import POJOS.GenConsecAId;
-import POJOS.GenConsecM;
-import POJOS.GenConsecMId;
-import POJOS.GenConsecS;
-import POJOS.GenConsecSId;
 import POJOS.VenDetaCart;
 import POJOS.VenDetaCartId;
-import POJOS.VenDetaPrecios;
 import POJOS.VenMaeCart;
 import POJOS.VenMaeCartId;
-import RePojos.Productos;
 import Util.HibernateUtil;
 import java.awt.event.ActionEvent;
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.sql.Timestamp;
-import java.text.DateFormat;
 import java.text.DecimalFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
-import java.util.Iterator;
 import java.util.List;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
-import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
-import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
-import javax.swing.JOptionPane;
-import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.primefaces.context.RequestContext;
 import org.primefaces.event.CellEditEvent;
 import org.primefaces.event.FlowEvent;
 import org.primefaces.event.RowEditEvent;
+
 
 /**
  *
@@ -79,7 +62,7 @@ public class MBCatProductos implements Serializable {
     private Transaction transaccion;
     private String CatE, SubCatE;
     private Date fechaVenta;
-    private List<VenDetaPrecios> productosprecios;
+   // private List<VenDetaPrecios> productosprecios;
     private List<VenDetaCart> ListdetaCarts;
     private List<VenDetaCart> ListdetaCarts2;
     public List<VenMaeCart> ListMaeCart;
@@ -88,7 +71,6 @@ public class MBCatProductos implements Serializable {
     private Dao_Clientes dao_Clientes;
     private VenDetaCart venDetaCart;
     private String Cliente, vendedor, almacen;
-    private String comprados = "0";
     private String minimo, maximo = "";
 
     //variables para la vista en cuanto a calculos
@@ -622,7 +604,7 @@ public class MBCatProductos implements Serializable {
             RequestContext.getCurrentInstance().update("frmRealizarVentas:tablaListaProductosVenta");
             RequestContext.getCurrentInstance().update("frmRealizarVentas:mensajeGeneral");
 
-        } catch (HibernateException ex) {
+        } catch (Exception ex) {
             if (this.transaccion != null) {
                 transaccion.rollback();
             }
@@ -1323,13 +1305,6 @@ public class MBCatProductos implements Serializable {
         this.almacen = almacen;
     }
 
-    public List<VenDetaPrecios> getProductosprecios() {
-        return productosprecios;
-    }
-
-    public void setProductosprecios(List<VenDetaPrecios> productosprecios) {
-        this.productosprecios = productosprecios;
-    }
 
     public List<VenDetaCart> getListdetaCarts() {
         return ListdetaCarts;
@@ -1387,13 +1362,6 @@ public class MBCatProductos implements Serializable {
         this.consecutivocompleto = consecutivocompleto;
     }
 
-    public String getComprados() {
-        return comprados;
-    }
-
-    public void setComprados(String comprados) {
-        this.comprados = comprados;
-    }
 
     public List<VenMaeCart> getListMaeCart() {
         return ListMaeCart;
