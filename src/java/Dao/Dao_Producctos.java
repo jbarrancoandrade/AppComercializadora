@@ -244,11 +244,19 @@ public class Dao_Producctos implements Interface_Productos {
     }
 
     @Override
-    public int updateCartCant(Session session, String codIns, BigDecimal qtyPed) throws Exception {
-        String hqlUpdate = "update VenDetaCart c set   c.qtyPed=:qtyPed  where c.id.codIns=:codIns";
+    public int updateCart(Session session,  String codAlm, String numPed, String tipPed, String codTalla ,String codIns, BigDecimal qtyPed,BigDecimal valUnitario,BigDecimal margenDcto,BigDecimal valIva,BigDecimal valDcto ) throws Exception {
+        String hqlUpdate = "update VenDetaCart c set   c.qtyPed=:qtyPed,c.margenDcto=:margenDcto,c.valDcto=:valDcto,c.valUnitario=:valUnitario,c.valIva=:valIva  where c.id.codIns=:codIns and c.id.codAlm=:codAlm and c.id.numPed=:numPed  and c.id.tipPed=:tipPed and id.codTalla=:codTalla";
         int updatedEntities = session.createQuery(hqlUpdate)
                 .setBigDecimal("qtyPed", qtyPed)
-                .setString("codIns", codIns)
+                .setBigDecimal("valUnitario",valUnitario)
+                .setBigDecimal("valIva",valIva)
+                .setBigDecimal("margenDcto",margenDcto)
+                .setBigDecimal("valDcto",valDcto)
+                .setString("codIns",codIns)
+                .setString("codAlm",codAlm)
+                .setString("numPed",numPed)
+                .setString("tipPed",tipPed)
+                .setString("codTalla",codTalla)
                 .executeUpdate();
         return updatedEntities;//respuesta es un entero de fila afectada debe ser 1 
     }

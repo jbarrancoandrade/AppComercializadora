@@ -261,6 +261,7 @@ public class MBeanMaeCart implements Serializable {
         httpSessions.setAttribute("NombreCliente", getNombreCliente(d.getCodter()));// Nombre Del Cliente
         httpSessions.setAttribute("almacen", getAlm(d.getId().getCodAlm()));// Nombre Almacenes
         httpSessions.setAttribute("tipPed", d.getId().getTipPed());
+        System.out.println(d.getId().getCodAlm()+"\n"+d.getCodList()+"\n"+d.getId().getNumPed()+"\n"+getNombreven(d.getCodVen())+"\n"+getNombreCliente(d.getCodter())+"\n"+d.getId().getTipPed());
     }
 
     //obtener vendedor

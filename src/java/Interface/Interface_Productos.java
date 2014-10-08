@@ -186,15 +186,23 @@ public interface Interface_Productos {
      */
     public String getIdIva(Session session, String codins) throws Exception;
 
+    
     /**
-     *
+     * Metodo que actualiza El DetaCart 
      * @param session
-     * @param codins
-     * @param cant
+     * @param codAlm
+     * @param numPed
+     * @param tipPed
+     * @param codTalla
+     * @param codIns
+     * @param qtyPed
+     * @param valUnitario
+     * @param margenDcto
+     * @param valDcto
      * @return
-     * @throws Exception
+     * @throws Exception 
      */
-    public int updateCartCant(Session session, String codins, BigDecimal cant) throws Exception;
+    public int updateCart(Session session,  String codAlm, String numPed, String tipPed, String codTalla ,String codIns, BigDecimal qtyPed,BigDecimal valUnitario,BigDecimal margenDcto,BigDecimal valDcto , BigDecimal valIva) throws Exception;
 
     /**
      *

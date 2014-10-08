@@ -6,6 +6,7 @@
 package Interface;
 
 import POJOS.VenDetaCart;
+import java.math.BigDecimal;
 import java.util.List;
 import org.hibernate.Session;
 
@@ -37,7 +38,21 @@ public interface Interface_DetalCart {
      * @return
      * @throws Exception 
      */
-    public boolean ExisteCodins(Session session,String codIns,String numPed) throws Exception; 
+    public boolean ExisteCodins (Session session,String codAlm,String numPed, String tipPed,String codIns,String codTalla )  throws Exception; 
+    
+    /**
+     * Cantida de unidades de un producto en bd
+     * 
+     * @param session
+     * @param codAlm
+     * @param numPed
+     * @param tipPed
+     * @param codIns
+     * @param codTalla
+     * @return
+     * @throws Exception 
+     */
+    public BigDecimal cantidad (Session session,String codAlm,String numPed, String tipPed,String codIns,String codTalla )  throws Exception; 
     
     
     
