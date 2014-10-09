@@ -12,6 +12,14 @@
 
             <ui:define name="content">
                 <link href="../resources/css/productos.css" rel="stylesheet" type="text/css"/>
+              
+
+                <p:ajaxStatus style="display:block;margin-bottom:2em;height:24px;" onstart="PF('statusDialog').show()" onsuccess="PF('statusDialog').hide()" />
+
+                <p:dialog widgetVar="statusDialog" modal="true" draggable="false" closable="false" resizable="false" showHeader="false">
+                    <p:graphicImage value='/Public/Image/ajax-loader.gif' />
+                </p:dialog>
+                
                 <h:form id="form"  >
                     <p:growl id="msgs" showDetail="true" />
 
@@ -20,10 +28,10 @@
                                           style="float: right;" disabled="false"/>
 
 
-                        <p:outputPanel style="float:right;margin-right: 4%; margin-top: 0.5%" >
+                        <p:outputPanel style="float:right;margin-right: 4%; margin-top: 0.5%">
                             <h:outputText value="Buscar En todos : " />
-                            <p:inputText id="globalFilter" value="#{mBCatProductos.parametroBus}"  
-                                         style="width:250px" ><p:ajax event="keyup" listener="#{mBCatProductos.Filter(event)}" update="datProd"/></p:inputText>
+                            <p:inputText  id="globalFilter" value="#{mBCatProductos.parametroBus}"  
+                                          style="width:250px" ><p:ajax event="keyup" global="false" listener="#{mBCatProductos.Filter(event)}"  update="datProd"/></p:inputText>
                         </p:outputPanel>
 
                         <h:panelGrid columns="4" cellpadding="5">

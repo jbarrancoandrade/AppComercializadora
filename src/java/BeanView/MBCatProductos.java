@@ -115,26 +115,10 @@ public class MBCatProductos implements Serializable {
         parametroBus = "";
         getCategorias();
         getProductos("", "");
-        //probar();
-       // probar2();
-
+     
     }
 
-    public void probar() {
-        try {
-            agregarListaVentaDetalle("I0101004", "1.00", "35.00");
-        } catch (Exception ex) {
-            Logger.getLogger(MBCatProductos.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
-    public void probar2() {
-        try {
-            agregarListaVentaDetalle("I0101005", "1.00", "35.00");
-        } catch (Exception ex) {
-            Logger.getLogger(MBCatProductos.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
+  
 
     /**
      * Metodo que devuelve una lista con los productos dependiendo categorias o
