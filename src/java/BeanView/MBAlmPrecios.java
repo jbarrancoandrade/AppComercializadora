@@ -221,24 +221,19 @@ public class MBAlmPrecios implements Serializable {
             if (dao_MaeCart.getConsecutivoMae(this.session, consecutivocompleto)) {
 
                 int a = dao_Producctos.updateConsecA(this.session, codcon, año, consecutivoTabl + 1, Codalm);
-                System.out.println("actualizado " + a);
                 if (tipoCon == 'A') {
                     try {
                         consecutivoTabl = dao_Producctos.getConsecutivoA(this.session, Codalm, codcon, año);
-                        System.out.println("entro 3-1" + consecutivoTabl);
-                    } catch (Exception e) {
+                       } catch (Exception e) {
                         dao_Producctos.createConsecA(this.session, new GenConsecA(new GenConsecAId(Codalm, codcon, año), 0));
-                        System.out.println("entro 3.2-1");
-                    }
+                      }
 
                     consec = Sentencias.npadl((consecutivoTabl + 1), 5, '0');
-                    System.out.println("entro cuatro");
-
+                  
                 }
 
                 this.consecutivocompleto = añorSimple + consec;
-                System.out.println("entro 7 " + consecutivocompleto);
-
+               
             }
 
             //consultar 

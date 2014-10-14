@@ -204,6 +204,21 @@ public interface Interface_Productos {
      */
     public int updateCart(Session session,  String codAlm, String numPed, String tipPed, String codTalla ,String codIns, BigDecimal qtyPed,BigDecimal valUnitario,BigDecimal margenDcto,BigDecimal valDcto , BigDecimal valIva) throws Exception;
 
+    
+    /**
+     * 
+     * @param session
+     * @param codAlm
+     * @param numPed
+     * @param tipPed
+     * @param codTalla
+     * @return
+     * @throws Exception 
+     */
+    public int upCantCart(Session session, String codAlm,String numPed,String tipPed,String codIns,String codTalla,BigDecimal qtyPed) throws Exception;
+    
+    
+    
     /**
      *
      * @param session

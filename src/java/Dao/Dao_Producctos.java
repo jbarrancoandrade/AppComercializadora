@@ -262,6 +262,21 @@ public class Dao_Producctos implements Interface_Productos {
     }
 
     @Override
+    public int upCantCart(Session session, String codAlm,String numPed,String tipPed,String codIns,String codTalla,BigDecimal qtyPed) throws Exception{
+          String hqlUpdate = "update VenDetaCart c set   c.qtyPed=:qtyPed,c.margenDcto=:margenDcto,c.valDcto=:valDcto,c.valUnitario=:valUnitario,c.valIva=:valIva  where c.id.codIns=:codIns and c.id.codAlm=:codAlm and c.id.numPed=:numPed  and c.id.tipPed=:tipPed and id.codTalla=:codTalla";
+        int updatedEntities = session.createQuery(hqlUpdate)
+                
+                .setString("codIns",codIns)
+                .setString("codAlm",codAlm)
+                .setString("numPed",numPed)
+                .setString("tipPed",tipPed)
+                .setString("codTalla",codTalla)
+                .executeUpdate();
+        return updatedEntities;//respuesta es un entero de fila afectada debe ser 1 
+    }
+    
+    
+    @Override
     public int updateCartPrecio(Session session, String codIns, BigDecimal valUnitario) throws Exception {
         String hqlUpdate = "update VenDetaCart c set c.valUnitario=:valUnitario where c.id.codIns=:codIns ";
         int updatedEntities = session.createQuery(hqlUpdate)

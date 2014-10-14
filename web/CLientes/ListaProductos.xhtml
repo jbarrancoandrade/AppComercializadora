@@ -12,14 +12,14 @@
 
             <ui:define name="content">
                 <link href="../resources/css/productos.css" rel="stylesheet" type="text/css"/>
-              
+
 
                 <p:ajaxStatus style="display:block;margin-bottom:2em;height:24px;" onstart="PF('statusDialog').show()" onsuccess="PF('statusDialog').hide()" />
 
                 <p:dialog widgetVar="statusDialog" modal="true" draggable="false" closable="false" resizable="false" showHeader="false">
                     <p:graphicImage value='/Public/Image/ajax-loader.gif' />
                 </p:dialog>
-                
+
                 <h:form id="form"  >
                     <p:growl id="msgs" showDetail="true" />
 
@@ -57,7 +57,7 @@
 
                     <!--Tabla o DataGrid Con busqueda filtro-->
                     <p:dataGrid  id="datProd" var="pro" value="#{mBCatProductos.listInsumos}"  columns="5" rows="60" 
-                                 paginator="true"  rowsPerPageTemplate="60,120,150" layout="grid"  > 
+                                 paginator="true" paginatorPosition="top" rowsPerPageTemplate="60,120,150" layout="grid"  > 
 
                         <f:facet name="header">
 
@@ -69,11 +69,11 @@
 
 
                         </f:facet>
-                        <p:column>  
+                        <p:column style="height: 200px;width: 200px">  
                             <!-- boton agregar dirrecto al carro, un producto por defecto, precio por defecto -->
-                            <p:commandButton id="ajax" icon="ui-icon-plusthick" title="Agregar Carrito " actionListener="#{mBCatProductos.agregarListaVentaDetalle(pro.codins, '1.00', '35.00')}" styleClass="ui-priority-primary" style="float:right;" update="@form" />
+                            <p:commandButton id="ajax" icon="ui-icon-plusthick" title="Agregar Carrito " actionListener="#{mBCatProductos.agregarListaVentaDetalle(pro.codins, '1.00', '00.00')}" styleClass="ui-priority-primary" style="float:right;" update="@form" />
                             <!-- fin boton agregar dirrecto al carro -->
-                            <p:panel header="#{pro.nomins}" style="text-align:center">  
+                            <p:panel header="#{pro.nomins} / #{pro.codins}" style="text-align:center;"  >  
                                 <p:panelGrid columns="2" style="width:100%">  
                                     <f:facet name="header">
                                         <p:commandLink   update=":form:carDetail" oncomplete="PF
@@ -87,9 +87,9 @@
                                     <h:outputText value="Inventarios"  style="float: left;font-weight: bold"/>
                                     <h:outputText value="#{mBCatProductos.Inventarios(pro.codins)}"  style="float: right" />
                                     <h:outputText value="Comprometidas"   style="float: left;font-weight: bold"  />
-                                    <h:outputText value="0" style="float: right"  />
+                                    <h:outputText value="#{mBCatProductos.comprometidas(pro.codins)}" style="float: right"  />
                                     <h:outputText value="Disponibles "   style="float: left;font-weight: bold"  />
-                                    <h:outputText value="0" style="float: right"  />
+                                    <h:outputText value="#{mBCatProductos.Disponibles(pro.codins)}" style="float: right"  />
                                 </p:panelGrid>  
                             </p:panel>  
                         </p:column>  
@@ -112,7 +112,7 @@
                                 <h:outputText value="Precio " style="float: left;font-weight: bold"/>
                                 <h:outputText value="$ #{mBCatProductos.Precioview()}" style="float: right;"/>  
                                 <h:outputText value="Cantidad" style="float: left;font-weight: bold"/>
-                                <p:spinner id="basic"  min="#{mBCatProductos.CantidadesMaximas()}" max="#{mBCatProductos.maximo}" title="cantidad" style="float: right;border: none;" size="5" />
+                                <p:spinner id="basic"  min="#{mBCatProductos.CantidadesMinimas(e)}" max="#{mBCatProductos.Cantidadesmaximo(e)}" title="cantidad" style="float: right;border: none;" size="5" />
                                 <h:outputText value="IVA " style="float: left;font-weight: bold"/>
                                 <h:outputText value="#{mBCatProductos.IVaView()}" style="float: right;"/>
                                 <h:outputText value="Total " style="float: left;font-weight: bold"/>
@@ -166,11 +166,13 @@
 
                                             </p:column>
                                             <p:column headerText="Cant" style="width: 20px; margin-right:100%;text-align: center" > 
+                                             <f:facet name="input"><h:inputText label="hola" value="dda" /></f:facet>
+                                               
                                                 <p:cellEditor>
-
-                                                    <f:facet name="output">  <h:outputText value="#{item.qtyPed}"  /> </f:facet>
-                                                    <f:facet name="input"><h:inputText  value="#{item.qtyPed}" /></f:facet>
+                                                    <f:facet name="output"><h:outputText value="#{item.qtyPed}"  /></f:facet>
+                                                    <f:facet name="input"><p:inputText value="#{mBCatProductos.nuevacantida}" style="width:100%" label="cant"/></f:facet>
                                                 </p:cellEditor>
+
                                             </p:column>
                                             <p:column headerText="UM" style="width: 5px;" > 
 
@@ -183,8 +185,10 @@
 
                                             <p:column headerText="% Dscto" style="width: 25px;text-align:center" > 
 
-                                                <h:outputText value="#{item.margenDcto}"  />
-
+                                                <p:cellEditor>   
+                                                    <f:facet name="output">  <h:outputText value="#{item.margenDcto}"  /> </f:facet>
+                                                    <f:facet name="input"><h:inputText  value="dd" /></f:facet>
+                                                </p:cellEditor>
                                             </p:column>
 
                                             <p:column headerText="%  IVA" style="width: 20px;text-align: center" > 
@@ -206,11 +210,7 @@
                                             </p:column>
                                         </p:dataTable>
 
-                                        <p:dialog header="Editar O Eliminar " widgetVar="dialogoUsuario" resizable="false">
-                                            <h:panelGrid id="Usuario" columns="2">
-                                                <p:outputLabel value="Nombre"/>
-                                            </h:panelGrid>
-                                        </p:dialog>
+
 
                                     </h:form> 
                                 </p:panel>

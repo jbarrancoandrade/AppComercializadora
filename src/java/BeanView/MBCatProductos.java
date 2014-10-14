@@ -83,6 +83,7 @@ public class MBCatProductos implements Serializable {
     private String TotalVenta; //muestra el total de una venta
     private List<GenAlmacenes> listAlm;
     private Dao_GenAlmacen dao_GenAlmacen;
+    private List<VenDetaCart> listDtcarCompromet;
     //finvariables
 
     public HttpSession httpSession = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
@@ -94,6 +95,7 @@ public class MBCatProductos implements Serializable {
     private double descuentoT, valiva, valivain;
     private String precioGen;
     private double precioparc;
+    private String nuevacantida;
 
     /**
      * Creates a new instance of MBCatProductos
@@ -324,79 +326,7 @@ public class MBCatProductos implements Serializable {
 
     }
 
-    /**
-     *
-     * @param codins
-     * @return
-     */
-    public String Precios2(String codins) {
-        this.session = null;
-        this.transaccion = null;
-
-        try {
-            this.session = HibernateUtil.getSessionFactory().openSession();
-            this.transaccion = this.session.beginTransaction();
-
-            String a = "";
-            a = dao_Producctos.precios(this.session, codins, Codalm, CodList);
-
-            this.transaccion.commit();
-
-            return a;
-
-        } catch (Exception ex) {
-
-            if (this.transaccion != null) {
-                this.transaccion.rollback();
-            }
-
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Error fatal:", "Por favor contacte con su administrador " + ex.getMessage()));
-
-            return null;
-        } finally {
-            if (this.session != null) {
-                this.session.close();
-            }
-        }
-
-    }
-
-    /**
-     *
-     * @param codins
-     * @return
-     */
-    public BigDecimal Descuentos(String codins) {
-        this.session = null;
-        this.transaccion = null;
-
-        try {
-            this.session = HibernateUtil.getSessionFactory().openSession();
-            this.transaccion = this.session.beginTransaction();
-
-            BigDecimal a = dao_Producctos.Cantidad(this.session, Codalm, consecutivocompleto, "_PV", codins, "");
-
-            this.transaccion.commit();
-
-            return a;
-
-        } catch (Exception ex) {
-
-            if (this.transaccion != null) {
-                this.transaccion.rollback();
-            }
-
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Error fatal:", "Por favor contacte con su administrador " + ex.getMessage()));
-
-            return null;
-        } finally {
-            if (this.session != null) {
-                this.session.close();
-            }
-        }
-
-    }
-
+  
     /**
      * Devuelve cantidades en inventarios
      *
@@ -427,48 +357,128 @@ public class MBCatProductos implements Serializable {
         }
 
     }
-
-    /**
-     *
-     * @param codins
-     * @return
-     */
-    public String Comprometidas(String codins) {
-        this.session = null;
+    
+    
+    public void recorerlistaComprometidas(){
+         this.session = null;
         this.transaccion = null;
 
         try {
             this.session = HibernateUtil.getSessionFactory().openSession();
             this.transaccion = this.session.beginTransaction();
 
-            //for que recorra las comprometidas
-            this.transaccion.commit();
-
-            return "";
+            listDtcarCompromet =  dao_DetalCart.getall2(this.session);
+            
+        this.transaccion.commit();
 
         } catch (Exception ex) {
 
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Error fatal:", "Por favor contacte con su administrador " + ex.getMessage()));
 
-            return null;
+        
         }
 
     }
+    /**
+     *
+     * @param codins
+     * @return
+     */
+    public double Disponibles(String codins) {
+       
+            double pedidas= 0;
+            double inventario=0;
+            double resultado =0;
+             recorerlistaComprometidas();
+            for (VenDetaCart item : listDtcarCompromet) {
+                if(item.getId().getCodIns().equalsIgnoreCase(codins)){
+                    pedidas += Double.parseDouble(item.getQtyPed().toString());
+                  }
+            }
+            inventario = Double.parseDouble(Inventarios(codins));
+            resultado = inventario-pedidas;
+            if(resultado < 0){
+                resultado=inventario;
+            }
+          
+         
+            return resultado;
 
+        
+    }
+
+    
+     public double comprometidas(String codins) {
+       
+            double pedidas= 0;
+             recorerlistaComprometidas();
+            for (VenDetaCart item : listDtcarCompromet) {
+                if(item.getId().getCodIns().equalsIgnoreCase(codins) && !item.getId().getNumPed().equalsIgnoreCase(consecutivocompleto)){
+                    pedidas += Double.parseDouble(item.getQtyPed().toString());
+                  }
+            }
+         
+            return pedidas;
+
+        
+    }
     /**
      *
      * @param codins
      */
-    public String CantidadesMaximas() {
-        maximo = Inventarios(almInsumos.getCodins());
+    public String CantidadesMinimas( ActionEvent e) {
+        
 
-        Double x = Double.parseDouble(maximo);
+        Double x = Disponibles(almInsumos.getCodins());
         if (x > 0) {
             return "1";
 
         } else {
             return "0";
         }
+    }
+    /**
+     * 
+     * @param e
+     * @return 
+     */
+    public String Cantidadesmaximo( ActionEvent e) {
+        Double x = Disponibles(almInsumos.getCodins());
+        return x.toString();
+    }
+    
+    
+    public void ActualizarCantidad(String codins,BigDecimal cant){
+         this.session = null;
+        this.transaccion = null;
+
+        try {
+            this.session = HibernateUtil.getSessionFactory().openSession();
+            this.transaccion = this.session.beginTransaction();
+
+           dao_Producctos.upCantCart(this.session, Codalm, consecutivocompleto, "_PV", codins, "",cant);
+            
+            
+            this.transaccion.commit();
+
+        
+
+        } catch (Exception ex) {
+
+            if (this.transaccion != null) {
+                this.transaccion.rollback();
+            }
+
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Error fatal:", "Por favor contacte con su administrador " + ex.getMessage()));
+
+          
+        } finally {
+            if (this.session != null) {
+                this.session.close();
+            }
+        }
+
+        
     }
 
     /**
@@ -529,24 +539,16 @@ public class MBCatProductos implements Serializable {
     }
 
     public void onRowEdit(RowEditEvent event) {
-        FacesMessage msg = new FacesMessage("Producto Editado");
+        FacesMessage msg = new FacesMessage("Producto Editado", ((VenDetaCart) event.getObject()).getId().getCodIns());
         FacesContext.getCurrentInstance().addMessage(null, msg);
     }
-
+     
     public void onRowCancel(RowEditEvent event) {
-        FacesMessage msg = new FacesMessage("Cancelado");
+        FacesMessage msg = new FacesMessage("Producto Editado", ((VenDetaCart) event.getObject()).getId().getCodIns());
         FacesContext.getCurrentInstance().addMessage(null, msg);
     }
 
-    public void onCellEdit(CellEditEvent event) {
-        Object oldValue = event.getOldValue();
-        Object newValue = event.getNewValue();
-
-        if (newValue != null && !newValue.equals(oldValue)) {
-            FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Celda Editada", "Antiguo: " + oldValue + ", Nueva:" + newValue);
-            FacesContext.getCurrentInstance().addMessage(null, msg);
-        }
-    }
+       
 
     /**
      * Devuelve la fecha actual De Sistema
@@ -666,11 +668,10 @@ public class MBCatProductos implements Serializable {
             this.transaccion = this.session.beginTransaction();
 
             for (VenMaeCart item : ListMaeCart) {
-                System.out.println("pedido" + item.getId().getNumPed());
                 boolean a = dao_MaeCart.insert(this.session, item);
 
                 if (a == true) {
-                    System.out.println("Fue Exitoso el mae cart");
+                //    System.out.println("Fue Exitoso el mae cart");
 
                 }
 
@@ -794,7 +795,7 @@ public class MBCatProductos implements Serializable {
                 
                 resultado = subtotal - (valivain * cant);//mostrar subtotal
                 resultadoacumuldao += resultado;
-                System.out.println("acumulado "+resultadoacumuldao);
+              
                 valNIva = valiva * cant;
                 
                 resultadoIvaAcum += valNIva;
@@ -1515,4 +1516,26 @@ public class MBCatProductos implements Serializable {
         this.precioparc = precioparc;
     }
 
+    public List<VenDetaCart> getListDtcarCompromet() {
+        return listDtcarCompromet;
+    }
+
+    public void setListDtcarCompromet(List<VenDetaCart> listDtcarCompromet) {
+        this.listDtcarCompromet = listDtcarCompromet;
+    }
+
+    public String getNuevacantida() {
+        return nuevacantida;
+    }
+
+    public void setNuevacantida(String nuevacantida) {
+        this.nuevacantida = nuevacantida;
+    }
+
+    
+ 
+    
+    
+
+    
 }

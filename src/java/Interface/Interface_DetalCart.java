@@ -31,6 +31,8 @@ public interface Interface_DetalCart {
      */
     public List<VenDetaCart> getall(Session session, String numPed , String codAlm, String tipPed ) throws Exception;
     
+     public List<VenDetaCart> getall2(Session session) throws Exception;
+    
     /**
      * 
      * @param session
