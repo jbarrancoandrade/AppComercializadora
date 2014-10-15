@@ -117,10 +117,8 @@ public class MBCatProductos implements Serializable {
         parametroBus = "";
         getCategorias();
         getProductos("", "");
-     
-    }
 
-  
+    }
 
     /**
      * Metodo que devuelve una lista con los productos dependiendo categorias o
@@ -326,7 +324,6 @@ public class MBCatProductos implements Serializable {
 
     }
 
-  
     /**
      * Devuelve cantidades en inventarios
      *
@@ -357,77 +354,72 @@ public class MBCatProductos implements Serializable {
         }
 
     }
-    
-    
-    public void recorerlistaComprometidas(){
-         this.session = null;
+
+    public void recorerlistaComprometidas() {
+        this.session = null;
         this.transaccion = null;
 
         try {
             this.session = HibernateUtil.getSessionFactory().openSession();
             this.transaccion = this.session.beginTransaction();
 
-            listDtcarCompromet =  dao_DetalCart.getall2(this.session);
-            
-        this.transaccion.commit();
+            listDtcarCompromet = dao_DetalCart.getall2(this.session);
+
+            this.transaccion.commit();
 
         } catch (Exception ex) {
 
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Error fatal:", "Por favor contacte con su administrador " + ex.getMessage()));
 
-        
         }
 
     }
+
     /**
      *
      * @param codins
      * @return
      */
     public double Disponibles(String codins) {
-       
-            double pedidas= 0;
-            double inventario=0;
-            double resultado =0;
-             recorerlistaComprometidas();
-            for (VenDetaCart item : listDtcarCompromet) {
-                if(item.getId().getCodIns().equalsIgnoreCase(codins)){
-                    pedidas += Double.parseDouble(item.getQtyPed().toString());
-                  }
-            }
-            inventario = Double.parseDouble(Inventarios(codins));
-            resultado = inventario-pedidas;
-            if(resultado < 0){
-                resultado=inventario;
-            }
-          
-         
-            return resultado;
 
-        
+        double pedidas = 0;
+        double inventario = 0;
+        double resultado = 0;
+        recorerlistaComprometidas();
+        for (VenDetaCart item : listDtcarCompromet) {
+            if (item.getId().getCodIns().equalsIgnoreCase(codins)) {
+                pedidas += Double.parseDouble(item.getQtyPed().toString());
+            }
+        }
+        inventario = Double.parseDouble(Inventarios(codins));
+        resultado = inventario - pedidas;
+        if (resultado < 0) {
+            resultado = inventario;
+        }
+
+        return resultado;
+
     }
 
-    
-     public double comprometidas(String codins) {
-       
-            double pedidas= 0;
-             recorerlistaComprometidas();
-            for (VenDetaCart item : listDtcarCompromet) {
-                if(item.getId().getCodIns().equalsIgnoreCase(codins) && !item.getId().getNumPed().equalsIgnoreCase(consecutivocompleto)){
-                    pedidas += Double.parseDouble(item.getQtyPed().toString());
-                  }
-            }
-         
-            return pedidas;
+    public double comprometidas(String codins) {
 
-        
+        double pedidas = 0;
+        recorerlistaComprometidas();
+        for (VenDetaCart item : listDtcarCompromet) {
+            if (item.getId().getCodIns().equalsIgnoreCase(codins) && !item.getId().getNumPed().equalsIgnoreCase(consecutivocompleto)) {
+                pedidas += Double.parseDouble(item.getQtyPed().toString());
+            }
+        }
+
+        return pedidas;
+
     }
+
     /**
      *
      * @param codins
      */
-    public String CantidadesMinimas( ActionEvent e) {
-        
+    public String CantidadesMinimas(ActionEvent e) {
 
         Double x = Disponibles(almInsumos.getCodins());
         if (x > 0) {
@@ -437,31 +429,28 @@ public class MBCatProductos implements Serializable {
             return "0";
         }
     }
+
     /**
-     * 
+     *
      * @param e
-     * @return 
+     * @return
      */
-    public String Cantidadesmaximo( ActionEvent e) {
+    public String Cantidadesmaximo(ActionEvent e) {
         Double x = Disponibles(almInsumos.getCodins());
         return x.toString();
     }
-    
-    
-    public void ActualizarCantidad(String codins,BigDecimal cant){
-         this.session = null;
+
+    public void ActualizarCantidad(String codins, BigDecimal cant) {
+        this.session = null;
         this.transaccion = null;
 
         try {
             this.session = HibernateUtil.getSessionFactory().openSession();
             this.transaccion = this.session.beginTransaction();
 
-           dao_Producctos.upCantCart(this.session, Codalm, consecutivocompleto, "_PV", codins, "",cant);
-            
-            
-            this.transaccion.commit();
+            dao_Producctos.upCantCart(this.session, Codalm, consecutivocompleto, "_PV", codins, "", cant);
 
-        
+            this.transaccion.commit();
 
         } catch (Exception ex) {
 
@@ -471,14 +460,12 @@ public class MBCatProductos implements Serializable {
 
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Error fatal:", "Por favor contacte con su administrador " + ex.getMessage()));
 
-          
         } finally {
             if (this.session != null) {
                 this.session.close();
             }
         }
 
-        
     }
 
     /**
@@ -542,13 +529,11 @@ public class MBCatProductos implements Serializable {
         FacesMessage msg = new FacesMessage("Producto Editado", ((VenDetaCart) event.getObject()).getId().getCodIns());
         FacesContext.getCurrentInstance().addMessage(null, msg);
     }
-     
+
     public void onRowCancel(RowEditEvent event) {
         FacesMessage msg = new FacesMessage("Producto Editado", ((VenDetaCart) event.getObject()).getId().getCodIns());
         FacesContext.getCurrentInstance().addMessage(null, msg);
     }
-
-       
 
     /**
      * Devuelve la fecha actual De Sistema
@@ -576,60 +561,65 @@ public class MBCatProductos implements Serializable {
 
             ListMaeCart = new ArrayList<>();
 
-            if (dao_DetalCart.ExisteCodins(this.session, Codalm, consecutivocompleto, "_PV", codins, "")) {
+            if (Disponibles(codins) > 0) {
+                if (dao_DetalCart.ExisteCodins(this.session, Codalm, consecutivocompleto, "_PV", codins, "")) {
 
-                //averiguar precio,facturaiva,ivainclido,margendeiva,margendsc
-                boolean FacturaIva = false;
-                boolean IvaIncluido = false;
-                BigDecimal precio = convertirBig(dao_Producctos.precios(this.session, codins, Codalm, CodList));
-                BigDecimal MIva = convertirBig(dao_Producctos.getmargeIva(this.session, dao_Producctos.getIdIva(this.session, codins)));
-                BigDecimal margendesc = convertirBig(dao_Producctos.margendescuento(this.session, codins, Codalm, CodList));
-                BigDecimal cantidadB = dao_DetalCart.cantidad(this.session, Codalm, consecutivocompleto, "_PV", codins, "");
-                //saber si el almacen factura iva y si esta esta incluid
-                listAlm = dao_GenAlmacen.getAll(this.session);
-                for (GenAlmacenes item : listAlm) {
-                    if (item.getCodalm().equalsIgnoreCase(Codalm)) {
-                        FacturaIva = item.isFacturaIva();
-                        IvaIncluido = item.isIvaIncluido();
+                    //averiguar precio,facturaiva,ivainclido,margendeiva,margendsc
+                    boolean FacturaIva = false;
+                    boolean IvaIncluido = false;
+                    BigDecimal precio = convertirBig(dao_Producctos.precios(this.session, codins, Codalm, CodList));
+                    BigDecimal MIva = convertirBig(dao_Producctos.getmargeIva(this.session, dao_Producctos.getIdIva(this.session, codins)));
+                    BigDecimal margendesc = convertirBig(dao_Producctos.margendescuento(this.session, codins, Codalm, CodList));
+                    BigDecimal cantidadB = dao_DetalCart.cantidad(this.session, Codalm, consecutivocompleto, "_PV", codins, "");
+                    //saber si el almacen factura iva y si esta esta incluid
+                    listAlm = dao_GenAlmacen.getAll(this.session);
+                    for (GenAlmacenes item : listAlm) {
+                        if (item.getCodalm().equalsIgnoreCase(Codalm)) {
+                            FacturaIva = item.isFacturaIva();
+                            IvaIncluido = item.isIvaIncluido();
+                        }
                     }
-                }
-                BigDecimal cantval = new BigDecimal(cantidadMe); //convertir a bigdecimal valores cantidad
-                BigDecimal SumaCantidades = cantidadB.add(cantval);//sumar las cantidades
+                    BigDecimal cantval = new BigDecimal(cantidadMe); //convertir a bigdecimal valores cantidad
+                    BigDecimal SumaCantidades = cantidadB.add(cantval);//sumar las cantidades
 
-                BigDecimal margeneDescuentos = convertirBig(Margendescuento);//convertid a bigdecimal los descuentos de la vista
-                BigDecimal SumaDescuentos = margendesc.add(margeneDescuentos);//sumar los descuentos
+                    BigDecimal margeneDescuentos = convertirBig(Margendescuento);//convertid a bigdecimal los descuentos de la vista
+                    BigDecimal SumaDescuentos = margendesc.add(margeneDescuentos);//sumar los descuentos
 
-                Calculos(MIva, precio, margendesc, cantidadB, FacturaIva, IvaIncluido);
+                    Calculos(MIva, precio, margendesc, cantidadB, FacturaIva, IvaIncluido);
 
-                //metodo que actualiza los cambios
-                dao_Producctos.updateCart(session, Codalm, consecutivocompleto, "_PV", "", codins, SumaCantidades, precio, margendesc, valorIva, valDcto);
-                //margeiva,valorinsumo,margedesc,cantidad,facturaiva,ivainculido
+                    //metodo que actualiza los cambios
+                    dao_Producctos.updateCart(session, Codalm, consecutivocompleto, "_PV", "", codins, SumaCantidades, precio, margendesc, valorIva, valDcto);
+                    //margeiva,valorinsumo,margedesc,cantidad,facturaiva,ivainculido
 
-            } else {
-                BigDecimal Iva = convertirBig(dao_Producctos.getmargeIva(this.session, dao_Producctos.getIdIva(this.session, codins)));
-                //averiguar precio,facturaiva,ivainclido,margendeiva,margendsc
-                boolean FacturaIva = false;
-                boolean IvaIncluido = false;
-                BigDecimal precio = convertirBig(dao_Producctos.precios(this.session, codins, Codalm, CodList));
-                BigDecimal MIva = convertirBig(dao_Producctos.getmargeIva(this.session, dao_Producctos.getIdIva(this.session, codins)));
-                BigDecimal margendesc = convertirBig(dao_Producctos.margendescuento(this.session, codins, Codalm, CodList));
-                //saber si el almacen factura iva y si esta esta incluid
-                listAlm = dao_GenAlmacen.getAll(this.session);
-                for (GenAlmacenes item : listAlm) {
-                    if (item.getCodalm().equalsIgnoreCase(Codalm)) {
-                        FacturaIva = item.isFacturaIva();
-                        IvaIncluido = item.isIvaIncluido();
+                } else {
+                    BigDecimal Iva = convertirBig(dao_Producctos.getmargeIva(this.session, dao_Producctos.getIdIva(this.session, codins)));
+                    //averiguar precio,facturaiva,ivainclido,margendeiva,margendsc
+                    boolean FacturaIva = false;
+                    boolean IvaIncluido = false;
+                    BigDecimal precio = convertirBig(dao_Producctos.precios(this.session, codins, Codalm, CodList));
+                    BigDecimal MIva = convertirBig(dao_Producctos.getmargeIva(this.session, dao_Producctos.getIdIva(this.session, codins)));
+                    BigDecimal margendesc = convertirBig(dao_Producctos.margendescuento(this.session, codins, Codalm, CodList));
+                    //saber si el almacen factura iva y si esta esta incluid
+                    listAlm = dao_GenAlmacen.getAll(this.session);
+                    for (GenAlmacenes item : listAlm) {
+                        if (item.getCodalm().equalsIgnoreCase(Codalm)) {
+                            FacturaIva = item.isFacturaIva();
+                            IvaIncluido = item.isIvaIncluido();
+                        }
                     }
-                }
-                BigDecimal cantval = new BigDecimal(cantidadMe); //convertir a bigdecimal valores cantidad
+                    BigDecimal cantval = new BigDecimal(cantidadMe); //convertir a bigdecimal valores cantidad
 
-                BigDecimal margeneDescuentos = convertirBig(Margendescuento);//convertid a bigdecimal los descuentos de la vista
-                BigDecimal cantid = convertirBig(cantidadMe);
-                Calculos(MIva, precio, margendesc, cantid, FacturaIva, IvaIncluido);
-                precioGen = precio.toString();
-                precioparc = Double.parseDouble(precioGen) * Double.parseDouble(cantid.toString());
-                this.ListdetaCarts.add(new VenDetaCart(new VenDetaCartId(Codalm, this.consecutivocompleto, "_PV", codins, ""), BigDecimal.ONE, BigDecimal.ZERO, "", BigDecimal.ZERO, valorIva, valDcto, margendesc, Iva, precio));
-                getProCart();
+                    BigDecimal margeneDescuentos = convertirBig(Margendescuento);//convertid a bigdecimal los descuentos de la vista
+                    BigDecimal cantid = convertirBig(cantidadMe);
+                    Calculos(MIva, precio, margendesc, cantid, FacturaIva, IvaIncluido);
+                    precioGen = precio.toString();
+                    precioparc = Double.parseDouble(precioGen) * Double.parseDouble(cantid.toString());
+                    this.ListdetaCarts.add(new VenDetaCart(new VenDetaCartId(Codalm, this.consecutivocompleto, "_PV", codins, ""), BigDecimal.ONE, BigDecimal.ZERO, "A", BigDecimal.ZERO, valorIva, valDcto, margendesc, Iva, precio));
+                    getProCart();
+                }
+            }else{
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Error", "No hay la cantidad Pedida"));
+
             }
 
             this.transaccion.commit();
@@ -653,9 +643,38 @@ public class MBCatProductos implements Serializable {
         }
     }
 
+    /**
+     * 
+     * @return 
+     */
     public String save() {
+        
+        this.session = null;
+        this.transaccion = null;
 
-        return "/CLientes/ListarPedidos.xhtml";
+        try {
+            this.session = HibernateUtil.getSessionFactory().openSession();
+            this.transaccion = this.session.beginTransaction();
+
+            //Actualizar El Estado A P.
+            dao_DetalCart.ActualizarEstado(this.session, consecutivocompleto, Codalm, "P");
+            dao_MaeCart.ActualizarEstado(this.session, consecutivocompleto, Codalm, "P");
+            this.transaccion.commit();
+            return "/CLientes/ListarPedidos.xhtml";
+           
+        } catch (Exception ex) {
+            if (this.transaccion != null) {
+                transaccion.rollback();
+            }
+
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Error", ex.getMessage()));
+            return null;
+        } finally {
+            if (this.session != null) {
+                this.session.close();
+            }
+        }
+        
     }
 
     public void getProCart21() {
@@ -671,7 +690,7 @@ public class MBCatProductos implements Serializable {
                 boolean a = dao_MaeCart.insert(this.session, item);
 
                 if (a == true) {
-                //    System.out.println("Fue Exitoso el mae cart");
+                    //    System.out.println("Fue Exitoso el mae cart");
 
                 }
 
@@ -702,7 +721,7 @@ public class MBCatProductos implements Serializable {
                 }
 
             } else {
-                this.ListMaeCart.add(new VenMaeCart(new VenMaeCartId(Codalm, consecutivocompleto, "_PV"), fechaVenta, fechaVenta, "usuario", "vapc", "", dao_Clientes.CodTerCero(session, Cliente), codven, CodList, ""));
+                this.ListMaeCart.add(new VenMaeCart(new VenMaeCartId(Codalm, consecutivocompleto, "_PV"), fechaVenta, fechaVenta, "usuario", "vapc", "A", dao_Clientes.CodTerCero(session, Cliente), codven, CodList, ""));
                 getProCart21();
 
                 for (VenDetaCart item : ListdetaCarts) {
@@ -792,36 +811,34 @@ public class MBCatProductos implements Serializable {
                 cant = Double.parseDouble(item.getQtyPed().toString());
                 //caso del la vista 
                 subtotal = prod * cant;
-                
+
                 resultado = subtotal - (valivain * cant);//mostrar subtotal
                 resultadoacumuldao += resultado;
-              
+
                 valNIva = valiva * cant;
-                
+
                 resultadoIvaAcum += valNIva;
                 valdescuento = descuentoT * cant;
-              
+
                 resultadoDescu += valdescuento;
 
                 //adicionales 
                 base = resultado - valdescuento;
-                
+
                 resultadoBaseAcum += base;
                 totaldefinitivo = base + valNIva;
-                
+
                 totaldefresp += totaldefinitivo;
 
                 //Fin
             }
             //**********************LLenando Variables********************formatter.format(amount);
-                ParcialLinea = formatter.format(subtotal);//para la vista
-                subtotalDefinitivo = formatter.format(resultadoacumuldao);
-                DescuentoTotal = formatter.format(resultadoDescu);
-                baseTotal = formatter.format(resultadoBaseAcum);
-                IvaValorFinal = formatter.format(resultadoIvaAcum);
-                TotalVenta = formatter.format(totaldefresp);
-            
-                
+            ParcialLinea = formatter.format(subtotal);//para la vista
+            subtotalDefinitivo = formatter.format(resultadoacumuldao);
+            DescuentoTotal = formatter.format(resultadoDescu);
+            baseTotal = formatter.format(resultadoBaseAcum);
+            IvaValorFinal = formatter.format(resultadoIvaAcum);
+            TotalVenta = formatter.format(totaldefresp);
 
             this.transaccion.commit();
 
@@ -1532,10 +1549,4 @@ public class MBCatProductos implements Serializable {
         this.nuevacantida = nuevacantida;
     }
 
-    
- 
-    
-    
-
-    
 }

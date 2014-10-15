@@ -29,7 +29,14 @@ public class Dao_MaeCart implements Interface_MaeCart {
 
     @Override
     public List<VenMaeCart> Listar(Session session) throws Exception {
-        Query query = session.createQuery("From VenMaeCart ");
+        Query query = session.createQuery("From VenMaeCart where estado='P'");
+        List<VenMaeCart> List = (List<VenMaeCart>) query.list();
+        return List;
+    }
+    
+    @Override
+    public List<VenMaeCart> Listar2(Session session) throws Exception {
+        Query query = session.createQuery("From VenMaeCart where estado='A'");
         List<VenMaeCart> List = (List<VenMaeCart>) query.list();
         return List;
     }
@@ -90,6 +97,19 @@ public class Dao_MaeCart implements Interface_MaeCart {
             System.err.println("Error");
         }
       return respuesta;
+    }
+    
+    
+    @Override
+    public int ActualizarEstado(Session session, String numPed, String codAlm, String estado) throws Exception {
+        String hqlUpdate = "update VenMaeCart c set c.estado = :estado where  c.id.codAlm=:codAlm and  c.id.numPed=:numPed";
+
+        int updatedEntities = session.createQuery(hqlUpdate)
+                .setString("numPed", numPed)
+                .setString("codAlm", codAlm)
+                .setString("estado", estado)
+                .executeUpdate();
+        return updatedEntities;//respuesta es un entero de fila afectada debe ser 1  
     }
 
 }

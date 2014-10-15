@@ -1,0 +1,147 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./../Menu/Principal.xhtml">
+
+            <ui:define name="content">
+            
+                <h2>Pedidos Sin Terminar</h2>
+                <hr />
+
+                <h:form id="frmListaTUsuario">
+
+                    <p:growl id="mensajeGeneral" showDetail="true" sticky="false" />
+
+                    <p:panel>
+
+                        <h:outputLabel  value="Numero De Orden : " style="font-weight: bold;"/>
+                        <p:inputText id="norden"  />
+
+                        <h:outputLabel  value="Fecha Inicial : " style="margin-left: 5px;font-weight: bold;"/>
+                        <p:calendar id="fec1"  pattern="dd-MM-yyyy" mask="true" />
+
+
+                        <h:outputLabel   value="Fecha final : "  style="margin-left: 5px;font-weight: bold;" />
+                        <p:calendar id="fec2" pattern="dd-MM-yyyy" mask="true" />
+
+                    </p:panel>
+
+                    <!---Pruebaas_-->
+                    <p:panel  style="margin-bottom:10px; "> 
+
+                        <p:dataScroller  id="datescroller" value="#{mBeanMaeCart.all2}" var="car" chunkSize="10"  binding="#{mBeanMaeCart.dat}"  >
+                            <f:facet name="header">
+                                Pedidos Realizados
+                            </f:facet>
+                            <p:panel  >
+                                <h:panelGrid columns="2"  columnClasses="logo,detail">
+
+                                    <p:graphicImage value="/Public/Image/tu_logo.png" style="height: 80px;width: 90px;-webkit-border-radius: 12px;-moz-border-radius: 12px;border-radius: 12px;"   /> 
+                                    <p:commandLink  onclick="PF('dlg3').show();" >
+                                        <p:outputPanel>
+
+                                            <h:panelGrid  columns="1" >
+                                                <h:outputText value="#{mBeanMaeCart.nombreCliente(car.codter)}" style="font-weight: bold" />
+
+                                                <h:panelGrid columns="2"   style="float: left;" title="Pedido">
+
+
+                                                    <h:outputText value="Nit o Cedula          " style="font-weight: bold" />
+                                                    <h:outputText value="#{car.codter}" />
+                                                    <h:outputText value="Telefonos             " style="font-weight: bold" />
+                                                    <h:outputText value="#{mBeanMaeCart.telefono(car.codter)}" />
+                                                    <h:outputText value="Dirreccion            "  style="font-weight: bold" />
+                                                    <h:outputText value="#{mBeanMaeCart.dirrecion(car.codter)}"/>
+                                                    <h:outputText value="Numero De Pedido      " style="font-weight: bold" />
+                                                    <h:outputText value="#{car.id.numPed} - #{car.id.tipPed}" />
+                                                    <h:outputText value="Fecha De Pedido       "  style="font-weight: bold" />
+                                                    <h:outputText value="#{mBeanMaeCart.fecha(car.id.numPed)}" />
+                                                    <h:outputText value="Valor Pedido          "  style="font-weight: bold" />
+                                                    <h:outputText value="$ 1,2319,321.9" />
+
+                                                </h:panelGrid>
+                                            </h:panelGrid>
+                                        </p:outputPanel>
+                                    </p:commandLink>
+                                </h:panelGrid>
+                                <p:commandLink  action="#{mBeanMaeCart.datos(car)}" immediate="true">
+
+
+                                    <p:graphicImage value="/Public/Image/las-preferencias-de-sistema-de-engranajes-icono-5185.ico" title="Opciones"  onclick="PF('dlg2').show();"   style="float: right;height: 80px;width: 90px;margin-top: -9%;"/> 
+                                    <!--<p:confirm header="Opciones" message="Que Deseas Hacer ?" icon="ui-icon-notice" />-->
+
+
+                                </p:commandLink>
+
+                            </p:panel>
+
+                        </p:dataScroller>
+
+                        <p:confirmDialog message="Que Desea hacer ? "  
+                                         showEffect="bounce" hideEffect="explode" 
+                                         header="Opciones" severity="info" widgetVar="dlg2" > 
+
+
+                            <p:commandButton value="Continuar"  icon="ui-icon-pencil" iconPos="left" oncomplete="PF('confirmation').hide()" actionListener="#{mBeanMaeCart.getEditar(event)}" />  
+                            <p:commandButton value="Eliminar" icon="ui-icon-close" iconPos="left" oncomplete="PF('confirmation').hide()"  actionListener="#{mBeanMaeCart.getElimininar(event)}" update=":frmListaTUsuario" />    
+
+
+                        </p:confirmDialog> 
+
+
+                    </p:panel>
+
+                    <p:dialog header="Detalles Pedido" widgetVar="dlg3" modal="true" height="399" width="800">
+                        <p:dataTable id="tablaListaProductosVenta" var="item" editable="true"  resizableColumns="true"   paginator="true"  paginatorPosition="bottom"  rows="4"    emptyMessage="No existen Productos" widgetVar="clienteTable"  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}">
+
+                            <p:column headerText="Nombre Del Insumo" style="width: 110px" >
+                                <p:outputLabel value="#{item.id.codIns}"/>
+
+
+                            </p:column>
+
+                            <p:column headerText="Codigo/Ref" style="width: 40px;text-align: center" > 
+
+
+                            </p:column>
+                            <p:column headerText="Cant" style="width: 20px; margin-right:100%;text-align: center" > 
+
+                            </p:column>
+                            <p:column headerText="UM" style="width: 5px;" > 
+
+                            </p:column>
+
+                            <p:column headerText="Val Unitario"  style="width: 50px;text-align: right" > 
+
+                            </p:column>
+
+                            <p:column headerText="% Dscto" style="width: 25px;text-align:center" > 
+
+                            </p:column>
+
+                            <p:column headerText="%  IVA" style="width: 20px;text-align: center" > 
+
+                            </p:column>
+
+                            <p:column headerText="Parciales" style="width: 50px;text-align: right" > 
+
+
+                            </p:column>
+
+                        </p:dataTable>
+                    </p:dialog> 
+                </h:form>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>
+

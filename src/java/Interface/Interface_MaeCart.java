@@ -33,6 +33,8 @@ public interface Interface_MaeCart {
      * @throws Exception 
      */
     public List<VenMaeCart> Listar(Session session) throws Exception;
+    
+     public List<VenMaeCart> Listar2(Session session) throws Exception;
      
     /**
      * 
@@ -71,7 +73,16 @@ public interface Interface_MaeCart {
      */
     public boolean Eliminar(Session session,String codAlm,String numPed,String tipPed) throws Exception;
     
-    
+    /**
+     * 
+     * @param session
+     * @param numPed
+     * @param codAlm
+     * @param estado
+     * @return
+     * @throws Exception 
+     */
+    public int ActualizarEstado(Session session, String numPed, String codAlm, String estado) throws Exception;
            
      
    

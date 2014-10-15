@@ -6,10 +6,12 @@
 package BeanView;
 
 import Dao.Dao_Clientes;
+import Dao.Dao_DetalCart;
 import Dao.Dao_GenAlmacen;
 import Dao.Dao_MaeCart;
 import Dao.Dao_vendedor;
 import POJOS.VenClientes;
+import POJOS.VenDetaCart;
 import POJOS.VenMaeCart;
 import Util.HibernateUtil;
 import java.awt.event.ActionEvent;
@@ -39,6 +41,8 @@ public class MBeanMaeCart implements Serializable {
 
     private VenMaeCart venMaeCart;
     private Dao_MaeCart dao_MaeCart;
+    private VenDetaCart venDetaCart;
+    private Dao_DetalCart  dao_DetalCart;
     private List<VenMaeCart> listMaetCar;
     private Dao_vendedor dao_vendedor;
     private Dao_Clientes dao_Clientes;
@@ -55,6 +59,7 @@ public class MBeanMaeCart implements Serializable {
         dao_vendedor = new Dao_vendedor();
         dao_Clientes = new Dao_Clientes();
         dao_GenAlmacen = new Dao_GenAlmacen();
+        dao_DetalCart = new Dao_DetalCart();
         dat = new DataScroller();
 
     }
@@ -96,6 +101,39 @@ public class MBeanMaeCart implements Serializable {
         }
     }
 
+    
+     public List<VenMaeCart> getAll2() {
+        this.session = null;
+        this.transaccion = null;
+
+        try {
+
+            this.session = HibernateUtil.getSessionFactory().openSession();
+            this.transaccion = this.session.beginTransaction();
+
+            HttpSession httpSession = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
+            String codven = (String) httpSession.getAttribute("codven");
+
+            this.listMaetCar = dao_MaeCart.Listar2(this.session);
+
+            this.transaccion.commit();
+
+            return this.listMaetCar;
+        } catch (Exception ex) {
+            if (this.transaccion != null) {
+                this.transaccion.rollback();
+            }
+
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Error fatal:", "Por favor contacte con su administrador " + ex.getMessage()));
+
+            return null;
+        } finally {
+            if (this.session != null) {
+                this.session.close();
+            }
+        }
+    }
+    
     /**
      * Nombre del cliente
      *
@@ -384,10 +422,9 @@ public class MBeanMaeCart implements Serializable {
             HttpSession httpSessions = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
             String codalm = (String) httpSessions.getAttribute("codalm");
             String pedido = (String) httpSessions.getAttribute("numePedido");
-            System.out.println("Datos Valores "+codalm+ "pedido"+pedido);
-            boolean prueba = false;
-            prueba = dao_MaeCart.Eliminar(this.session, codalm, pedido, "_PV");
-            System.out.println("Respuesta "+prueba);
+            dao_MaeCart.Eliminar(this.session, codalm, pedido, "_PV");
+            dao_DetalCart.Eliminar(this.session, codalm, pedido,"_PV", "");
+            
             this.transaccion.commit();
 
         } catch (Exception ex) {
@@ -464,5 +501,23 @@ public class MBeanMaeCart implements Serializable {
     public void setDat(DataScroller dat) {
         this.dat = dat;
     }
+
+    public VenDetaCart getVenDetaCart() {
+        return venDetaCart;
+    }
+
+    public void setVenDetaCart(VenDetaCart venDetaCart) {
+        this.venDetaCart = venDetaCart;
+    }
+
+    public Dao_DetalCart getDao_DetalCart() {
+        return dao_DetalCart;
+    }
+
+    public void setDao_DetalCart(Dao_DetalCart dao_DetalCart) {
+        this.dao_DetalCart = dao_DetalCart;
+    }
+    
+    
 
 }
