@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <body>
+        <ui:composition template="./../Menu/Principal.xhtml">
+
+            <ui:define name="content">
+
+                <h2>Configuraciones</h2>
+                <hr />
+                <h:form id="form" >
+                    <center>
+                    <p:panel id="panel" header="Configurar" style="margin-bottom:10px;width: 55%;">
+                        <p:messages id="messages" />
+                        <h:panelGrid columns="3" cellpadding="5">
+                            <p:outputLabel for="text1" value="Text 1:" />
+                            <p:inputText id="text1" value="#{configurarDispositivo.text1}" required="true" label="Firstname">
+                                <f:validateLength minimum="2" />
+                            </p:inputText>
+                            <p:message for="Disp" />
+
+                            <p:outputLabel for="Disp" value="Nombre Del Dispositivo :" />
+                            <p:inputText id="Disp" value="#{configurarDispositivo.text2}" required="true" label="Surname"/>
+                            <p:message for="Disp" />
+                        </h:panelGrid>
+                    </p:panel>
+
+                        <p:toolbar style="width: 55%;">
+                        <f:facet name="left">
+                            <p:commandButton value="Aplicar" update="panel" actionListener="#{configurarDispositivo.save()}" style="margin-right:20px;" />
+                        </f:facet>
+
+                        <f:facet name="right">
+                            <p:commandButton value="Inicio"  >
+                                
+                            </p:commandButton>
+                            <p:commandButton value="Reiniciar"  >
+                                <p:ajax update="panel" resetValues="true" />
+                            </p:commandButton>
+                        </f:facet>
+                    </p:toolbar>
+                    </center>
+                </h:form>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

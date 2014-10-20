@@ -51,13 +51,18 @@
                                 <p:menuitem value="Cargar Imagenes"  icon="ui-icon-folder-open"/>
 
                             </p:submenu>
+                              <p:submenu label="Dispositivos">
+
+                                  <p:menuitem value="Configurar" icon="ui-icon-gear"  iconPos="right" outcome="/Configuraciones/ConfDispo" />
+
+                            </p:submenu>
 
                         </p:column>
                     </p:submenu>
                     <p:menuitem value="Perfil"  icon="ui-icon-info"/>
                     <f:facet name="options">
                         <p:outputLabel value="#{mBLogin.baul}"/>
-                        <p:commandButton  action="#{mBLogin.cerrarSesion(event)}" value="Exit" icon="ui-icon-extlink" />
+                        <p:commandButton  actionListener="#{mBLogin.cerrarSesion(event)}" value="Exit" icon="ui-icon-extlink" />
                     </f:facet>
                 </p:megaMenu>
             </h:form>

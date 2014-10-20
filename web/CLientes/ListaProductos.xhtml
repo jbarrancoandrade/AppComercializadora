@@ -12,8 +12,6 @@
 
             <ui:define name="content">
                 <link href="../resources/css/productos.css" rel="stylesheet" type="text/css"/>
-
-
                 <p:ajaxStatus style="display:block;margin-bottom:2em;height:24px;" onstart="PF('statusDialog').show()" onsuccess="PF('statusDialog').hide()" />
 
                 <p:dialog widgetVar="statusDialog" modal="true" draggable="false" closable="false" resizable="false" showHeader="false">
@@ -22,8 +20,9 @@
 
                 <h:form id="form"  >
                     <p:growl id="msgs" showDetail="true" />
-
-                    <p:panel header="Seleccion de Producto " style="margin-bottom:10px;">
+                    <h2 >Lista de productos</h2>
+                      <hr />
+                    <p:panel header="Seleccion de Producto " >
                         <p:commandButton  id="btcar" icon="ui-icon-cart" actionListener="#{mBCatProductos.dateNow()}" 
                                           style="float: right;" disabled="false"/>
 
@@ -34,7 +33,7 @@
                                           style="width:250px" ><p:ajax event="keyup" global="false" listener="#{mBCatProductos.Filter(event)}"  update="datProd"/></p:inputText>
                         </p:outputPanel>
 
-                        <h:panelGrid columns="4" cellpadding="5">
+                        <h:panelGrid columns="4" cellpadding="5" >
 
                             <p:outputLabel for="cate" value="Categorias : " />
                             <p:selectOneMenu id="cate" value="#{mBCatProductos.catE}" style="width:250px">
@@ -57,7 +56,7 @@
 
                     <!--Tabla o DataGrid Con busqueda filtro-->
                     <p:dataGrid  id="datProd" var="pro" value="#{mBCatProductos.listInsumos}"  columns="5" rows="60" 
-                                 paginator="true" paginatorPosition="top" rowsPerPageTemplate="60,120,150" layout="grid"  > 
+                                 paginator="true" paginatorPosition="top" rowsPerPageTemplate="60,120,150"   > 
 
                         <f:facet name="header">
 
@@ -98,7 +97,7 @@
                     </p:dataGrid>
                     <!-- Detalle Producto -->
                     <p:dialog  header="Detalle Producto" widgetVar="carDialog" width="600" height="578" 
-                               modal="true" showEffect="explode" hideEffect="fade" >  
+                               modal="true" showEffect="explode" hideEffect="fade" resizable="false" >  
                         <p:outputPanel id="carDetail" style="text-align:center;" >
 
                             <p:panelGrid  columns="2" rendered="#{not empty mBCatProductos.almInsumos}" style="width: 100%" columnClasses="label,value" >
@@ -166,8 +165,8 @@
 
                                             </p:column>
                                             <p:column headerText="Cant" style="width: 20px; margin-right:100%;text-align: center" > 
-                                             <f:facet name="input"><h:inputText label="hola" value="dda" /></f:facet>
-                                               
+                                                <f:facet name="input"><h:inputText label="hola" value="dda" /></f:facet>
+
                                                 <p:cellEditor>
                                                     <f:facet name="output"><h:outputText value="#{item.qtyPed}"  /></f:facet>
                                                     <f:facet name="input"><p:inputText value="#{mBCatProductos.nuevacantida}" style="width:100%" label="cant"/></f:facet>
@@ -263,7 +262,7 @@
                                         <p:outputLabel for="obse" value="Observaciones :" />
                                         <p:inputTextarea id="obse" rows="6" cols="72"  />
                                     </h:panelGrid>
-                                    <p:commandButton value="Enviar"   action="#{mBCatProductos.save()}"  update="@form" process="@this" icon="ui-icon-disk" iconPos="left" style="float: right;margin-top: -3%" />
+                                    <p:commandButton value="Enviar"   actionListener="#{mBCatProductos.save(event)}"  update="@form" process="@this" icon="ui-icon-disk" iconPos="left" style="float: right;margin-top: -3%" />
 
                                 </p:panel>
 

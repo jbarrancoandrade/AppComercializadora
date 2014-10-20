@@ -35,11 +35,6 @@
                     </p:outputPanel>
 
 
-
-
-                   
-
-
                     <p:dataTable id="tablaListaTUsuario" var="item"   value="#{mBClientes.listClientes}" paginator="true"  paginatorPosition="bottom"  rows="10" selection="#{mBClientes.clientepj}" selectionMode="single" rowKey="#{item.cedula}" emptyMessage="No existen clientes" widgetVar="clienteTable"  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}">
 
                         <p:ajax event="rowSelect" update=":frmListaTUsuario:panelDetalleUsuario" oncomplete="PF('dialogoDetalleUsuario').show()"/>
