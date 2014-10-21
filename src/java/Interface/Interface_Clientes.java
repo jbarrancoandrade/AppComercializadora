@@ -25,7 +25,7 @@ public interface Interface_Clientes {
      */
      public List <VenClientes> getId(Session session, String CodVen) throws Exception;
      
-     public List <VenClientes> Buscar(Session session, String Parametro) throws Exception;
+     public List <VenClientes> Buscar(Session session, String codVen,String Parametro) throws Exception;
      
      public String ClienteId(Session session, String nit) throws Exception;
      

@@ -10,11 +10,14 @@ import Dao.Dao_vendedor;
 import Util.HibernateUtil;
 import static com.sun.corba.se.spi.presentation.rmi.StubAdapter.request;
 import java.awt.event.ActionEvent;
+import java.io.IOException;
 import java.io.Serializable;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.net.SocketException;
 import java.net.UnknownHostException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -32,11 +35,10 @@ import org.hibernate.Transaction;
  */
 @ManagedBean
 @SessionScoped
-public class MBLogin implements Serializable {
+public class MBLogin{
 
     private final Dao_User dao_User;
     private final Dao_vendedor dao_vendedor;
-    
 
     private String username;
 
@@ -58,11 +60,12 @@ public class MBLogin implements Serializable {
         cargo = "";
 
     }
-    
+
     /**
      * Verifica las credenciales permitiendo el acceso si todo es correcto
+     *
      * @param event
-     * @return 
+     * @return
      */
     public void login(ActionEvent event) {
         this.session = null;
@@ -80,19 +83,19 @@ public class MBLogin implements Serializable {
             if (tUsuario == true) {
                 if (dao_User.Contraseña(this.session, this.username).isEmpty()) {
                     FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error de acceso:", "Usuario sin contraseña/ prueba solamente"));
-                    
 
                 } else {
-                    
+
                     if (dao_User.ischecking(this.session, this.username, this.password)) {
-                        
+
                         HttpSession httpSession = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
                         httpSession.setAttribute("NombreVendedor", dao_User.obtenerCedula(this.session, this.username));
                         this.baul = dao_User.obtenerCedula(this.session, this.username);
                         this.cargo = dao_User.Cargo(this.session, this.username);
                         httpSession.setAttribute("codven", dao_vendedor.getByNombre(this.session, dao_User.obtenerCedula(this.session, this.username)));
+                        httpSession.setAttribute("activo", true);
                         ctx.redirect(ctxPath + "/faces/Menu/Principal.xhtml");
-                        
+
                     }
                 }
 
@@ -105,8 +108,6 @@ public class MBLogin implements Serializable {
 
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error de acceso:", "Usuario o contraseña incorrecto"));
 
-         
-
         } catch (Exception ex) {
             if (this.transaccion != null) {
                 this.transaccion.rollback();
@@ -114,34 +115,37 @@ public class MBLogin implements Serializable {
 
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Error fatal:", "Por favor contacte con su administrador " + ex.getMessage()));
 
-          
         } finally {
             if (this.session != null) {
                 this.session.close();
             }
         }
     }
-    
 
-    
-    public String cerrarSesion(ActionEvent event) {
+    public void cerrarSesion(ActionEvent event) {
         this.username = null;
         this.password = null;
+        ExternalContext ctx = FacesContext.getCurrentInstance().getExternalContext();
+        String ctxPath = ((ServletContext) ctx.getContext()).getContextPath();
+        try {
 
-        HttpSession httpSession = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
-        httpSession.invalidate();
-
-        return "/Login";
-    }
-    
-    
-    public  String obtenerMacWin(){
+            HttpSession httpSession = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
+            
+            httpSession.invalidate();
        
-       return "Ip : ";
-    }
-    
-    
+            ctx.redirect(ctxPath + "/faces/Login.xhtml");
+            
+        } catch (IOException ex) {
+            Logger.getLogger(MBLogin.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
+       
+    }
+
+    public String obtenerMacWin() {
+
+        return "Ip : ";
+    }
 
     public String getUsername() {
         return username;
@@ -176,12 +180,12 @@ public class MBLogin implements Serializable {
     }
 
     public void onIdle() {
-        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, 
-                                        "No activity.", "What are you doing over there?"));
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN,
+                "No activity.", "What are you doing over there?"));
     }
- 
+
     public void onActive() {
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN,
-                                        "Welcome Back", "Well, that's a long coffee break!"));
+                "Welcome Back", "Well, that's a long coffee break!"));
     }
 }

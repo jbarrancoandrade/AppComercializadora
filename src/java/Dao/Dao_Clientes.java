@@ -29,11 +29,12 @@ public class Dao_Clientes implements Interface_Clientes {
     }
 
     @Override
-    public List<VenClientes> Buscar(Session session, String Parametro) throws Exception {
-
-        Query query = session.createQuery("From VenClientes as u where u.cedula like '" + Parametro + "' or nombreBus like '" + Parametro + "'");
+    public List<VenClientes> Buscar(Session session, String codVen ,String Parametro) throws Exception {
+        Query query = session.createQuery("From VenClientes  u where u.codVen=:codVen and u.cedula like '" + Parametro + "' or nombreBus like '" + Parametro + "'");
+        query.setParameter("codVen", codVen);
 
         List<VenClientes> List = (List<VenClientes>) query.list();
+        
 
         return List;
 

@@ -204,7 +204,7 @@ public class MBClientes implements Serializable {
             this.transaccion = this.session.beginTransaction();
 
             parametroBus = parametroBus.replace("", "%");
-            listClientes = dao_Clientes.Buscar(this.session, parametroBus);
+            listClientes = dao_Clientes.Buscar(this.session,codven ,parametroBus);
             this.transaccion.commit();
 
         } catch (Exception ex) {

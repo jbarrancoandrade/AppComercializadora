@@ -33,7 +33,9 @@ import java.util.logging.Logger;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -647,11 +649,12 @@ public class MBCatProductos implements Serializable {
      * 
      * @return 
      */
-    public String save() {
+    public void save(ActionEvent event) {
         
         this.session = null;
         this.transaccion = null;
-
+        ExternalContext ctx = FacesContext.getCurrentInstance().getExternalContext();
+        String ctxPath = ((ServletContext) ctx.getContext()).getContextPath();
         try {
             this.session = HibernateUtil.getSessionFactory().openSession();
             this.transaccion = this.session.beginTransaction();
@@ -660,7 +663,8 @@ public class MBCatProductos implements Serializable {
             dao_DetalCart.ActualizarEstado(this.session, consecutivocompleto, Codalm, "P");
             dao_MaeCart.ActualizarEstado(this.session, consecutivocompleto, Codalm, "P");
             this.transaccion.commit();
-            return "/CLientes/ListarPedidos.xhtml";
+             ctx.redirect(ctxPath + "/faces/CLientes/ListarPedidos.xhtml");
+           
            
         } catch (Exception ex) {
             if (this.transaccion != null) {
@@ -668,7 +672,7 @@ public class MBCatProductos implements Serializable {
             }
 
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Error", ex.getMessage()));
-            return null;
+           
         } finally {
             if (this.session != null) {
                 this.session.close();
