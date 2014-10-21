@@ -70,7 +70,7 @@
                         </f:facet>
                         <p:column style="height: 200px;width: 200px">  
                             <!-- boton agregar dirrecto al carro, un producto por defecto, precio por defecto -->
-                            <p:commandButton id="ajax" icon="ui-icon-plusthick" title="Agregar Carrito " actionListener="#{mBCatProductos.agregarListaVentaDetalle(pro.codins, '1.00', '00.00')}" styleClass="ui-priority-primary" style="float:right;" update="@form" />
+                            <p:commandButton id="ajax" icon="ui-icon-plusthick" title="Agregar Carrito " actionListener="#{mBCatProductos.agregarListaVentaDetalle(pro.codins)}" styleClass="ui-priority-primary" style="float:right;" update="@form" />
                             <!-- fin boton agregar dirrecto al carro -->
                             <p:panel header="#{pro.nomins} / #{pro.codins}" style="text-align:center;"  >  
                                 <p:panelGrid columns="2" style="width:100%">  

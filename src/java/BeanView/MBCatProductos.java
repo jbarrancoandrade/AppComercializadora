@@ -553,7 +553,7 @@ public class MBCatProductos implements Serializable {
      * @param codins
      * @throws Exception
      */
-    public void agregarListaVentaDetalle(String codins, String cantidadMe, String Margendescuento) throws Exception {
+    public void agregarListaVentaDetalle(String codins) throws Exception {
         this.session = null;
         this.transaccion = null;
 
@@ -564,14 +564,17 @@ public class MBCatProductos implements Serializable {
             ListdetaCarts = new ArrayList<>();
 
             ListMaeCart = new ArrayList<>();
-
+             
             if (Disponibles(codins) > 0) {
+                
                 if (dao_DetalCart.ExisteCodins(this.session, Codalm, consecutivocompleto, "_PV", codins, "")) {
-
+                    
                     //averiguar precio,facturaiva,ivainclido,margendeiva,margendsc
                     boolean FacturaIva = false;
                     boolean IvaIncluido = false;
+                    
                     BigDecimal precio = convertirBig(dao_Producctos.precios(this.session, codins, Codalm, CodList));
+                    
                     BigDecimal MIva = convertirBig(dao_Producctos.getmargeIva(this.session, dao_Producctos.getIdIva(this.session, codins)));
                     BigDecimal margendesc = convertirBig(dao_Producctos.margendescuento(this.session, codins, Codalm, CodList));
                     BigDecimal cantidadB = dao_DetalCart.cantidad(this.session, Codalm, consecutivocompleto, "_PV", codins, "");
@@ -583,18 +586,17 @@ public class MBCatProductos implements Serializable {
                             IvaIncluido = item.isIvaIncluido();
                         }
                     }
-                    BigDecimal cantval = new BigDecimal(cantidadMe); //convertir a bigdecimal valores cantidad
+                    BigDecimal cantval = BigDecimal.ONE; //convertir a bigdecimal valores cantidad
                     BigDecimal SumaCantidades = cantidadB.add(cantval);//sumar las cantidades
 
-                    BigDecimal margeneDescuentos = convertirBig(Margendescuento);//convertid a bigdecimal los descuentos de la vista
-                    BigDecimal SumaDescuentos = margendesc.add(margeneDescuentos);//sumar los descuentos
-
+                   // BigDecimal margeneDescuentos = convertirBig(Margendescuento);//convertid a bigdecimal los descuentos de la vista
+                    //BigDecimal SumaDescuentos = margendesc.add(margeneDescuentos);//sumar los descuentos
                     Calculos(MIva, precio, margendesc, cantidadB, FacturaIva, IvaIncluido);
 
                     //metodo que actualiza los cambios
                     dao_Producctos.updateCart(session, Codalm, consecutivocompleto, "_PV", "", codins, SumaCantidades, precio, margendesc, valorIva, valDcto);
                     //margeiva,valorinsumo,margedesc,cantidad,facturaiva,ivainculido
-
+                    
                 } else {
                     BigDecimal Iva = convertirBig(dao_Producctos.getmargeIva(this.session, dao_Producctos.getIdIva(this.session, codins)));
                     //averiguar precio,facturaiva,ivainclido,margendeiva,margendsc
@@ -611,10 +613,10 @@ public class MBCatProductos implements Serializable {
                             IvaIncluido = item.isIvaIncluido();
                         }
                     }
-                    BigDecimal cantval = new BigDecimal(cantidadMe); //convertir a bigdecimal valores cantidad
+                    BigDecimal cantval = new BigDecimal("1"); //convertir a bigdecimal valores cantidad
 
-                    BigDecimal margeneDescuentos = convertirBig(Margendescuento);//convertid a bigdecimal los descuentos de la vista
-                    BigDecimal cantid = convertirBig(cantidadMe);
+                 //   BigDecimal margeneDescuentos = convertirBig(Margendescuento);//convertid a bigdecimal los descuentos de la vista
+                    BigDecimal cantid = convertirBig("1");
                     Calculos(MIva, precio, margendesc, cantid, FacturaIva, IvaIncluido);
                     precioGen = precio.toString();
                     precioparc = Double.parseDouble(precioGen) * Double.parseDouble(cantid.toString());
@@ -626,6 +628,7 @@ public class MBCatProductos implements Serializable {
 
             }
 
+            
             this.transaccion.commit();
 
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Correcto", "Producto agregado"));

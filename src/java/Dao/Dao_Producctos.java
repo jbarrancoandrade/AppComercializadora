@@ -258,6 +258,7 @@ public class Dao_Producctos implements Interface_Productos {
                 .setString("tipPed",tipPed)
                 .setString("codTalla",codTalla)
                 .executeUpdate();
+        System.out.println("actualizado "+updatedEntities);
         return updatedEntities;//respuesta es un entero de fila afectada debe ser 1 
     }
 
