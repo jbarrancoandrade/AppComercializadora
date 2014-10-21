@@ -6,6 +6,7 @@
 package Interface;
 
 import POJOS.VenDetaCart;
+import POJOS.VenMaeCart;
 import java.math.BigDecimal;
 import java.util.List;
 import org.hibernate.Session;
@@ -88,6 +89,8 @@ public interface Interface_DetalCart {
      * @return
      * @throws Exception 
      */
-    public boolean existenPendientes(Session session,String codven) throws Exception;
+    public VenMaeCart Pendientes(Session session,String codven,String codter) throws Exception;
+    
+    public boolean existePendientes(Session session,String codven,String codter) throws Exception;
 
 }

@@ -16,18 +16,6 @@
 
                     <p:growl id="mensajeGeneral" showDetail="true" sticky="false" />
 
-                    <p:commandButton value="Alertas" icon="ui-icon-alert" iconPos="left" title="Alertas" disabled="#{mBClientes.alerta}" actionListener="#{mBClientes.getAlmPendientes(event)}" update="mensajeGeneral" style="float: right;background-color: red;">
-                        <p:confirm header="Confirmation" message="Desea Ver Los Pedidos NO finalizados ?" icon="ui-icon-alert" />
-                    </p:commandButton>
-
-                    <p:confirmDialog global="true" showEffect="fade" hideEffect="explode">
-                        <p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
-                        <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
-                    </p:confirmDialog>
-
-                   
-
-
                     <p:outputPanel style="margin-top: 1%;margin-bottom: 1%;">
                         <h:outputText value="Buscar En todos : " />
                         <p:inputText id="globalFilter" value="#{mBClientes.parametroBus}"

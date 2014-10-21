@@ -101,15 +101,31 @@ public class Dao_DetalCart implements Interface_DetalCart {
         return updatedEntities;//respuesta es un entero de fila afectada debe ser 1  
 
     }
-    
-    
+
     @Override
-    public boolean existenPendientes(Session session,String codVen) throws Exception{
-        Query query = session.createQuery("From VenMaeCart u where codVen=:codVen  and estado='A'");
+    public VenMaeCart Pendientes(Session session, String codVen, String codter) throws Exception {
+        Query query = session.createQuery("From VenMaeCart  where codVen=:codVen and codter=:codter and estado='A' ");
         query.setParameter("codVen", codVen);
+        query.setParameter("codter", codter);
         VenMaeCart vn = (VenMaeCart) query.uniqueResult();
-        boolean x = (vn != null); 
-       
+
+        return vn;
+    }
+
+    @Override
+    public boolean existePendientes(Session session, String codVen, String codter) throws Exception {
+        System.out.println("entre a este metodo existependientes");
+        Query query = session.createQuery("From VenMaeCart u where u.codVen=:codVen  and u.estado='A' and u.codter=:codter");
+        System.out.println("pase la consulta");
+        
+        query.setParameter("codVen", codVen);
+        
+        query.setParameter("codter", codter);
+        VenMaeCart vn = (VenMaeCart) query.uniqueResult();
+         boolean x = false;
+         x = vn != null;
+        
+        System.out.println("respuest es :"+ x);
         return x;
     }
 
