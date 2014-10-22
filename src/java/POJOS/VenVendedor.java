@@ -1,5 +1,5 @@
 package POJOS;
-// Generated 19-sep-2014 10:35:39 by Hibernate Tools 3.6.0
+// Generated 21-oct-2014 16:02:55 by Hibernate Tools 3.6.0
 
 
 import java.util.Date;
@@ -28,24 +28,24 @@ public class VenVendedor  implements java.io.Serializable {
      private String nombreCom;
      private boolean modificado;
      private String tels;
-     private String codzona;
+     private String codZona;
      private String codCaja;
 
     public VenVendedor() {
     }
 
 	
-    public VenVendedor(String codven, boolean registraFecNac, Date fecNac, String nombreCom, boolean modificado, String tels, String codzona, String codCaja) {
+    public VenVendedor(String codven, boolean registraFecNac, Date fecNac, String nombreCom, boolean modificado, String tels, String codZona, String codCaja) {
         this.codven = codven;
         this.registraFecNac = registraFecNac;
         this.fecNac = fecNac;
         this.nombreCom = nombreCom;
         this.modificado = modificado;
         this.tels = tels;
-        this.codzona = codzona;
+        this.codZona = codZona;
         this.codCaja = codCaja;
     }
-    public VenVendedor(String codven, String cedula, String nombre1, String nombre2, String apellido1, String apellido2, String telefono1, String telefono2, String direccion, Boolean activo, String celular1, String celular2, String codalm, boolean registraFecNac, Date fecNac, String nombreCom, boolean modificado, String tels, String codzona, String codCaja) {
+    public VenVendedor(String codven, String cedula, String nombre1, String nombre2, String apellido1, String apellido2, String telefono1, String telefono2, String direccion, Boolean activo, String celular1, String celular2, String codalm, boolean registraFecNac, Date fecNac, String nombreCom, boolean modificado, String tels, String codZona, String codCaja) {
        this.codven = codven;
        this.cedula = cedula;
        this.nombre1 = nombre1;
@@ -64,7 +64,7 @@ public class VenVendedor  implements java.io.Serializable {
        this.nombreCom = nombreCom;
        this.modificado = modificado;
        this.tels = tels;
-       this.codzona = codzona;
+       this.codZona = codZona;
        this.codCaja = codCaja;
     }
    
@@ -194,12 +194,12 @@ public class VenVendedor  implements java.io.Serializable {
     public void setTels(String tels) {
         this.tels = tels;
     }
-    public String getCodzona() {
-        return this.codzona;
+    public String getCodZona() {
+        return this.codZona;
     }
     
-    public void setCodzona(String codzona) {
-        this.codzona = codzona;
+    public void setCodZona(String codZona) {
+        this.codZona = codZona;
     }
     public String getCodCaja() {
         return this.codCaja;

@@ -1,5 +1,5 @@
 package POJOS;
-// Generated 19-sep-2014 10:35:39 by Hibernate Tools 3.6.0
+// Generated 21-oct-2014 16:02:55 by Hibernate Tools 3.6.0
 
 
 import java.math.BigDecimal;
@@ -16,21 +16,17 @@ public class AlmDetaPedidoVentaRm  implements java.io.Serializable {
      private String tipfac;
      private String codRes;
      private String estado;
-     private String codTalla;
-     private String tipRem;
 
     public AlmDetaPedidoVentaRm() {
     }
 
-    public AlmDetaPedidoVentaRm(AlmDetaPedidoVentaRmId id, BigDecimal qtyRem, String numFac, String tipfac, String codRes, String estado, String codTalla, String tipRem) {
+    public AlmDetaPedidoVentaRm(AlmDetaPedidoVentaRmId id, BigDecimal qtyRem, String numFac, String tipfac, String codRes, String estado) {
        this.id = id;
        this.qtyRem = qtyRem;
        this.numFac = numFac;
        this.tipfac = tipfac;
        this.codRes = codRes;
        this.estado = estado;
-       this.codTalla = codTalla;
-       this.tipRem = tipRem;
     }
    
     public AlmDetaPedidoVentaRmId getId() {
@@ -74,20 +70,6 @@ public class AlmDetaPedidoVentaRm  implements java.io.Serializable {
     
     public void setEstado(String estado) {
         this.estado = estado;
-    }
-    public String getCodTalla() {
-        return this.codTalla;
-    }
-    
-    public void setCodTalla(String codTalla) {
-        this.codTalla = codTalla;
-    }
-    public String getTipRem() {
-        return this.tipRem;
-    }
-    
-    public void setTipRem(String tipRem) {
-        this.tipRem = tipRem;
     }
 
 

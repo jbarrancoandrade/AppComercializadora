@@ -1,5 +1,5 @@
 package POJOS;
-// Generated 19-sep-2014 10:35:39 by Hibernate Tools 3.6.0
+// Generated 21-oct-2014 16:02:55 by Hibernate Tools 3.6.0
 
 
 
@@ -18,12 +18,11 @@ public class TesCtasBancarias  implements java.io.Serializable {
      private boolean modificado;
      private String codmon;
      private String refcta;
-     private int orden;
 
     public TesCtasBancarias() {
     }
 
-    public TesCtasBancarias(String codCta, char tipoCta, String numCta, String codcue, boolean activa, String nomcta, boolean modificado, String codmon, String refcta, int orden) {
+    public TesCtasBancarias(String codCta, char tipoCta, String numCta, String codcue, boolean activa, String nomcta, boolean modificado, String codmon, String refcta) {
        this.codCta = codCta;
        this.tipoCta = tipoCta;
        this.numCta = numCta;
@@ -33,7 +32,6 @@ public class TesCtasBancarias  implements java.io.Serializable {
        this.modificado = modificado;
        this.codmon = codmon;
        this.refcta = refcta;
-       this.orden = orden;
     }
    
     public String getCodCta() {
@@ -98,13 +96,6 @@ public class TesCtasBancarias  implements java.io.Serializable {
     
     public void setRefcta(String refcta) {
         this.refcta = refcta;
-    }
-    public int getOrden() {
-        return this.orden;
-    }
-    
-    public void setOrden(int orden) {
-        this.orden = orden;
     }
 
 

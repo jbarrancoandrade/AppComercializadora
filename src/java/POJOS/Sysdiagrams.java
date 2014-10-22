@@ -1,5 +1,5 @@
 package POJOS;
-// Generated 19-sep-2014 10:35:39 by Hibernate Tools 3.6.0
+// Generated 21-oct-2014 16:02:55 by Hibernate Tools 3.6.0
 
 
 import java.io.Serializable;

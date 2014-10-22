@@ -1,5 +1,5 @@
 package POJOS;
-// Generated 19-sep-2014 10:35:39 by Hibernate Tools 3.6.0
+// Generated 21-oct-2014 16:02:55 by Hibernate Tools 3.6.0
 
 
 
@@ -24,7 +24,7 @@ public class NomPagosId  implements java.io.Serializable {
        this.codEmp = codEmp;
        this.numDoc = numDoc;
        this.tipDoc = tipDoc;
-      this.año = año;
+       this.año = año;
        this.mes = mes;
        this.PIni = PIni;
        this.PFin = PFin;

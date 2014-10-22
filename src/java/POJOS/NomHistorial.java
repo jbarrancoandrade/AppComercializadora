@@ -1,5 +1,5 @@
 package POJOS;
-// Generated 19-sep-2014 10:35:39 by Hibernate Tools 3.6.0
+// Generated 21-oct-2014 16:02:55 by Hibernate Tools 3.6.0
 
 
 import java.math.BigDecimal;
@@ -15,7 +15,7 @@ public class NomHistorial  implements java.io.Serializable {
      private Date fecDoc;
      private String codSec;
      private String codTer;
-     private BigDecimal qty;
+     private int qty;
      private BigDecimal vrUnitario;
      private BigDecimal devengado;
      private BigDecimal deducido;
@@ -23,13 +23,12 @@ public class NomHistorial  implements java.io.Serializable {
      private String codAlmPre;
      private String numCuo;
      private String numPre;
-     private BigDecimal ajusteP;
 
     public NomHistorial() {
     }
 
 	
-    public NomHistorial(NomHistorialId id, String codSec, String codTer, BigDecimal qty, BigDecimal vrUnitario, BigDecimal devengado, BigDecimal deducido, String codCue, String codAlmPre, String numCuo, String numPre, BigDecimal ajusteP) {
+    public NomHistorial(NomHistorialId id, String codSec, String codTer, int qty, BigDecimal vrUnitario, BigDecimal devengado, BigDecimal deducido, String codCue, String codAlmPre, String numCuo, String numPre) {
         this.id = id;
         this.codSec = codSec;
         this.codTer = codTer;
@@ -41,9 +40,8 @@ public class NomHistorial  implements java.io.Serializable {
         this.codAlmPre = codAlmPre;
         this.numCuo = numCuo;
         this.numPre = numPre;
-        this.ajusteP = ajusteP;
     }
-    public NomHistorial(NomHistorialId id, Date fecDoc, String codSec, String codTer, BigDecimal qty, BigDecimal vrUnitario, BigDecimal devengado, BigDecimal deducido, String codCue, String codAlmPre, String numCuo, String numPre, BigDecimal ajusteP) {
+    public NomHistorial(NomHistorialId id, Date fecDoc, String codSec, String codTer, int qty, BigDecimal vrUnitario, BigDecimal devengado, BigDecimal deducido, String codCue, String codAlmPre, String numCuo, String numPre) {
        this.id = id;
        this.fecDoc = fecDoc;
        this.codSec = codSec;
@@ -56,7 +54,6 @@ public class NomHistorial  implements java.io.Serializable {
        this.codAlmPre = codAlmPre;
        this.numCuo = numCuo;
        this.numPre = numPre;
-       this.ajusteP = ajusteP;
     }
    
     public NomHistorialId getId() {
@@ -87,11 +84,11 @@ public class NomHistorial  implements java.io.Serializable {
     public void setCodTer(String codTer) {
         this.codTer = codTer;
     }
-    public BigDecimal getQty() {
+    public int getQty() {
         return this.qty;
     }
     
-    public void setQty(BigDecimal qty) {
+    public void setQty(int qty) {
         this.qty = qty;
     }
     public BigDecimal getVrUnitario() {
@@ -142,13 +139,6 @@ public class NomHistorial  implements java.io.Serializable {
     
     public void setNumPre(String numPre) {
         this.numPre = numPre;
-    }
-    public BigDecimal getAjusteP() {
-        return this.ajusteP;
-    }
-    
-    public void setAjusteP(BigDecimal ajusteP) {
-        this.ajusteP = ajusteP;
     }
 
 

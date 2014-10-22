@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 19-sep-2014 10:35:40 by Hibernate Tools 3.6.0 -->
+<!-- Generated 21-oct-2014 16:02:56 by Hibernate Tools 3.6.0 -->
 <hibernate-mapping>
-    <class name="POJOS.VenListaPrecios" table="Ven_ListaPrecios" schema="dbo" catalog="BD_SEGURIDAD_FELOX">
+    <class name="POJOS.VenListaPrecios" table="Ven_ListaPrecios" schema="dbo" catalog="BD_COMERCIAL">
         <id name="codList" type="string">
             <column name="CodList" length="3" />
             <generator class="assigned" />
@@ -46,9 +46,6 @@
         </property>
         <property name="controlCosto" type="boolean">
             <column name="ControlCosto" not-null="true" />
-        </property>
-        <property name="userAccessTag" type="char">
-            <column name="UserAccessTag" length="1" not-null="true" />
         </property>
     </class>
 </hibernate-mapping>

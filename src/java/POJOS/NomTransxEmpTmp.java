@@ -1,5 +1,5 @@
 package POJOS;
-// Generated 19-sep-2014 10:35:39 by Hibernate Tools 3.6.0
+// Generated 21-oct-2014 16:02:55 by Hibernate Tools 3.6.0
 
 
 import java.math.BigDecimal;
@@ -18,12 +18,11 @@ public class NomTransxEmpTmp  implements java.io.Serializable {
      private String numCuo;
      private byte PIni;
      private byte PFin;
-     private BigDecimal ajusteP;
 
     public NomTransxEmpTmp() {
     }
 
-    public NomTransxEmpTmp(NomTransxEmpTmpId id, BigDecimal qty, BigDecimal vrUnitario, String codAlmPre, String numPre, String numCuo, byte PIni, byte PFin, BigDecimal ajusteP) {
+    public NomTransxEmpTmp(NomTransxEmpTmpId id, BigDecimal qty, BigDecimal vrUnitario, String codAlmPre, String numPre, String numCuo, byte PIni, byte PFin) {
        this.id = id;
        this.qty = qty;
        this.vrUnitario = vrUnitario;
@@ -32,7 +31,6 @@ public class NomTransxEmpTmp  implements java.io.Serializable {
        this.numCuo = numCuo;
        this.PIni = PIni;
        this.PFin = PFin;
-       this.ajusteP = ajusteP;
     }
    
     public NomTransxEmpTmpId getId() {
@@ -90,13 +88,6 @@ public class NomTransxEmpTmp  implements java.io.Serializable {
     
     public void setPFin(byte PFin) {
         this.PFin = PFin;
-    }
-    public BigDecimal getAjusteP() {
-        return this.ajusteP;
-    }
-    
-    public void setAjusteP(BigDecimal ajusteP) {
-        this.ajusteP = ajusteP;
     }
 
 

@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 21-oct-2014 16:02:56 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="POJOS.AlmDetapedidoVta" table="Alm_DetapedidoVta" schema="dbo" catalog="BD_COMERCIAL">
+        <composite-id name="id" class="POJOS.AlmDetapedidoVtaId">
+            <key-property name="codAlm" type="string">
+                <column name="CodAlm" length="8" />
+            </key-property>
+            <key-property name="numPed" type="string">
+                <column name="NumPed" length="8" />
+            </key-property>
+            <key-property name="tipPed" type="string">
+                <column name="TipPed" length="3" />
+            </key-property>
+            <key-property name="codIns" type="string">
+                <column name="CodIns" length="8" />
+            </key-property>
+        </composite-id>
+        <property name="qtyPed" type="big_decimal">
+            <column name="QtyPed" precision="18" not-null="true" />
+        </property>
+        <property name="qtyRem" type="big_decimal">
+            <column name="QtyRem" precision="18" not-null="true" />
+        </property>
+        <property name="qtyfac" type="big_decimal">
+            <column name="Qtyfac" precision="18" not-null="true" />
+        </property>
+        <property name="valing" type="big_decimal">
+            <column name="Valing" precision="18" not-null="true" />
+        </property>
+        <property name="valiva" type="big_decimal">
+            <column name="Valiva" precision="18" not-null="true" />
+        </property>
+        <property name="valdcto" type="big_decimal">
+            <column name="Valdcto" precision="18" not-null="true" />
+        </property>
+        <property name="margenIva" type="big_decimal">
+            <column name="MargenIva" precision="18" not-null="true" />
+        </property>
+        <property name="margendcto" type="big_decimal">
+            <column name="Margendcto" precision="18" not-null="true" />
+        </property>
+        <property name="valorUnitario" type="big_decimal">
+            <column name="ValorUnitario" precision="18" not-null="true" />
+        </property>
+        <property name="estado" type="string">
+            <column name="ESTADO" length="1" not-null="true" />
+        </property>
+        <property name="idReg" type="int">
+            <column name="IdReg" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

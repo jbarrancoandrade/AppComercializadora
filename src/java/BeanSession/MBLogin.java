@@ -77,7 +77,7 @@ public class MBLogin{
             this.transaccion = this.session.beginTransaction();
             ExternalContext ctx = FacesContext.getCurrentInstance().getExternalContext();
             String ctxPath = ((ServletContext) ctx.getContext()).getContextPath();
-
+           
             boolean tUsuario = dao_User.isValidUserName(this.session, this.username);
             //Encrypt.sha512
             if (tUsuario == true) {
@@ -85,7 +85,7 @@ public class MBLogin{
                     FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error de acceso:", "Usuario sin contraseña/ prueba solamente"));
 
                 } else {
-
+//go
                     if (dao_User.ischecking(this.session, this.username, this.password)) {
 
                         HttpSession httpSession = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);

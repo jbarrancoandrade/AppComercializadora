@@ -1,5 +1,5 @@
 package POJOS;
-// Generated 19-sep-2014 10:35:39 by Hibernate Tools 3.6.0
+// Generated 21-oct-2014 16:02:55 by Hibernate Tools 3.6.0
 
 
 
@@ -10,14 +10,12 @@ public class AlmLineasxToma  implements java.io.Serializable {
 
 
      private AlmLineasxTomaId id;
-     private String codsub;
 
     public AlmLineasxToma() {
     }
 
-    public AlmLineasxToma(AlmLineasxTomaId id, String codsub) {
+    public AlmLineasxToma(AlmLineasxTomaId id) {
        this.id = id;
-       this.codsub = codsub;
     }
    
     public AlmLineasxTomaId getId() {
@@ -26,13 +24,6 @@ public class AlmLineasxToma  implements java.io.Serializable {
     
     public void setId(AlmLineasxTomaId id) {
         this.id = id;
-    }
-    public String getCodsub() {
-        return this.codsub;
-    }
-    
-    public void setCodsub(String codsub) {
-        this.codsub = codsub;
     }
 
 

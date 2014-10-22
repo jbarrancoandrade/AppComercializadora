@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 19-sep-2014 10:35:40 by Hibernate Tools 3.6.0 -->
+<!-- Generated 21-oct-2014 16:02:56 by Hibernate Tools 3.6.0 -->
 <hibernate-mapping>
-    <class name="POJOS.VenDetaFact" table="Ven_DetaFact" schema="dbo" catalog="BD_SEGURIDAD_FELOX">
+    <class name="POJOS.VenDetaFact" table="Ven_DetaFact" schema="dbo" catalog="BD_COMERCIAL">
         <composite-id name="id" class="POJOS.VenDetaFactId">
             <key-property name="codalm" type="string">
                 <column name="Codalm" length="3" />
@@ -61,7 +61,7 @@
             <column name="CODTALLA" length="5" not-null="true" />
         </property>
         <property name="descrip" type="string">
-            <column name="DESCRIP" length="600" not-null="true" />
+            <column name="DESCRIP" length="80" not-null="true" />
         </property>
         <property name="margenDscto" type="big_decimal">
             <column name="MargenDscto" precision="9" not-null="true" />
@@ -77,15 +77,6 @@
         </property>
         <property name="qtyCon" type="big_decimal">
             <column name="QtyCon" precision="18" not-null="true" />
-        </property>
-        <property name="numped" type="string">
-            <column name="NUMPED" length="8" not-null="true" />
-        </property>
-        <property name="margenAiu" type="big_decimal">
-            <column name="MargenAIU" precision="18" not-null="true" />
-        </property>
-        <property name="valAiu" type="big_decimal">
-            <column name="ValAIU" precision="18" not-null="true" />
         </property>
     </class>
 </hibernate-mapping>

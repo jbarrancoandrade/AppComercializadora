@@ -1,5 +1,5 @@
 package POJOS;
-// Generated 19-sep-2014 10:35:39 by Hibernate Tools 3.6.0
+// Generated 21-oct-2014 16:02:55 by Hibernate Tools 3.6.0
 
 
 import java.math.BigDecimal;
@@ -29,15 +29,12 @@ public class VenDetaFact  implements java.io.Serializable {
      private String tipped;
      private String codVen;
      private BigDecimal qtyCon;
-     private String numped;
-     private BigDecimal margenAiu;
-     private BigDecimal valAiu;
 
     public VenDetaFact() {
     }
 
 	
-    public VenDetaFact(VenDetaFactId id, BigDecimal valIva, String codIva, String codtalla, String descrip, BigDecimal margenDscto, String lote, String tipped, String codVen, BigDecimal qtyCon, String numped, BigDecimal margenAiu, BigDecimal valAiu) {
+    public VenDetaFact(VenDetaFactId id, BigDecimal valIva, String codIva, String codtalla, String descrip, BigDecimal margenDscto, String lote, String tipped, String codVen, BigDecimal qtyCon) {
         this.id = id;
         this.valIva = valIva;
         this.codIva = codIva;
@@ -48,11 +45,8 @@ public class VenDetaFact  implements java.io.Serializable {
         this.tipped = tipped;
         this.codVen = codVen;
         this.qtyCon = qtyCon;
-        this.numped = numped;
-        this.margenAiu = margenAiu;
-        this.valAiu = valAiu;
     }
-    public VenDetaFact(VenDetaFactId id, BigDecimal valUnitario, BigDecimal valIns, BigDecimal valIva, BigDecimal qtyIns, BigDecimal qtyDev, BigDecimal ivaIns, BigDecimal cosIns, BigDecimal desIns, BigDecimal PList, Character estado, String codIva, String codtalla, String descrip, BigDecimal margenDscto, String lote, String tipped, String codVen, BigDecimal qtyCon, String numped, BigDecimal margenAiu, BigDecimal valAiu) {
+    public VenDetaFact(VenDetaFactId id, BigDecimal valUnitario, BigDecimal valIns, BigDecimal valIva, BigDecimal qtyIns, BigDecimal qtyDev, BigDecimal ivaIns, BigDecimal cosIns, BigDecimal desIns, BigDecimal PList, Character estado, String codIva, String codtalla, String descrip, BigDecimal margenDscto, String lote, String tipped, String codVen, BigDecimal qtyCon) {
        this.id = id;
        this.valUnitario = valUnitario;
        this.valIns = valIns;
@@ -72,9 +66,6 @@ public class VenDetaFact  implements java.io.Serializable {
        this.tipped = tipped;
        this.codVen = codVen;
        this.qtyCon = qtyCon;
-       this.numped = numped;
-       this.margenAiu = margenAiu;
-       this.valAiu = valAiu;
     }
    
     public VenDetaFactId getId() {
@@ -209,27 +200,6 @@ public class VenDetaFact  implements java.io.Serializable {
     
     public void setQtyCon(BigDecimal qtyCon) {
         this.qtyCon = qtyCon;
-    }
-    public String getNumped() {
-        return this.numped;
-    }
-    
-    public void setNumped(String numped) {
-        this.numped = numped;
-    }
-    public BigDecimal getMargenAiu() {
-        return this.margenAiu;
-    }
-    
-    public void setMargenAiu(BigDecimal margenAiu) {
-        this.margenAiu = margenAiu;
-    }
-    public BigDecimal getValAiu() {
-        return this.valAiu;
-    }
-    
-    public void setValAiu(BigDecimal valAiu) {
-        this.valAiu = valAiu;
     }
 
 

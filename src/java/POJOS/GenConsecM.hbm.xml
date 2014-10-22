@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 19-sep-2014 10:35:40 by Hibernate Tools 3.6.0 -->
+<!-- Generated 21-oct-2014 16:02:56 by Hibernate Tools 3.6.0 -->
 <hibernate-mapping>
-    <class name="POJOS.GenConsecM" table="Gen_ConsecM" schema="dbo" catalog="BD_SEGURIDAD_FELOX">
+    <class name="POJOS.GenConsecM" table="Gen_ConsecM" schema="dbo" catalog="BD_COMERCIAL">
         <composite-id name="id" class="POJOS.GenConsecMId">
             <key-property name="codalm" type="string">
                 <column name="Codalm" length="3" />
@@ -11,8 +11,8 @@
             <key-property name="codcon" type="string">
                 <column name="Codcon" length="3" />
             </key-property>
-            <key-property name="año" type="int">
-                <column name="Año" />
+            <key-property name="a&#241;o" type="int">
+                <column name="A&#241;o" />
             </key-property>
             <key-property name="mes" type="int">
                 <column name="Mes" />

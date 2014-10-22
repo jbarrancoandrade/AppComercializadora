@@ -1,5 +1,5 @@
 package POJOS;
-// Generated 19-sep-2014 10:35:39 by Hibernate Tools 3.6.0
+// Generated 21-oct-2014 16:02:55 by Hibernate Tools 3.6.0
 
 
 import java.math.BigDecimal;
@@ -14,21 +14,23 @@ public class CxPDetaCausa  implements java.io.Serializable {
      private BigDecimal debito;
      private BigDecimal credito;
      private BigDecimal base;
+     private String codCos;
      private BigDecimal valCau;
      private String estado;
-     private String detalle;
+     private String idregDe;
 
     public CxPDetaCausa() {
     }
 
-    public CxPDetaCausa(CxPDetaCausaId id, BigDecimal debito, BigDecimal credito, BigDecimal base, BigDecimal valCau, String estado, String detalle) {
+    public CxPDetaCausa(CxPDetaCausaId id, BigDecimal debito, BigDecimal credito, BigDecimal base, String codCos, BigDecimal valCau, String estado, String idregDe) {
        this.id = id;
        this.debito = debito;
        this.credito = credito;
        this.base = base;
+       this.codCos = codCos;
        this.valCau = valCau;
        this.estado = estado;
-       this.detalle = detalle;
+       this.idregDe = idregDe;
     }
    
     public CxPDetaCausaId getId() {
@@ -59,6 +61,13 @@ public class CxPDetaCausa  implements java.io.Serializable {
     public void setBase(BigDecimal base) {
         this.base = base;
     }
+    public String getCodCos() {
+        return this.codCos;
+    }
+    
+    public void setCodCos(String codCos) {
+        this.codCos = codCos;
+    }
     public BigDecimal getValCau() {
         return this.valCau;
     }
@@ -73,12 +82,12 @@ public class CxPDetaCausa  implements java.io.Serializable {
     public void setEstado(String estado) {
         this.estado = estado;
     }
-    public String getDetalle() {
-        return this.detalle;
+    public String getIdregDe() {
+        return this.idregDe;
     }
     
-    public void setDetalle(String detalle) {
-        this.detalle = detalle;
+    public void setIdregDe(String idregDe) {
+        this.idregDe = idregDe;
     }
 
 

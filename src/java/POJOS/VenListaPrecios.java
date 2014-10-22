@@ -1,5 +1,5 @@
 package POJOS;
-// Generated 19-sep-2014 10:35:39 by Hibernate Tools 3.6.0
+// Generated 21-oct-2014 16:02:55 by Hibernate Tools 3.6.0
 
 
 import java.math.BigDecimal;
@@ -24,13 +24,12 @@ public class VenListaPrecios  implements java.io.Serializable {
      private boolean showLowerPrice;
      private boolean publica;
      private boolean controlCosto;
-     private char userAccessTag;
 
     public VenListaPrecios() {
     }
 
 	
-    public VenListaPrecios(String codList, boolean roundPv, boolean modificarPv, BigDecimal roundPvbase, boolean modificado, BigDecimal margening, boolean activa, String tipPre, int orden, boolean showLowerPrice, boolean publica, boolean controlCosto, char userAccessTag) {
+    public VenListaPrecios(String codList, boolean roundPv, boolean modificarPv, BigDecimal roundPvbase, boolean modificado, BigDecimal margening, boolean activa, String tipPre, int orden, boolean showLowerPrice, boolean publica, boolean controlCosto) {
         this.codList = codList;
         this.roundPv = roundPv;
         this.modificarPv = modificarPv;
@@ -43,9 +42,8 @@ public class VenListaPrecios  implements java.io.Serializable {
         this.showLowerPrice = showLowerPrice;
         this.publica = publica;
         this.controlCosto = controlCosto;
-        this.userAccessTag = userAccessTag;
     }
-    public VenListaPrecios(String codList, String nomList, String codalm, boolean roundPv, boolean modificarPv, BigDecimal roundPvbase, boolean modificado, BigDecimal margening, boolean activa, String tipPre, int orden, boolean showLowerPrice, boolean publica, boolean controlCosto, char userAccessTag) {
+    public VenListaPrecios(String codList, String nomList, String codalm, boolean roundPv, boolean modificarPv, BigDecimal roundPvbase, boolean modificado, BigDecimal margening, boolean activa, String tipPre, int orden, boolean showLowerPrice, boolean publica, boolean controlCosto) {
        this.codList = codList;
        this.nomList = nomList;
        this.codalm = codalm;
@@ -60,7 +58,6 @@ public class VenListaPrecios  implements java.io.Serializable {
        this.showLowerPrice = showLowerPrice;
        this.publica = publica;
        this.controlCosto = controlCosto;
-       this.userAccessTag = userAccessTag;
     }
    
     public String getCodList() {
@@ -160,13 +157,6 @@ public class VenListaPrecios  implements java.io.Serializable {
     
     public void setControlCosto(boolean controlCosto) {
         this.controlCosto = controlCosto;
-    }
-    public char getUserAccessTag() {
-        return this.userAccessTag;
-    }
-    
-    public void setUserAccessTag(char userAccessTag) {
-        this.userAccessTag = userAccessTag;
     }
 
 

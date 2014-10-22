@@ -1,5 +1,5 @@
 package POJOS;
-// Generated 19-sep-2014 10:35:39 by Hibernate Tools 3.6.0
+// Generated 21-oct-2014 16:02:55 by Hibernate Tools 3.6.0
 
 
 import java.math.BigDecimal;
@@ -48,14 +48,13 @@ public class VenClientes  implements java.io.Serializable {
      private String direccionDesp;
      private long potencial;
      private String codZona;
-     private int plazoCr;
-     private boolean exentoIva;
+     private String codVenTmp;
 
     public VenClientes() {
     }
 
 	
-    public VenClientes(String cedula, String codcli, String email, boolean aplicaRetenciones, boolean aplicaReteIva, boolean aplicaReteIca, boolean aplicaReteFte, boolean registraFecNac, String nombreCom, String codMcpio, String codDpto, boolean tipCap, String tipId, boolean modificado, String tels, String nombreCal, String nombreBus, String codlist, Date fechaRegistro, String codVen, BigDecimal margenreteica, boolean retanybase, boolean forzarvtaori, String direccionDesp, long potencial, String codZona, int plazoCr, boolean exentoIva) {
+    public VenClientes(String cedula, String codcli, String email, boolean aplicaRetenciones, boolean aplicaReteIva, boolean aplicaReteIca, boolean aplicaReteFte, boolean registraFecNac, String nombreCom, String codMcpio, String codDpto, boolean tipCap, String tipId, boolean modificado, String tels, String nombreCal, String nombreBus, String codlist, Date fechaRegistro, String codVen, BigDecimal margenreteica, boolean retanybase, boolean forzarvtaori, String direccionDesp, long potencial, String codZona, String codVenTmp) {
         this.cedula = cedula;
         this.codcli = codcli;
         this.email = email;
@@ -82,10 +81,9 @@ public class VenClientes  implements java.io.Serializable {
         this.direccionDesp = direccionDesp;
         this.potencial = potencial;
         this.codZona = codZona;
-        this.plazoCr = plazoCr;
-        this.exentoIva = exentoIva;
+        this.codVenTmp = codVenTmp;
     }
-    public VenClientes(String cedula, String codcli, String nombre1, String nombre2, String apellido1, String apellido2, String telefono1, String telefono2, String celular1, String celular2, String direccion, Character regimen, String email, boolean aplicaRetenciones, boolean aplicaReteIva, boolean aplicaReteIca, boolean aplicaReteFte, boolean registraFecNac, Date fecNac, String nombreCom, String codMcpio, String codDpto, boolean tipCap, String tipId, boolean modificado, String tels, String nombreCal, String nombreBus, String codlist, Date fechaRegistro, String codVen, BigDecimal margenreteica, boolean retanybase, boolean forzarvtaori, String direccionDesp, long potencial, String codZona, int plazoCr, boolean exentoIva) {
+    public VenClientes(String cedula, String codcli, String nombre1, String nombre2, String apellido1, String apellido2, String telefono1, String telefono2, String celular1, String celular2, String direccion, Character regimen, String email, boolean aplicaRetenciones, boolean aplicaReteIva, boolean aplicaReteIca, boolean aplicaReteFte, boolean registraFecNac, Date fecNac, String nombreCom, String codMcpio, String codDpto, boolean tipCap, String tipId, boolean modificado, String tels, String nombreCal, String nombreBus, String codlist, Date fechaRegistro, String codVen, BigDecimal margenreteica, boolean retanybase, boolean forzarvtaori, String direccionDesp, long potencial, String codZona, String codVenTmp) {
        this.cedula = cedula;
        this.codcli = codcli;
        this.nombre1 = nombre1;
@@ -123,8 +121,7 @@ public class VenClientes  implements java.io.Serializable {
        this.direccionDesp = direccionDesp;
        this.potencial = potencial;
        this.codZona = codZona;
-       this.plazoCr = plazoCr;
-       this.exentoIva = exentoIva;
+       this.codVenTmp = codVenTmp;
     }
    
     public String getCedula() {
@@ -386,19 +383,12 @@ public class VenClientes  implements java.io.Serializable {
     public void setCodZona(String codZona) {
         this.codZona = codZona;
     }
-    public int getPlazoCr() {
-        return this.plazoCr;
+    public String getCodVenTmp() {
+        return this.codVenTmp;
     }
     
-    public void setPlazoCr(int plazoCr) {
-        this.plazoCr = plazoCr;
-    }
-    public boolean isExentoIva() {
-        return this.exentoIva;
-    }
-    
-    public void setExentoIva(boolean exentoIva) {
-        this.exentoIva = exentoIva;
+    public void setCodVenTmp(String codVenTmp) {
+        this.codVenTmp = codVenTmp;
     }
 
 

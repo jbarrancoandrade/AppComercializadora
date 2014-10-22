@@ -1,5 +1,5 @@
 package POJOS;
-// Generated 19-sep-2014 10:35:39 by Hibernate Tools 3.6.0
+// Generated 21-oct-2014 16:02:55 by Hibernate Tools 3.6.0
 
 
 import java.math.BigDecimal;
@@ -55,13 +55,12 @@ public class VenFacturas  implements java.io.Serializable {
      private BigDecimal margenpropina;
      private BigDecimal fpNc;
      private String codzona;
-     private BigDecimal valAiu;
 
     public VenFacturas() {
     }
 
 	
-    public VenFacturas(VenFacturasId id, String systemSrx, String codRes, byte swFp, String systemDbx, String codAlm, String tipFac, String numFac, BigDecimal vrefpagado, BigDecimal vrefcambio, String numTurno, boolean vbConta, String codsuc, BigDecimal margenpropina, BigDecimal fpNc, String codzona, BigDecimal valAiu) {
+    public VenFacturas(VenFacturasId id, String systemSrx, String codRes, byte swFp, String systemDbx, String codAlm, String tipFac, String numFac, BigDecimal vrefpagado, BigDecimal vrefcambio, String numTurno, boolean vbConta, String codsuc, BigDecimal margenpropina, BigDecimal fpNc, String codzona) {
         this.id = id;
         this.systemSrx = systemSrx;
         this.codRes = codRes;
@@ -78,9 +77,8 @@ public class VenFacturas  implements java.io.Serializable {
         this.margenpropina = margenpropina;
         this.fpNc = fpNc;
         this.codzona = codzona;
-        this.valAiu = valAiu;
     }
-    public VenFacturas(VenFacturasId id, Date fecFac, Date fecVen, String codcli, String codter, String codven, String codList, String codCaja, BigDecimal valVta, BigDecimal valIva, BigDecimal valAbo, BigDecimal valDcto, BigDecimal valRet, BigDecimal valRica, BigDecimal valRiva, BigDecimal valCosto, BigDecimal valNeto, BigDecimal fpEfectivo, BigDecimal fpTd, BigDecimal fpTc, BigDecimal fpCh, BigDecimal fpCr, BigDecimal fpAnticipo, BigDecimal fpOtr, String codUsu, Date fecSys, String horsys, Character estado, String systemSrx, String codRes, byte swFp, String systemDbx, String codAlm, String tipFac, String numFac, BigDecimal vrefpagado, BigDecimal vrefcambio, String numTurno, boolean vbConta, String codsuc, Date fecent, BigDecimal margenpropina, BigDecimal fpNc, String codzona, BigDecimal valAiu) {
+    public VenFacturas(VenFacturasId id, Date fecFac, Date fecVen, String codcli, String codter, String codven, String codList, String codCaja, BigDecimal valVta, BigDecimal valIva, BigDecimal valAbo, BigDecimal valDcto, BigDecimal valRet, BigDecimal valRica, BigDecimal valRiva, BigDecimal valCosto, BigDecimal valNeto, BigDecimal fpEfectivo, BigDecimal fpTd, BigDecimal fpTc, BigDecimal fpCh, BigDecimal fpCr, BigDecimal fpAnticipo, BigDecimal fpOtr, String codUsu, Date fecSys, String horsys, Character estado, String systemSrx, String codRes, byte swFp, String systemDbx, String codAlm, String tipFac, String numFac, BigDecimal vrefpagado, BigDecimal vrefcambio, String numTurno, boolean vbConta, String codsuc, Date fecent, BigDecimal margenpropina, BigDecimal fpNc, String codzona) {
        this.id = id;
        this.fecFac = fecFac;
        this.fecVen = fecVen;
@@ -125,7 +123,6 @@ public class VenFacturas  implements java.io.Serializable {
        this.margenpropina = margenpropina;
        this.fpNc = fpNc;
        this.codzona = codzona;
-       this.valAiu = valAiu;
     }
    
     public VenFacturasId getId() {
@@ -435,13 +432,6 @@ public class VenFacturas  implements java.io.Serializable {
     
     public void setCodzona(String codzona) {
         this.codzona = codzona;
-    }
-    public BigDecimal getValAiu() {
-        return this.valAiu;
-    }
-    
-    public void setValAiu(BigDecimal valAiu) {
-        this.valAiu = valAiu;
     }
 
 

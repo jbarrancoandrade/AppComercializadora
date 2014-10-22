@@ -3,29 +3,22 @@
 <hibernate-configuration>
   <session-factory>
     <property name="hibernate.connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
-    <property name="hibernate.connection.url">jdbc:sqlserver://JHONBARRANCOX\SQLEXPRESS\local:1433;databaseName=BD_SEGURIDAD_FELOX</property>
+    <property name="hibernate.connection.url">jdbc:sqlserver://JHONBARRANCOX\SQLEXPRESS\local:1433;databaseName=BD_COMERCIAL</property>
     <property name="hibernate.connection.username">sa</property>
     <property name="hibernate.connection.password">admin1</property>
     <mapping resource="POJOS/GenMails.hbm.xml"/>
     <mapping resource="POJOS/VenClientesSucursal.hbm.xml"/>
     <mapping resource="POJOS/NomCajas.hbm.xml"/>
-    <mapping resource="POJOS/AlmMaeMultiProd.hbm.xml"/>
-    <mapping resource="POJOS/CxPActComercial.hbm.xml"/>
     <mapping resource="POJOS/TesReciConceptos.hbm.xml"/>
-    <mapping resource="POJOS/AlmDetaMultiProd.hbm.xml"/>
     <mapping resource="POJOS/GenFavoritos.hbm.xml"/>
     <mapping resource="POJOS/AlmMaePedidoVenta.hbm.xml"/>
     <mapping resource="POJOS/TesDetaChequeras.hbm.xml"/>
     <mapping resource="POJOS/CxPProveedor.hbm.xml"/>
     <mapping resource="POJOS/TesMaeCajaMenor.hbm.xml"/>
     <mapping resource="POJOS/CntPeriodos.hbm.xml"/>
-    <mapping resource="POJOS/AlmMarcas.hbm.xml"/>
     <mapping resource="POJOS/CxPDetaCausa.hbm.xml"/>
     <mapping resource="POJOS/VenResxAlm.hbm.xml"/>
-    <mapping resource="POJOS/AlmFamilias.hbm.xml"/>
-    <mapping resource="POJOS/VenRetsXCliente.hbm.xml"/>
     <mapping resource="POJOS/TesChequeras.hbm.xml"/>
-    <mapping resource="POJOS/AlmDetaPedidoVenta.hbm.xml"/>
     <mapping resource="POJOS/CntTerceros.hbm.xml"/>
     <mapping resource="POJOS/NomPension.hbm.xml"/>
     <mapping resource="POJOS/AlmDetaInsumos.hbm.xml"/>
@@ -40,7 +33,6 @@
     <mapping resource="POJOS/TesCajas.hbm.xml"/>
     <mapping resource="POJOS/VenResoluciones.hbm.xml"/>
     <mapping resource="POJOS/VenDetaFact.hbm.xml"/>
-    <mapping resource="POJOS/AlmMaeDiseñoCb.hbm.xml"/>
     <mapping resource="POJOS/CntMmformatos.hbm.xml"/>
     <mapping resource="POJOS/VenDetaNotas.hbm.xml"/>
     <mapping resource="POJOS/CfgConfigReportsTer.hbm.xml"/>
@@ -50,7 +42,6 @@
     <mapping resource="POJOS/CntMmmaeSchemas.hbm.xml"/>
     <mapping resource="POJOS/VenCupos.hbm.xml"/>
     <mapping resource="POJOS/GenConsecM.hbm.xml"/>
-    <mapping resource="POJOS/TesFranquicias.hbm.xml"/>
     <mapping resource="POJOS/NomTransxVar.hbm.xml"/>
     <mapping resource="POJOS/CfgConfigReports.hbm.xml"/>
     <mapping resource="POJOS/NomCargos.hbm.xml"/>
@@ -70,22 +61,20 @@
     <mapping resource="POJOS/AlmTallas.hbm.xml"/>
     <mapping resource="POJOS/CntFiltros.hbm.xml"/>
     <mapping resource="POJOS/VenDetaCotizaOpc.hbm.xml"/>
+    <mapping resource="POJOS/AlmDetapedidoVta.hbm.xml"/>
     <mapping resource="POJOS/AlmDetaTomaInv.hbm.xml"/>
     <mapping resource="POJOS/VenFormaPago.hbm.xml"/>
     <mapping resource="POJOS/AlmMaeTraslado.hbm.xml"/>
     <mapping resource="POJOS/MlTerpel.hbm.xml"/>
-    <mapping resource="POJOS/AlmGruposTallas.hbm.xml"/>
     <mapping resource="POJOS/GenConsecutivos.hbm.xml"/>
     <mapping resource="POJOS/CxPRetIcaxFac.hbm.xml"/>
     <mapping resource="POJOS/VenMaeCotizaOpc.hbm.xml"/>
     <mapping resource="POJOS/CfgUsuarios.hbm.xml"/>
     <mapping resource="POJOS/MlDetaTalonario.hbm.xml"/>
-    <mapping resource="POJOS/CxPConceptosNotas.hbm.xml"/>
     <mapping resource="POJOS/AlmLineas.hbm.xml"/>
     <mapping resource="POJOS/NomEmpleado.hbm.xml"/>
     <mapping resource="POJOS/VenVendedor.hbm.xml"/>
     <mapping resource="POJOS/GenConsecA.hbm.xml"/>
-    <mapping resource="POJOS/AlmComVenxProd.hbm.xml"/>
     <mapping resource="POJOS/VenMaeNotas.hbm.xml"/>
     <mapping resource="POJOS/TesBancos.hbm.xml"/>
     <mapping resource="POJOS/CxPDetaCompra.hbm.xml"/>
@@ -97,12 +86,10 @@
     <mapping resource="POJOS/CntInvParVentas.hbm.xml"/>
     <mapping resource="POJOS/NomTipoContrato.hbm.xml"/>
     <mapping resource="POJOS/CfgConsecxTrans.hbm.xml"/>
-    <mapping resource="POJOS/GenTrazaDocFromDoc.hbm.xml"/>
     <mapping resource="POJOS/VenFpsxLp.hbm.xml"/>
     <mapping resource="POJOS/NomHistorialAportes.hbm.xml"/>
     <mapping resource="POJOS/TesControlTurno.hbm.xml"/>
     <mapping resource="POJOS/MlClase.hbm.xml"/>
-    <mapping resource="POJOS/TesCajasxUsu.hbm.xml"/>
     <mapping resource="POJOS/VenDetaCart.hbm.xml"/>
     <mapping resource="POJOS/NomTransaccion.hbm.xml"/>
     <mapping resource="POJOS/AlmInsumos.hbm.xml"/>
@@ -130,8 +117,6 @@
     <mapping resource="POJOS/GenMunicipios.hbm.xml"/>
     <mapping resource="POJOS/VenConceptosNotas.hbm.xml"/>
     <mapping resource="POJOS/CntMmtipDoc.hbm.xml"/>
-    <mapping resource="POJOS/PelDctoxServ.hbm.xml"/>
-    <mapping resource="POJOS/AlmInventTalla.hbm.xml"/>
     <mapping resource="POJOS/AlmInventLote.hbm.xml"/>
     <mapping resource="POJOS/GenHomologacion.hbm.xml"/>
     <mapping resource="POJOS/GenModules.hbm.xml"/>
@@ -141,12 +126,10 @@
     <mapping resource="POJOS/TesCtasBancariasxAlm.hbm.xml"/>
     <mapping resource="POJOS/MlMaeTalonario.hbm.xml"/>
     <mapping resource="POJOS/CntCenCostos.hbm.xml"/>
-    <mapping resource="POJOS/TesCtasBancariasxUsu.hbm.xml"/>
     <mapping resource="POJOS/NomLiqsTrans.hbm.xml"/>
     <mapping resource="POJOS/CntMaeFormatExcel.hbm.xml"/>
     <mapping resource="POJOS/VenListaPrecios.hbm.xml"/>
     <mapping resource="POJOS/SysAlmConceptos.hbm.xml"/>
-    <mapping resource="POJOS/VenVendxAlm.hbm.xml"/>
     <mapping resource="POJOS/CntDetaFormatExcel.hbm.xml"/>
     <mapping resource="POJOS/VenRetxFac.hbm.xml"/>
     <mapping resource="POJOS/NomTransxEmp.hbm.xml"/>
@@ -161,7 +144,6 @@
     <mapping resource="POJOS/AlmInsUnidades.hbm.xml"/>
     <mapping resource="POJOS/NomHistorial.hbm.xml"/>
     <mapping resource="POJOS/TesEgresos.hbm.xml"/>
-    <mapping resource="POJOS/GenMonedas.hbm.xml"/>
     <mapping resource="POJOS/VenDetaPed.hbm.xml"/>
     <mapping resource="POJOS/CntMmmaeConceptos.hbm.xml"/>
     <mapping resource="POJOS/CntInvParDevVentas.hbm.xml"/>
@@ -180,8 +162,8 @@
     <mapping resource="POJOS/CntComprobantes.hbm.xml"/>
     <mapping resource="POJOS/CntFuentes.hbm.xml"/>
     <mapping resource="POJOS/NomEps.hbm.xml"/>
-    <mapping resource="POJOS/CxPRetsXProv.hbm.xml"/>
     <mapping resource="POJOS/VenDetaPreciosJoin.hbm.xml"/>
+    <mapping resource="POJOS/AlmMaePedidoVta.hbm.xml"/>
     <mapping resource="POJOS/AlmImgInsumos.hbm.xml"/>
     <mapping resource="POJOS/AlmDetaTraslado.hbm.xml"/>
   </session-factory>

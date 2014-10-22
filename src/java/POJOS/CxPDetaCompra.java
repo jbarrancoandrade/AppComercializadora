@@ -1,5 +1,5 @@
 package POJOS;
-// Generated 19-sep-2014 10:35:39 by Hibernate Tools 3.6.0
+// Generated 21-oct-2014 16:02:55 by Hibernate Tools 3.6.0
 
 
 import java.math.BigDecimal;
@@ -24,6 +24,7 @@ public class CxPDetaCompra  implements java.io.Serializable {
      private String codUsu;
      private Date fecSys;
      private String codIva;
+     private String codtalla;
      private BigDecimal qtydev;
      private BigDecimal valinsSiniva;
      private BigDecimal qtyDañada;
@@ -39,7 +40,7 @@ public class CxPDetaCompra  implements java.io.Serializable {
     }
 
 	
-    public CxPDetaCompra(CxPDetaCompraId id, String codInsRel, BigDecimal qtyPed, BigDecimal qtyRec, BigDecimal valIns, BigDecimal margenIva, BigDecimal valIva, BigDecimal valDes, char estCom, String codUsu, Date fecSys, String codIva, BigDecimal qtydev, BigDecimal valinsSiniva, BigDecimal qtyDañada, BigDecimal qtySendProv, String lote, BigDecimal margenIco, BigDecimal valIco, BigDecimal margenUtil, String ordenItem, BigDecimal valFleteUnd) {
+    public CxPDetaCompra(CxPDetaCompraId id, String codInsRel, BigDecimal qtyPed, BigDecimal qtyRec, BigDecimal valIns, BigDecimal margenIva, BigDecimal valIva, BigDecimal valDes, char estCom, String codUsu, Date fecSys, String codIva, String codtalla, BigDecimal qtydev, BigDecimal valinsSiniva, BigDecimal qtyDañada, BigDecimal qtySendProv, String lote, BigDecimal margenIco, BigDecimal valIco, BigDecimal margenUtil, String ordenItem, BigDecimal valFleteUnd) {
         this.id = id;
         this.codInsRel = codInsRel;
         this.qtyPed = qtyPed;
@@ -52,6 +53,7 @@ public class CxPDetaCompra  implements java.io.Serializable {
         this.codUsu = codUsu;
         this.fecSys = fecSys;
         this.codIva = codIva;
+        this.codtalla = codtalla;
         this.qtydev = qtydev;
         this.valinsSiniva = valinsSiniva;
         this.qtyDañada = qtyDañada;
@@ -63,7 +65,7 @@ public class CxPDetaCompra  implements java.io.Serializable {
         this.ordenItem = ordenItem;
         this.valFleteUnd = valFleteUnd;
     }
-    public CxPDetaCompra(CxPDetaCompraId id, String codInsRel, BigDecimal qtyPed, BigDecimal qtyRec, BigDecimal valIns, BigDecimal margenIva, BigDecimal valIva, BigDecimal margenDes, BigDecimal valDes, char estCom, String codUsu, Date fecSys, String codIva, BigDecimal qtydev, BigDecimal valinsSiniva, BigDecimal qtyDañada, BigDecimal qtySendProv, String lote, BigDecimal margenIco, BigDecimal valIco, BigDecimal margenUtil, String ordenItem, BigDecimal valFleteUnd) {
+    public CxPDetaCompra(CxPDetaCompraId id, String codInsRel, BigDecimal qtyPed, BigDecimal qtyRec, BigDecimal valIns, BigDecimal margenIva, BigDecimal valIva, BigDecimal margenDes, BigDecimal valDes, char estCom, String codUsu, Date fecSys, String codIva, String codtalla, BigDecimal qtydev, BigDecimal valinsSiniva, BigDecimal qtyDañada, BigDecimal qtySendProv, String lote, BigDecimal margenIco, BigDecimal valIco, BigDecimal margenUtil, String ordenItem, BigDecimal valFleteUnd) {
        this.id = id;
        this.codInsRel = codInsRel;
        this.qtyPed = qtyPed;
@@ -77,6 +79,7 @@ public class CxPDetaCompra  implements java.io.Serializable {
        this.codUsu = codUsu;
        this.fecSys = fecSys;
        this.codIva = codIva;
+       this.codtalla = codtalla;
        this.qtydev = qtydev;
        this.valinsSiniva = valinsSiniva;
        this.qtyDañada = qtyDañada;
@@ -179,6 +182,13 @@ public class CxPDetaCompra  implements java.io.Serializable {
     
     public void setCodIva(String codIva) {
         this.codIva = codIva;
+    }
+    public String getCodtalla() {
+        return this.codtalla;
+    }
+    
+    public void setCodtalla(String codtalla) {
+        this.codtalla = codtalla;
     }
     public BigDecimal getQtydev() {
         return this.qtydev;

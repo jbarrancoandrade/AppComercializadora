@@ -53,7 +53,7 @@ public class Dao_User implements Interface_User{
 
     }
     
-    //pendiente metodo aqui...
+    
 
     @Override
     public String Cargo(Session session, String userName) throws Exception {

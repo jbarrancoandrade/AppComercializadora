@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 19-sep-2014 10:35:40 by Hibernate Tools 3.6.0 -->
+<!-- Generated 21-oct-2014 16:02:56 by Hibernate Tools 3.6.0 -->
 <hibernate-mapping>
-    <class name="POJOS.VenVendedor" table="Ven_Vendedor" schema="dbo" catalog="BD_SEGURIDAD_FELOX">
+    <class name="POJOS.VenVendedor" table="Ven_Vendedor" schema="dbo" catalog="BD_COMERCIAL">
         <id name="codven" type="string">
             <column name="Codven" length="3" />
             <generator class="assigned" />
@@ -59,8 +59,8 @@
         <property name="tels" type="string">
             <column name="Tels" length="50" not-null="true" />
         </property>
-        <property name="codzona" type="string">
-            <column name="CODZONA" length="3" not-null="true" />
+        <property name="codZona" type="string">
+            <column name="CodZona" length="4" not-null="true" />
         </property>
         <property name="codCaja" type="string">
             <column name="CodCaja" length="5" not-null="true" />
