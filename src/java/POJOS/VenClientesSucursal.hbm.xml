@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 21-oct-2014 16:02:56 by Hibernate Tools 3.6.0 -->
+<!-- Generated 23-oct-2014 8:25:41 by Hibernate Tools 3.6.0 -->
 <hibernate-mapping>
-    <class name="POJOS.VenClientesSucursal" table="Ven_Clientes_Sucursal" schema="dbo" catalog="BD_COMERCIAL">
+    <class name="POJOS.VenClientesSucursal" table="Ven_Clientes_Sucursal" schema="dbo" catalog="BD_SEGURIDAD">
         <composite-id name="id" class="POJOS.VenClientesSucursalId">
             <key-property name="codCli" type="string">
                 <column name="CodCli" length="6" />
@@ -38,6 +38,9 @@
         </property>
         <property name="referencia" type="string">
             <column name="Referencia" length="100" not-null="true" />
+        </property>
+        <property name="aplicaReteIca" type="boolean">
+            <column name="AplicaReteICA" not-null="true" />
         </property>
     </class>
 </hibernate-mapping>

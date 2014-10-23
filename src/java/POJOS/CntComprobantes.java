@@ -1,5 +1,5 @@
 package POJOS;
-// Generated 21-oct-2014 16:02:55 by Hibernate Tools 3.6.0
+// Generated 23-oct-2014 8:25:39 by Hibernate Tools 3.6.0
 
 
 import java.math.BigDecimal;
@@ -20,14 +20,14 @@ public class CntComprobantes  implements java.io.Serializable {
      private String codUsu;
      private BigDecimal base;
      private String estDoc;
-     private String tipfac;
      private String numfac;
+     private String tipfac;
 
     public CntComprobantes() {
     }
 
 	
-    public CntComprobantes(CntComprobantesId id, BigDecimal debito, BigDecimal credito, String detalle, Date fecSys, String codUsu, BigDecimal base, String estDoc, String tipfac, String numfac) {
+    public CntComprobantes(CntComprobantesId id, BigDecimal debito, BigDecimal credito, String detalle, Date fecSys, String codUsu, BigDecimal base, String estDoc, String numfac, String tipfac) {
         this.id = id;
         this.debito = debito;
         this.credito = credito;
@@ -36,10 +36,10 @@ public class CntComprobantes  implements java.io.Serializable {
         this.codUsu = codUsu;
         this.base = base;
         this.estDoc = estDoc;
-        this.tipfac = tipfac;
         this.numfac = numfac;
+        this.tipfac = tipfac;
     }
-    public CntComprobantes(CntComprobantesId id, Date fecDoc, BigDecimal debito, BigDecimal credito, String detalle, Date fecSys, String codUsu, BigDecimal base, String estDoc, String tipfac, String numfac) {
+    public CntComprobantes(CntComprobantesId id, Date fecDoc, BigDecimal debito, BigDecimal credito, String detalle, Date fecSys, String codUsu, BigDecimal base, String estDoc, String numfac, String tipfac) {
        this.id = id;
        this.fecDoc = fecDoc;
        this.debito = debito;
@@ -49,8 +49,8 @@ public class CntComprobantes  implements java.io.Serializable {
        this.codUsu = codUsu;
        this.base = base;
        this.estDoc = estDoc;
-       this.tipfac = tipfac;
        this.numfac = numfac;
+       this.tipfac = tipfac;
     }
    
     public CntComprobantesId getId() {
@@ -116,19 +116,19 @@ public class CntComprobantes  implements java.io.Serializable {
     public void setEstDoc(String estDoc) {
         this.estDoc = estDoc;
     }
-    public String getTipfac() {
-        return this.tipfac;
-    }
-    
-    public void setTipfac(String tipfac) {
-        this.tipfac = tipfac;
-    }
     public String getNumfac() {
         return this.numfac;
     }
     
     public void setNumfac(String numfac) {
         this.numfac = numfac;
+    }
+    public String getTipfac() {
+        return this.tipfac;
+    }
+    
+    public void setTipfac(String tipfac) {
+        this.tipfac = tipfac;
     }
 
 

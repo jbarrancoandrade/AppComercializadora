@@ -1,5 +1,5 @@
 package POJOS;
-// Generated 21-oct-2014 16:02:55 by Hibernate Tools 3.6.0
+// Generated 23-oct-2014 8:25:39 by Hibernate Tools 3.6.0
 
 
 import java.math.BigDecimal;
@@ -14,17 +14,15 @@ public class AlmDetaTomaInv  implements java.io.Serializable {
      private BigDecimal fisico;
      private BigDecimal canInv;
      private BigDecimal valInv;
-     private String codtalla;
 
     public AlmDetaTomaInv() {
     }
 
-    public AlmDetaTomaInv(AlmDetaTomaInvId id, BigDecimal fisico, BigDecimal canInv, BigDecimal valInv, String codtalla) {
+    public AlmDetaTomaInv(AlmDetaTomaInvId id, BigDecimal fisico, BigDecimal canInv, BigDecimal valInv) {
        this.id = id;
        this.fisico = fisico;
        this.canInv = canInv;
        this.valInv = valInv;
-       this.codtalla = codtalla;
     }
    
     public AlmDetaTomaInvId getId() {
@@ -54,13 +52,6 @@ public class AlmDetaTomaInv  implements java.io.Serializable {
     
     public void setValInv(BigDecimal valInv) {
         this.valInv = valInv;
-    }
-    public String getCodtalla() {
-        return this.codtalla;
-    }
-    
-    public void setCodtalla(String codtalla) {
-        this.codtalla = codtalla;
     }
 
 

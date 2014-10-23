@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 23-oct-2014 8:25:41 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="POJOS.GenMonedas" table="Gen_Monedas" schema="dbo" catalog="BD_SEGURIDAD">
+        <id name="codmon" type="string">
+            <column name="CODMON" length="3" />
+            <generator class="assigned" />
+        </id>
+        <property name="nommon" type="string">
+            <column name="NOMMON" length="50" not-null="true" />
+        </property>
+        <property name="abrevia" type="string">
+            <column name="ABREVIA" length="30" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

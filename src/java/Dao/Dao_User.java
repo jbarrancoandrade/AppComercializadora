@@ -52,7 +52,7 @@ public class Dao_User implements Interface_User{
         return user.getNombreCom();
 
     }
-    
+ //    
     
 
     @Override

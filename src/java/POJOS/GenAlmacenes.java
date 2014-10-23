@@ -1,5 +1,5 @@
 package POJOS;
-// Generated 21-oct-2014 16:02:55 by Hibernate Tools 3.6.0
+// Generated 23-oct-2014 8:25:39 by Hibernate Tools 3.6.0
 
 
 
@@ -52,12 +52,14 @@ public class GenAlmacenes  implements java.io.Serializable {
      private String observaFac;
      private boolean allowMultiTransfer;
      private int observaStartCur;
+     private boolean forceScanTra;
+     private boolean showCambioOtr;
 
     public GenAlmacenes() {
     }
 
 	
-    public GenAlmacenes(String codalm, boolean facturaIva, boolean ivaIncluido, boolean realizacompras, String nombreComercial, String controlFecha, boolean consolidarInfo, String systemSrox, String systemSrrx, String systemDbox, String systemDbrx, String codDpto, String codMcpio, boolean modificado, boolean showCambio, boolean autoaddprod, int qtymaxitemvta, boolean reteicavta, boolean showchoosevend, String leyendafac, String codterResp, String cel1, String cel2, String nombreabrev, byte orden, boolean ivaCosto, String printerName, boolean usePrinter, boolean ivaIncluidoFac, int modSelVen, boolean repetirProdsVta, boolean printCopiesFacVtaAsk, int printCopiesFacVtaQty, int ctrlPrecioMinimo, String observaFac, boolean allowMultiTransfer, int observaStartCur) {
+    public GenAlmacenes(String codalm, boolean facturaIva, boolean ivaIncluido, boolean realizacompras, String nombreComercial, String controlFecha, boolean consolidarInfo, String systemSrox, String systemSrrx, String systemDbox, String systemDbrx, String codDpto, String codMcpio, boolean modificado, boolean showCambio, boolean autoaddprod, int qtymaxitemvta, boolean reteicavta, boolean showchoosevend, String leyendafac, String codterResp, String cel1, String cel2, String nombreabrev, byte orden, boolean ivaCosto, String printerName, boolean usePrinter, boolean ivaIncluidoFac, int modSelVen, boolean repetirProdsVta, boolean printCopiesFacVtaAsk, int printCopiesFacVtaQty, int ctrlPrecioMinimo, String observaFac, boolean allowMultiTransfer, int observaStartCur, boolean forceScanTra, boolean showCambioOtr) {
         this.codalm = codalm;
         this.facturaIva = facturaIva;
         this.ivaIncluido = ivaIncluido;
@@ -95,8 +97,10 @@ public class GenAlmacenes  implements java.io.Serializable {
         this.observaFac = observaFac;
         this.allowMultiTransfer = allowMultiTransfer;
         this.observaStartCur = observaStartCur;
+        this.forceScanTra = forceScanTra;
+        this.showCambioOtr = showCambioOtr;
     }
-    public GenAlmacenes(String codalm, String codcen, String nomalm, String diralm, String tel1, String tel2, String tel3, boolean facturaIva, boolean ivaIncluido, boolean realizacompras, String nombreComercial, String controlFecha, boolean consolidarInfo, String systemSrox, String systemSrrx, String systemDbox, String systemDbrx, String codDpto, String codMcpio, boolean modificado, boolean showCambio, boolean autoaddprod, int qtymaxitemvta, boolean reteicavta, boolean showchoosevend, String leyendafac, String codterResp, String cel1, String cel2, String nombreabrev, byte orden, boolean ivaCosto, String printerName, boolean usePrinter, boolean ivaIncluidoFac, int modSelVen, boolean repetirProdsVta, boolean printCopiesFacVtaAsk, int printCopiesFacVtaQty, int ctrlPrecioMinimo, String observaFac, boolean allowMultiTransfer, int observaStartCur) {
+    public GenAlmacenes(String codalm, String codcen, String nomalm, String diralm, String tel1, String tel2, String tel3, boolean facturaIva, boolean ivaIncluido, boolean realizacompras, String nombreComercial, String controlFecha, boolean consolidarInfo, String systemSrox, String systemSrrx, String systemDbox, String systemDbrx, String codDpto, String codMcpio, boolean modificado, boolean showCambio, boolean autoaddprod, int qtymaxitemvta, boolean reteicavta, boolean showchoosevend, String leyendafac, String codterResp, String cel1, String cel2, String nombreabrev, byte orden, boolean ivaCosto, String printerName, boolean usePrinter, boolean ivaIncluidoFac, int modSelVen, boolean repetirProdsVta, boolean printCopiesFacVtaAsk, int printCopiesFacVtaQty, int ctrlPrecioMinimo, String observaFac, boolean allowMultiTransfer, int observaStartCur, boolean forceScanTra, boolean showCambioOtr) {
        this.codalm = codalm;
        this.codcen = codcen;
        this.nomalm = nomalm;
@@ -140,6 +144,8 @@ public class GenAlmacenes  implements java.io.Serializable {
        this.observaFac = observaFac;
        this.allowMultiTransfer = allowMultiTransfer;
        this.observaStartCur = observaStartCur;
+       this.forceScanTra = forceScanTra;
+       this.showCambioOtr = showCambioOtr;
     }
    
     public String getCodalm() {
@@ -442,6 +448,20 @@ public class GenAlmacenes  implements java.io.Serializable {
     
     public void setObservaStartCur(int observaStartCur) {
         this.observaStartCur = observaStartCur;
+    }
+    public boolean isForceScanTra() {
+        return this.forceScanTra;
+    }
+    
+    public void setForceScanTra(boolean forceScanTra) {
+        this.forceScanTra = forceScanTra;
+    }
+    public boolean isShowCambioOtr() {
+        return this.showCambioOtr;
+    }
+    
+    public void setShowCambioOtr(boolean showCambioOtr) {
+        this.showCambioOtr = showCambioOtr;
     }
 
 

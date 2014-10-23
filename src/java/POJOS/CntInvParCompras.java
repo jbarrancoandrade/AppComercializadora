@@ -1,5 +1,5 @@
 package POJOS;
-// Generated 21-oct-2014 16:02:55 by Hibernate Tools 3.6.0
+// Generated 23-oct-2014 8:25:39 by Hibernate Tools 3.6.0
 
 
 
@@ -12,16 +12,14 @@ public class CntInvParCompras  implements java.io.Serializable {
      private CntInvParComprasId id;
      private String ctaIvaDescontable;
      private String ctaAdivaDescontable;
-     private String ctaInventario;
 
     public CntInvParCompras() {
     }
 
-    public CntInvParCompras(CntInvParComprasId id, String ctaIvaDescontable, String ctaAdivaDescontable, String ctaInventario) {
+    public CntInvParCompras(CntInvParComprasId id, String ctaIvaDescontable, String ctaAdivaDescontable) {
        this.id = id;
        this.ctaIvaDescontable = ctaIvaDescontable;
        this.ctaAdivaDescontable = ctaAdivaDescontable;
-       this.ctaInventario = ctaInventario;
     }
    
     public CntInvParComprasId getId() {
@@ -44,13 +42,6 @@ public class CntInvParCompras  implements java.io.Serializable {
     
     public void setCtaAdivaDescontable(String ctaAdivaDescontable) {
         this.ctaAdivaDescontable = ctaAdivaDescontable;
-    }
-    public String getCtaInventario() {
-        return this.ctaInventario;
-    }
-    
-    public void setCtaInventario(String ctaInventario) {
-        this.ctaInventario = ctaInventario;
     }
 
 

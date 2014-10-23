@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 23-oct-2014 8:25:41 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="POJOS.TesCtasBancariasxUsu" table="Tes_CtasBancariasxUsu" schema="dbo" catalog="BD_SEGURIDAD">
+        <composite-id name="id" class="POJOS.TesCtasBancariasxUsuId">
+            <key-property name="codCta" type="string">
+                <column name="CodCta" length="5" />
+            </key-property>
+            <key-property name="codUsu" type="string">
+                <column name="CodUsu" length="10" />
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

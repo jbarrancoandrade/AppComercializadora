@@ -1,5 +1,5 @@
 package POJOS;
-// Generated 21-oct-2014 16:02:55 by Hibernate Tools 3.6.0
+// Generated 23-oct-2014 8:25:39 by Hibernate Tools 3.6.0
 
 
 import java.math.BigDecimal;
@@ -70,7 +70,7 @@ public class AlmInsumos  implements java.io.Serializable {
      private String codIvaCxP;
      private BigDecimal margenIcocxP;
      private BigDecimal margenIcoven;
-     private String codGruT;
+     private String codgrut;
      private boolean descargueSel;
      private String eanins;
      private boolean reqSerialInFac;
@@ -81,7 +81,7 @@ public class AlmInsumos  implements java.io.Serializable {
     }
 
 	
-    public AlmInsumos(String codins, String codbar, boolean consumoPeriodico, boolean permitirFraccion, String nitPro, String codAnt, String codIva, boolean modificado, String codCueIvaGen, String codCueIvaDes, String codCueAdivaGen, String codCueAdivaDes, String mlcodterp, String mlcodclase, String mlcodprod, String mlcodtipo, String codCueIngresos, String codCueAdingresos, String codCueCostos, String codCueAdcostos, String codCueInventario, String codCueAdinventario, String tmpnomline, String tmpnomsub, String numimp, String descrip, boolean controlbascula, boolean plangim, int plangimqtydias, boolean plangimxsesion, int plangimqtysesion, String codmar, String idcum, BigDecimal boxAlto, BigDecimal boxLargo, BigDecimal boxAncho, String ubiFisica, String codUsuDescontinua, Date fechaDescontinua, BigDecimal boxPeso, BigDecimal margenHipo, BigDecimal margenIco, String codIvaCxP, BigDecimal margenIcocxP, BigDecimal margenIcoven, String codGruT, boolean descargueSel, String eanins, boolean reqSerialInFac, int qtySerial, boolean infoExtendida) {
+    public AlmInsumos(String codins, String codbar, boolean consumoPeriodico, boolean permitirFraccion, String nitPro, String codAnt, String codIva, boolean modificado, String codCueIvaGen, String codCueIvaDes, String codCueAdivaGen, String codCueAdivaDes, String mlcodterp, String mlcodclase, String mlcodprod, String mlcodtipo, String codCueIngresos, String codCueAdingresos, String codCueCostos, String codCueAdcostos, String codCueInventario, String codCueAdinventario, String tmpnomline, String tmpnomsub, String numimp, String descrip, boolean controlbascula, boolean plangim, int plangimqtydias, boolean plangimxsesion, int plangimqtysesion, String codmar, String idcum, BigDecimal boxAlto, BigDecimal boxLargo, BigDecimal boxAncho, String ubiFisica, String codUsuDescontinua, Date fechaDescontinua, BigDecimal boxPeso, BigDecimal margenHipo, BigDecimal margenIco, String codIvaCxP, BigDecimal margenIcocxP, BigDecimal margenIcoven, String codgrut, boolean descargueSel, String eanins, boolean reqSerialInFac, int qtySerial, boolean infoExtendida) {
         this.codins = codins;
         this.codbar = codbar;
         this.consumoPeriodico = consumoPeriodico;
@@ -127,14 +127,14 @@ public class AlmInsumos  implements java.io.Serializable {
         this.codIvaCxP = codIvaCxP;
         this.margenIcocxP = margenIcocxP;
         this.margenIcoven = margenIcoven;
-        this.codGruT = codGruT;
+        this.codgrut = codgrut;
         this.descargueSel = descargueSel;
         this.eanins = eanins;
         this.reqSerialInFac = reqSerialInFac;
         this.qtySerial = qtySerial;
         this.infoExtendida = infoExtendida;
     }
-    public AlmInsumos(String codins, String nomins, String refins, String undIns, BigDecimal undxEmp, String codLinea, String codSub, Character clase, Boolean garantia, Integer qtyDiasGar, Boolean activo, String fichaTec, BigDecimal ucoins, String codrap, BigDecimal ultimoPrecio, String codbar, boolean consumoPeriodico, boolean permitirFraccion, String nitPro, String codAnt, String codIva, boolean modificado, String codCueIvaGen, String codCueIvaDes, String codCueAdivaGen, String codCueAdivaDes, String mlcodterp, String mlcodclase, String mlcodprod, String mlcodtipo, String codCueIngresos, String codCueAdingresos, String codCueCostos, String codCueAdcostos, String codCueInventario, String codCueAdinventario, String tmpnomline, String tmpnomsub, String numimp, String descrip, boolean controlbascula, boolean plangim, int plangimqtydias, boolean plangimxsesion, int plangimqtysesion, String codmar, String idcum, BigDecimal boxAlto, BigDecimal boxLargo, BigDecimal boxAncho, String ubiFisica, String codUsuDescontinua, Date fechaDescontinua, BigDecimal boxPeso, BigDecimal margenHipo, BigDecimal margenIco, String codIvaCxP, BigDecimal margenIcocxP, BigDecimal margenIcoven, String codGruT, boolean descargueSel, String eanins, boolean reqSerialInFac, int qtySerial, boolean infoExtendida) {
+    public AlmInsumos(String codins, String nomins, String refins, String undIns, BigDecimal undxEmp, String codLinea, String codSub, Character clase, Boolean garantia, Integer qtyDiasGar, Boolean activo, String fichaTec, BigDecimal ucoins, String codrap, BigDecimal ultimoPrecio, String codbar, boolean consumoPeriodico, boolean permitirFraccion, String nitPro, String codAnt, String codIva, boolean modificado, String codCueIvaGen, String codCueIvaDes, String codCueAdivaGen, String codCueAdivaDes, String mlcodterp, String mlcodclase, String mlcodprod, String mlcodtipo, String codCueIngresos, String codCueAdingresos, String codCueCostos, String codCueAdcostos, String codCueInventario, String codCueAdinventario, String tmpnomline, String tmpnomsub, String numimp, String descrip, boolean controlbascula, boolean plangim, int plangimqtydias, boolean plangimxsesion, int plangimqtysesion, String codmar, String idcum, BigDecimal boxAlto, BigDecimal boxLargo, BigDecimal boxAncho, String ubiFisica, String codUsuDescontinua, Date fechaDescontinua, BigDecimal boxPeso, BigDecimal margenHipo, BigDecimal margenIco, String codIvaCxP, BigDecimal margenIcocxP, BigDecimal margenIcoven, String codgrut, boolean descargueSel, String eanins, boolean reqSerialInFac, int qtySerial, boolean infoExtendida) {
        this.codins = codins;
        this.nomins = nomins;
        this.refins = refins;
@@ -194,7 +194,7 @@ public class AlmInsumos  implements java.io.Serializable {
        this.codIvaCxP = codIvaCxP;
        this.margenIcocxP = margenIcocxP;
        this.margenIcoven = margenIcoven;
-       this.codGruT = codGruT;
+       this.codgrut = codgrut;
        this.descargueSel = descargueSel;
        this.eanins = eanins;
        this.reqSerialInFac = reqSerialInFac;
@@ -615,12 +615,12 @@ public class AlmInsumos  implements java.io.Serializable {
     public void setMargenIcoven(BigDecimal margenIcoven) {
         this.margenIcoven = margenIcoven;
     }
-    public String getCodGruT() {
-        return this.codGruT;
+    public String getCodgrut() {
+        return this.codgrut;
     }
     
-    public void setCodGruT(String codGruT) {
-        this.codGruT = codGruT;
+    public void setCodgrut(String codgrut) {
+        this.codgrut = codgrut;
     }
     public boolean isDescargueSel() {
         return this.descargueSel;

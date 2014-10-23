@@ -1,5 +1,5 @@
 package POJOS;
-// Generated 21-oct-2014 16:02:55 by Hibernate Tools 3.6.0
+// Generated 23-oct-2014 8:25:39 by Hibernate Tools 3.6.0
 
 
 import java.util.Date;
@@ -15,23 +15,26 @@ public class NomPeriodos  implements java.io.Serializable {
      private boolean liquidado;
      private boolean aportes;
      private boolean provisiones;
+     private boolean removido;
 
     public NomPeriodos() {
     }
 
 	
-    public NomPeriodos(NomPeriodosId id, boolean liquidado, boolean aportes, boolean provisiones) {
+    public NomPeriodos(NomPeriodosId id, boolean liquidado, boolean aportes, boolean provisiones, boolean removido) {
         this.id = id;
         this.liquidado = liquidado;
         this.aportes = aportes;
         this.provisiones = provisiones;
+        this.removido = removido;
     }
-    public NomPeriodos(NomPeriodosId id, Date FCierre, boolean liquidado, boolean aportes, boolean provisiones) {
+    public NomPeriodos(NomPeriodosId id, Date FCierre, boolean liquidado, boolean aportes, boolean provisiones, boolean removido) {
        this.id = id;
        this.FCierre = FCierre;
        this.liquidado = liquidado;
        this.aportes = aportes;
        this.provisiones = provisiones;
+       this.removido = removido;
     }
    
     public NomPeriodosId getId() {
@@ -68,6 +71,13 @@ public class NomPeriodos  implements java.io.Serializable {
     
     public void setProvisiones(boolean provisiones) {
         this.provisiones = provisiones;
+    }
+    public boolean isRemovido() {
+        return this.removido;
+    }
+    
+    public void setRemovido(boolean removido) {
+        this.removido = removido;
     }
 
 

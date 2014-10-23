@@ -1,5 +1,5 @@
 package POJOS;
-// Generated 21-oct-2014 16:02:55 by Hibernate Tools 3.6.0
+// Generated 23-oct-2014 8:25:39 by Hibernate Tools 3.6.0
 
 
 
@@ -19,11 +19,12 @@ public class VenClientesSucursal  implements java.io.Serializable {
      private String direccion;
      private String tels;
      private String referencia;
+     private boolean aplicaReteIca;
 
     public VenClientesSucursal() {
     }
 
-    public VenClientesSucursal(VenClientesSucursalId id, String codMcpio, String codDpto, String telefono1, String telefono2, String celular1, String celular2, String direccion, String tels, String referencia) {
+    public VenClientesSucursal(VenClientesSucursalId id, String codMcpio, String codDpto, String telefono1, String telefono2, String celular1, String celular2, String direccion, String tels, String referencia, boolean aplicaReteIca) {
        this.id = id;
        this.codMcpio = codMcpio;
        this.codDpto = codDpto;
@@ -34,6 +35,7 @@ public class VenClientesSucursal  implements java.io.Serializable {
        this.direccion = direccion;
        this.tels = tels;
        this.referencia = referencia;
+       this.aplicaReteIca = aplicaReteIca;
     }
    
     public VenClientesSucursalId getId() {
@@ -105,6 +107,13 @@ public class VenClientesSucursal  implements java.io.Serializable {
     
     public void setReferencia(String referencia) {
         this.referencia = referencia;
+    }
+    public boolean isAplicaReteIca() {
+        return this.aplicaReteIca;
+    }
+    
+    public void setAplicaReteIca(boolean aplicaReteIca) {
+        this.aplicaReteIca = aplicaReteIca;
     }
 
 

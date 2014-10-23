@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 21-oct-2014 16:02:56 by Hibernate Tools 3.6.0 -->
+<!-- Generated 23-oct-2014 8:25:41 by Hibernate Tools 3.6.0 -->
 <hibernate-mapping>
-    <class name="POJOS.NomPeriodos" table="Nom_Periodos" schema="dbo" catalog="BD_COMERCIAL">
+    <class name="POJOS.NomPeriodos" table="Nom_Periodos" schema="dbo" catalog="BD_SEGURIDAD">
         <composite-id name="id" class="POJOS.NomPeriodosId">
             <key-property name="codSec" type="string">
                 <column name="CodSec" length="3" />
@@ -32,6 +32,9 @@
         </property>
         <property name="provisiones" type="boolean">
             <column name="Provisiones" not-null="true" />
+        </property>
+        <property name="removido" type="boolean">
+            <column name="Removido" not-null="true" />
         </property>
     </class>
 </hibernate-mapping>

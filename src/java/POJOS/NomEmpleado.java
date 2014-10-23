@@ -1,5 +1,5 @@
 package POJOS;
-// Generated 21-oct-2014 16:02:55 by Hibernate Tools 3.6.0
+// Generated 23-oct-2014 8:25:39 by Hibernate Tools 3.6.0
 
 
 
@@ -22,11 +22,15 @@ public class NomEmpleado  implements java.io.Serializable {
      private String codTipoCon;
      private String codSec;
      private String codEst;
+     private String codbanco;
+     private String nomcta;
+     private String numcta;
+     private int tipcta;
 
     public NomEmpleado() {
     }
 
-    public NomEmpleado(String codEmp, String codTer, String codCos, String codTerEps, String codTerArp, String codMarArp, String codTerPen, String codTerCes, String codTerCja, String codCargo, String codTipoCon, String codSec, String codEst) {
+    public NomEmpleado(String codEmp, String codTer, String codCos, String codTerEps, String codTerArp, String codMarArp, String codTerPen, String codTerCes, String codTerCja, String codCargo, String codTipoCon, String codSec, String codEst, String codbanco, String nomcta, String numcta, int tipcta) {
        this.codEmp = codEmp;
        this.codTer = codTer;
        this.codCos = codCos;
@@ -40,6 +44,10 @@ public class NomEmpleado  implements java.io.Serializable {
        this.codTipoCon = codTipoCon;
        this.codSec = codSec;
        this.codEst = codEst;
+       this.codbanco = codbanco;
+       this.nomcta = nomcta;
+       this.numcta = numcta;
+       this.tipcta = tipcta;
     }
    
     public String getCodEmp() {
@@ -132,6 +140,34 @@ public class NomEmpleado  implements java.io.Serializable {
     
     public void setCodEst(String codEst) {
         this.codEst = codEst;
+    }
+    public String getCodbanco() {
+        return this.codbanco;
+    }
+    
+    public void setCodbanco(String codbanco) {
+        this.codbanco = codbanco;
+    }
+    public String getNomcta() {
+        return this.nomcta;
+    }
+    
+    public void setNomcta(String nomcta) {
+        this.nomcta = nomcta;
+    }
+    public String getNumcta() {
+        return this.numcta;
+    }
+    
+    public void setNumcta(String numcta) {
+        this.numcta = numcta;
+    }
+    public int getTipcta() {
+        return this.tipcta;
+    }
+    
+    public void setTipcta(int tipcta) {
+        this.tipcta = tipcta;
     }
 
 

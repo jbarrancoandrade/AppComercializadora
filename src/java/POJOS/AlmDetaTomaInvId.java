@@ -1,5 +1,5 @@
 package POJOS;
-// Generated 21-oct-2014 16:02:55 by Hibernate Tools 3.6.0
+// Generated 23-oct-2014 8:25:39 by Hibernate Tools 3.6.0
 
 
 
@@ -12,14 +12,16 @@ public class AlmDetaTomaInvId  implements java.io.Serializable {
      private String codToma;
      private String codalm;
      private String codins;
+     private String codtalla;
 
     public AlmDetaTomaInvId() {
     }
 
-    public AlmDetaTomaInvId(String codToma, String codalm, String codins) {
+    public AlmDetaTomaInvId(String codToma, String codalm, String codins, String codtalla) {
        this.codToma = codToma;
        this.codalm = codalm;
        this.codins = codins;
+       this.codtalla = codtalla;
     }
    
     public String getCodToma() {
@@ -43,6 +45,13 @@ public class AlmDetaTomaInvId  implements java.io.Serializable {
     public void setCodins(String codins) {
         this.codins = codins;
     }
+    public String getCodtalla() {
+        return this.codtalla;
+    }
+    
+    public void setCodtalla(String codtalla) {
+        this.codtalla = codtalla;
+    }
 
 
    public boolean equals(Object other) {
@@ -53,7 +62,8 @@ public class AlmDetaTomaInvId  implements java.io.Serializable {
          
 		 return ( (this.getCodToma()==castOther.getCodToma()) || ( this.getCodToma()!=null && castOther.getCodToma()!=null && this.getCodToma().equals(castOther.getCodToma()) ) )
  && ( (this.getCodalm()==castOther.getCodalm()) || ( this.getCodalm()!=null && castOther.getCodalm()!=null && this.getCodalm().equals(castOther.getCodalm()) ) )
- && ( (this.getCodins()==castOther.getCodins()) || ( this.getCodins()!=null && castOther.getCodins()!=null && this.getCodins().equals(castOther.getCodins()) ) );
+ && ( (this.getCodins()==castOther.getCodins()) || ( this.getCodins()!=null && castOther.getCodins()!=null && this.getCodins().equals(castOther.getCodins()) ) )
+ && ( (this.getCodtalla()==castOther.getCodtalla()) || ( this.getCodtalla()!=null && castOther.getCodtalla()!=null && this.getCodtalla().equals(castOther.getCodtalla()) ) );
    }
    
    public int hashCode() {
@@ -62,6 +72,7 @@ public class AlmDetaTomaInvId  implements java.io.Serializable {
          result = 37 * result + ( getCodToma() == null ? 0 : this.getCodToma().hashCode() );
          result = 37 * result + ( getCodalm() == null ? 0 : this.getCodalm().hashCode() );
          result = 37 * result + ( getCodins() == null ? 0 : this.getCodins().hashCode() );
+         result = 37 * result + ( getCodtalla() == null ? 0 : this.getCodtalla().hashCode() );
          return result;
    }   
 

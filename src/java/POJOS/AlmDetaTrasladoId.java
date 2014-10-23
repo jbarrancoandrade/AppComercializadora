@@ -1,5 +1,5 @@
 package POJOS;
-// Generated 21-oct-2014 16:02:55 by Hibernate Tools 3.6.0
+// Generated 23-oct-2014 8:25:39 by Hibernate Tools 3.6.0
 
 
 
@@ -12,16 +12,16 @@ public class AlmDetaTrasladoId  implements java.io.Serializable {
      private String codAlmOri;
      private String numSalOri;
      private String codIns;
-     private char tiptra;
+     private String codtalla;
 
     public AlmDetaTrasladoId() {
     }
 
-    public AlmDetaTrasladoId(String codAlmOri, String numSalOri, String codIns, char tiptra) {
+    public AlmDetaTrasladoId(String codAlmOri, String numSalOri, String codIns, String codtalla) {
        this.codAlmOri = codAlmOri;
        this.numSalOri = numSalOri;
        this.codIns = codIns;
-       this.tiptra = tiptra;
+       this.codtalla = codtalla;
     }
    
     public String getCodAlmOri() {
@@ -45,12 +45,12 @@ public class AlmDetaTrasladoId  implements java.io.Serializable {
     public void setCodIns(String codIns) {
         this.codIns = codIns;
     }
-    public char getTiptra() {
-        return this.tiptra;
+    public String getCodtalla() {
+        return this.codtalla;
     }
     
-    public void setTiptra(char tiptra) {
-        this.tiptra = tiptra;
+    public void setCodtalla(String codtalla) {
+        this.codtalla = codtalla;
     }
 
 
@@ -63,7 +63,7 @@ public class AlmDetaTrasladoId  implements java.io.Serializable {
 		 return ( (this.getCodAlmOri()==castOther.getCodAlmOri()) || ( this.getCodAlmOri()!=null && castOther.getCodAlmOri()!=null && this.getCodAlmOri().equals(castOther.getCodAlmOri()) ) )
  && ( (this.getNumSalOri()==castOther.getNumSalOri()) || ( this.getNumSalOri()!=null && castOther.getNumSalOri()!=null && this.getNumSalOri().equals(castOther.getNumSalOri()) ) )
  && ( (this.getCodIns()==castOther.getCodIns()) || ( this.getCodIns()!=null && castOther.getCodIns()!=null && this.getCodIns().equals(castOther.getCodIns()) ) )
- && (this.getTiptra()==castOther.getTiptra());
+ && ( (this.getCodtalla()==castOther.getCodtalla()) || ( this.getCodtalla()!=null && castOther.getCodtalla()!=null && this.getCodtalla().equals(castOther.getCodtalla()) ) );
    }
    
    public int hashCode() {
@@ -72,7 +72,7 @@ public class AlmDetaTrasladoId  implements java.io.Serializable {
          result = 37 * result + ( getCodAlmOri() == null ? 0 : this.getCodAlmOri().hashCode() );
          result = 37 * result + ( getNumSalOri() == null ? 0 : this.getNumSalOri().hashCode() );
          result = 37 * result + ( getCodIns() == null ? 0 : this.getCodIns().hashCode() );
-         result = 37 * result + this.getTiptra();
+         result = 37 * result + ( getCodtalla() == null ? 0 : this.getCodtalla().hashCode() );
          return result;
    }   
 

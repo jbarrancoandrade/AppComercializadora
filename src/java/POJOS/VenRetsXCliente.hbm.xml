@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 23-oct-2014 8:25:41 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="POJOS.VenRetsXCliente" table="Ven_Rets_x_Cliente" schema="dbo" catalog="BD_SEGURIDAD">
+        <composite-id name="id" class="POJOS.VenRetsXClienteId">
+            <key-property name="cedula" type="string">
+                <column name="Cedula" length="15" />
+            </key-property>
+            <key-property name="codCon" type="string">
+                <column name="CodCon" length="3" />
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

@@ -1,5 +1,5 @@
 package POJOS;
-// Generated 21-oct-2014 16:02:55 by Hibernate Tools 3.6.0
+// Generated 23-oct-2014 8:25:39 by Hibernate Tools 3.6.0
 
 
 
@@ -17,12 +17,6 @@ public class TesBancos  implements java.io.Serializable {
     public TesBancos() {
     }
 
-	
-    public TesBancos(String codBanco, String nitBanco, boolean modificado) {
-        this.codBanco = codBanco;
-        this.nitBanco = nitBanco;
-        this.modificado = modificado;
-    }
     public TesBancos(String codBanco, String nomBanco, String nitBanco, boolean modificado) {
        this.codBanco = codBanco;
        this.nomBanco = nomBanco;

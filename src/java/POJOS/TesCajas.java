@@ -1,5 +1,5 @@
 package POJOS;
-// Generated 21-oct-2014 16:02:55 by Hibernate Tools 3.6.0
+// Generated 23-oct-2014 8:25:39 by Hibernate Tools 3.6.0
 
 
 import java.math.BigDecimal;
@@ -28,12 +28,17 @@ public class TesCajas  implements java.io.Serializable {
      private boolean auxiliar;
      private String codCajaPadre;
      private boolean ajustaSaldo;
+     private boolean printPosDt;
+     private boolean printPosFp;
+     private boolean printPosHd;
+     private boolean printPosRp;
+     private String printerPackage;
 
     public TesCajas() {
     }
 
 	
-    public TesCajas(String codCaja, String ctaEfectivo, String ctaCheques, String ctaTarjetas, String estado, boolean modificado, boolean cajaPpal, String estacion, String cedula, boolean cajamenor, boolean requierecuadre, BigDecimal cupocm, boolean autoTransfer, String codCajaTransfer, boolean auxiliar, String codCajaPadre, boolean ajustaSaldo) {
+    public TesCajas(String codCaja, String ctaEfectivo, String ctaCheques, String ctaTarjetas, String estado, boolean modificado, boolean cajaPpal, String estacion, String cedula, boolean cajamenor, boolean requierecuadre, BigDecimal cupocm, boolean autoTransfer, String codCajaTransfer, boolean auxiliar, String codCajaPadre, boolean ajustaSaldo, boolean printPosDt, boolean printPosFp, boolean printPosHd, boolean printPosRp, String printerPackage) {
         this.codCaja = codCaja;
         this.ctaEfectivo = ctaEfectivo;
         this.ctaCheques = ctaCheques;
@@ -51,8 +56,13 @@ public class TesCajas  implements java.io.Serializable {
         this.auxiliar = auxiliar;
         this.codCajaPadre = codCajaPadre;
         this.ajustaSaldo = ajustaSaldo;
+        this.printPosDt = printPosDt;
+        this.printPosFp = printPosFp;
+        this.printPosHd = printPosHd;
+        this.printPosRp = printPosRp;
+        this.printerPackage = printerPackage;
     }
-    public TesCajas(String codCaja, String nomcaja, String ctaEfectivo, String ctaCheques, String ctaTarjetas, String estado, boolean modificado, boolean cajaPpal, String estacion, String cedula, boolean cajamenor, boolean requierecuadre, BigDecimal cupocm, boolean autoTransfer, String codCajaTransfer, boolean auxiliar, String codCajaPadre, boolean ajustaSaldo) {
+    public TesCajas(String codCaja, String nomcaja, String ctaEfectivo, String ctaCheques, String ctaTarjetas, String estado, boolean modificado, boolean cajaPpal, String estacion, String cedula, boolean cajamenor, boolean requierecuadre, BigDecimal cupocm, boolean autoTransfer, String codCajaTransfer, boolean auxiliar, String codCajaPadre, boolean ajustaSaldo, boolean printPosDt, boolean printPosFp, boolean printPosHd, boolean printPosRp, String printerPackage) {
        this.codCaja = codCaja;
        this.nomcaja = nomcaja;
        this.ctaEfectivo = ctaEfectivo;
@@ -71,6 +81,11 @@ public class TesCajas  implements java.io.Serializable {
        this.auxiliar = auxiliar;
        this.codCajaPadre = codCajaPadre;
        this.ajustaSaldo = ajustaSaldo;
+       this.printPosDt = printPosDt;
+       this.printPosFp = printPosFp;
+       this.printPosHd = printPosHd;
+       this.printPosRp = printPosRp;
+       this.printerPackage = printerPackage;
     }
    
     public String getCodCaja() {
@@ -198,6 +213,41 @@ public class TesCajas  implements java.io.Serializable {
     
     public void setAjustaSaldo(boolean ajustaSaldo) {
         this.ajustaSaldo = ajustaSaldo;
+    }
+    public boolean isPrintPosDt() {
+        return this.printPosDt;
+    }
+    
+    public void setPrintPosDt(boolean printPosDt) {
+        this.printPosDt = printPosDt;
+    }
+    public boolean isPrintPosFp() {
+        return this.printPosFp;
+    }
+    
+    public void setPrintPosFp(boolean printPosFp) {
+        this.printPosFp = printPosFp;
+    }
+    public boolean isPrintPosHd() {
+        return this.printPosHd;
+    }
+    
+    public void setPrintPosHd(boolean printPosHd) {
+        this.printPosHd = printPosHd;
+    }
+    public boolean isPrintPosRp() {
+        return this.printPosRp;
+    }
+    
+    public void setPrintPosRp(boolean printPosRp) {
+        this.printPosRp = printPosRp;
+    }
+    public String getPrinterPackage() {
+        return this.printerPackage;
+    }
+    
+    public void setPrinterPackage(String printerPackage) {
+        this.printerPackage = printerPackage;
     }
 
 

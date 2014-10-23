@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 23-oct-2014 8:25:41 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="POJOS.GenTrazaDocFromDoc" table="Gen_Traza_DocFromDoc" schema="dbo" catalog="BD_SEGURIDAD">
+        <composite-id name="id" class="POJOS.GenTrazaDocFromDocId">
+            <key-property name="codCen" type="string">
+                <column name="CodCen" length="3" />
+            </key-property>
+            <key-property name="codRes" type="string">
+                <column name="CodRes" length="8" />
+            </key-property>
+            <key-property name="numDoc" type="string">
+                <column name="NumDoc" length="8" />
+            </key-property>
+            <key-property name="numRad" type="string">
+                <column name="NumRad" length="8" />
+            </key-property>
+            <key-property name="tipDoc" type="string">
+                <column name="TipDoc" length="3" />
+            </key-property>
+        </composite-id>
+        <property name="numDocNew" type="string">
+            <column name="NumDocNew" length="8" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

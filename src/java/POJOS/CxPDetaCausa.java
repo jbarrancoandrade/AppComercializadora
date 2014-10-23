@@ -1,5 +1,5 @@
 package POJOS;
-// Generated 21-oct-2014 16:02:55 by Hibernate Tools 3.6.0
+// Generated 23-oct-2014 8:25:39 by Hibernate Tools 3.6.0
 
 
 import java.math.BigDecimal;
@@ -14,23 +14,21 @@ public class CxPDetaCausa  implements java.io.Serializable {
      private BigDecimal debito;
      private BigDecimal credito;
      private BigDecimal base;
-     private String codCos;
      private BigDecimal valCau;
      private String estado;
-     private String idregDe;
+     private String detalle;
 
     public CxPDetaCausa() {
     }
 
-    public CxPDetaCausa(CxPDetaCausaId id, BigDecimal debito, BigDecimal credito, BigDecimal base, String codCos, BigDecimal valCau, String estado, String idregDe) {
+    public CxPDetaCausa(CxPDetaCausaId id, BigDecimal debito, BigDecimal credito, BigDecimal base, BigDecimal valCau, String estado, String detalle) {
        this.id = id;
        this.debito = debito;
        this.credito = credito;
        this.base = base;
-       this.codCos = codCos;
        this.valCau = valCau;
        this.estado = estado;
-       this.idregDe = idregDe;
+       this.detalle = detalle;
     }
    
     public CxPDetaCausaId getId() {
@@ -61,13 +59,6 @@ public class CxPDetaCausa  implements java.io.Serializable {
     public void setBase(BigDecimal base) {
         this.base = base;
     }
-    public String getCodCos() {
-        return this.codCos;
-    }
-    
-    public void setCodCos(String codCos) {
-        this.codCos = codCos;
-    }
     public BigDecimal getValCau() {
         return this.valCau;
     }
@@ -82,12 +73,12 @@ public class CxPDetaCausa  implements java.io.Serializable {
     public void setEstado(String estado) {
         this.estado = estado;
     }
-    public String getIdregDe() {
-        return this.idregDe;
+    public String getDetalle() {
+        return this.detalle;
     }
     
-    public void setIdregDe(String idregDe) {
-        this.idregDe = idregDe;
+    public void setDetalle(String detalle) {
+        this.detalle = detalle;
     }
 
 

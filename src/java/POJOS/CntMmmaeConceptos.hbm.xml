@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 21-oct-2014 16:02:56 by Hibernate Tools 3.6.0 -->
+<!-- Generated 23-oct-2014 8:25:41 by Hibernate Tools 3.6.0 -->
 <hibernate-mapping>
-    <class name="POJOS.CntMmmaeConceptos" table="Cnt_MMMaeConceptos" schema="dbo" catalog="BD_COMERCIAL">
+    <class name="POJOS.CntMmmaeConceptos" table="Cnt_MMMaeConceptos" schema="dbo" catalog="BD_SEGURIDAD">
         <composite-id name="id" class="POJOS.CntMmmaeConceptosId">
             <key-property name="codFor" type="string">
                 <column name="CodFor" length="4" />
@@ -16,7 +16,7 @@
             <column name="NomCon" length="900" not-null="true" />
         </property>
         <property name="forCodFue" type="string">
-            <column name="ForCodFue" length="100" not-null="true" />
+            <column name="ForCodFue" length="50" not-null="true" />
         </property>
     </class>
 </hibernate-mapping>

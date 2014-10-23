@@ -1,5 +1,5 @@
 package POJOS;
-// Generated 21-oct-2014 16:02:55 by Hibernate Tools 3.6.0
+// Generated 23-oct-2014 8:25:39 by Hibernate Tools 3.6.0
 
 
 import java.util.Date;
@@ -20,20 +20,22 @@ public class AlmTomaInv  implements java.io.Serializable {
      private String pcaplica;
      private Date fecSysAplica;
      private boolean sinStock;
-     private boolean modoConteo;
+     private int modoConteo;
+     private boolean tomaFull;
 
     public AlmTomaInv() {
     }
 
 	
-    public AlmTomaInv(AlmTomaInvId id, String codusuAplica, String pcaplica, boolean sinStock, boolean modoConteo) {
+    public AlmTomaInv(AlmTomaInvId id, String codusuAplica, String pcaplica, boolean sinStock, int modoConteo, boolean tomaFull) {
         this.id = id;
         this.codusuAplica = codusuAplica;
         this.pcaplica = pcaplica;
         this.sinStock = sinStock;
         this.modoConteo = modoConteo;
+        this.tomaFull = tomaFull;
     }
-    public AlmTomaInv(AlmTomaInvId id, Date fecToma, String observa, Boolean aplicada, String docEntrada, String docSalida, String codusuAplica, String pcaplica, Date fecSysAplica, boolean sinStock, boolean modoConteo) {
+    public AlmTomaInv(AlmTomaInvId id, Date fecToma, String observa, Boolean aplicada, String docEntrada, String docSalida, String codusuAplica, String pcaplica, Date fecSysAplica, boolean sinStock, int modoConteo, boolean tomaFull) {
        this.id = id;
        this.fecToma = fecToma;
        this.observa = observa;
@@ -45,6 +47,7 @@ public class AlmTomaInv  implements java.io.Serializable {
        this.fecSysAplica = fecSysAplica;
        this.sinStock = sinStock;
        this.modoConteo = modoConteo;
+       this.tomaFull = tomaFull;
     }
    
     public AlmTomaInvId getId() {
@@ -117,12 +120,19 @@ public class AlmTomaInv  implements java.io.Serializable {
     public void setSinStock(boolean sinStock) {
         this.sinStock = sinStock;
     }
-    public boolean isModoConteo() {
+    public int getModoConteo() {
         return this.modoConteo;
     }
     
-    public void setModoConteo(boolean modoConteo) {
+    public void setModoConteo(int modoConteo) {
         this.modoConteo = modoConteo;
+    }
+    public boolean isTomaFull() {
+        return this.tomaFull;
+    }
+    
+    public void setTomaFull(boolean tomaFull) {
+        this.tomaFull = tomaFull;
     }
 
 

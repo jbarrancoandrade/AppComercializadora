@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 21-oct-2014 16:02:56 by Hibernate Tools 3.6.0 -->
+<!-- Generated 23-oct-2014 8:25:41 by Hibernate Tools 3.6.0 -->
 <hibernate-mapping>
-    <class name="POJOS.CxPDetaCausa" table="CxP_DetaCausa" schema="dbo" catalog="BD_COMERCIAL">
+    <class name="POJOS.CxPDetaCausa" table="CxP_DetaCausa" schema="dbo" catalog="BD_SEGURIDAD">
         <composite-id name="id" class="POJOS.CxPDetaCausaId">
             <key-property name="codAlm" type="string">
                 <column name="CodAlm" length="3" />
@@ -23,6 +23,12 @@
             <key-property name="codter" type="string">
                 <column name="Codter" length="15" />
             </key-property>
+            <key-property name="codCos" type="string">
+                <column name="CodCos" length="3" />
+            </key-property>
+            <key-property name="idregDe" type="string">
+                <column name="IDREG_DE" length="4" />
+            </key-property>
         </composite-id>
         <property name="debito" type="big_decimal">
             <column name="Debito" precision="18" not-null="true" />
@@ -33,17 +39,14 @@
         <property name="base" type="big_decimal">
             <column name="Base" precision="18" not-null="true" />
         </property>
-        <property name="codCos" type="string">
-            <column name="CodCos" length="3" not-null="true" />
-        </property>
         <property name="valCau" type="big_decimal">
             <column name="ValCau" precision="18" not-null="true" />
         </property>
         <property name="estado" type="string">
             <column name="Estado" length="1" not-null="true" />
         </property>
-        <property name="idregDe" type="string">
-            <column name="IDREG_DE" length="4" not-null="true" />
+        <property name="detalle" type="string">
+            <column name="Detalle" length="150" not-null="true" />
         </property>
     </class>
 </hibernate-mapping>

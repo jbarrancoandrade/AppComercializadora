@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 21-oct-2014 16:02:56 by Hibernate Tools 3.6.0 -->
+<!-- Generated 23-oct-2014 8:25:41 by Hibernate Tools 3.6.0 -->
 <hibernate-mapping>
-    <class name="POJOS.AlmTomaInv" table="Alm_TomaInv" schema="dbo" catalog="BD_COMERCIAL">
+    <class name="POJOS.AlmTomaInv" table="Alm_TomaInv" schema="dbo" catalog="BD_SEGURIDAD">
         <composite-id name="id" class="POJOS.AlmTomaInvId">
             <key-property name="codToma" type="string">
                 <column name="CodToma" length="8" />
@@ -39,8 +39,11 @@
         <property name="sinStock" type="boolean">
             <column name="SinStock" not-null="true" />
         </property>
-        <property name="modoConteo" type="boolean">
+        <property name="modoConteo" type="int">
             <column name="ModoConteo" not-null="true" />
+        </property>
+        <property name="tomaFull" type="boolean">
+            <column name="TomaFull" not-null="true" />
         </property>
     </class>
 </hibernate-mapping>

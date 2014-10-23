@@ -1,5 +1,5 @@
 package POJOS;
-// Generated 21-oct-2014 16:02:55 by Hibernate Tools 3.6.0
+// Generated 23-oct-2014 8:25:39 by Hibernate Tools 3.6.0
 
 
 
@@ -15,17 +15,21 @@ public class CxPDetaCausaId  implements java.io.Serializable {
      private String codCon;
      private String codCue;
      private String codter;
+     private String codCos;
+     private String idregDe;
 
     public CxPDetaCausaId() {
     }
 
-    public CxPDetaCausaId(String codAlm, String numCau, String tipCau, String codCon, String codCue, String codter) {
+    public CxPDetaCausaId(String codAlm, String numCau, String tipCau, String codCon, String codCue, String codter, String codCos, String idregDe) {
        this.codAlm = codAlm;
        this.numCau = numCau;
        this.tipCau = tipCau;
        this.codCon = codCon;
        this.codCue = codCue;
        this.codter = codter;
+       this.codCos = codCos;
+       this.idregDe = idregDe;
     }
    
     public String getCodAlm() {
@@ -70,6 +74,20 @@ public class CxPDetaCausaId  implements java.io.Serializable {
     public void setCodter(String codter) {
         this.codter = codter;
     }
+    public String getCodCos() {
+        return this.codCos;
+    }
+    
+    public void setCodCos(String codCos) {
+        this.codCos = codCos;
+    }
+    public String getIdregDe() {
+        return this.idregDe;
+    }
+    
+    public void setIdregDe(String idregDe) {
+        this.idregDe = idregDe;
+    }
 
 
    public boolean equals(Object other) {
@@ -83,7 +101,9 @@ public class CxPDetaCausaId  implements java.io.Serializable {
  && ( (this.getTipCau()==castOther.getTipCau()) || ( this.getTipCau()!=null && castOther.getTipCau()!=null && this.getTipCau().equals(castOther.getTipCau()) ) )
  && ( (this.getCodCon()==castOther.getCodCon()) || ( this.getCodCon()!=null && castOther.getCodCon()!=null && this.getCodCon().equals(castOther.getCodCon()) ) )
  && ( (this.getCodCue()==castOther.getCodCue()) || ( this.getCodCue()!=null && castOther.getCodCue()!=null && this.getCodCue().equals(castOther.getCodCue()) ) )
- && ( (this.getCodter()==castOther.getCodter()) || ( this.getCodter()!=null && castOther.getCodter()!=null && this.getCodter().equals(castOther.getCodter()) ) );
+ && ( (this.getCodter()==castOther.getCodter()) || ( this.getCodter()!=null && castOther.getCodter()!=null && this.getCodter().equals(castOther.getCodter()) ) )
+ && ( (this.getCodCos()==castOther.getCodCos()) || ( this.getCodCos()!=null && castOther.getCodCos()!=null && this.getCodCos().equals(castOther.getCodCos()) ) )
+ && ( (this.getIdregDe()==castOther.getIdregDe()) || ( this.getIdregDe()!=null && castOther.getIdregDe()!=null && this.getIdregDe().equals(castOther.getIdregDe()) ) );
    }
    
    public int hashCode() {
@@ -95,6 +115,8 @@ public class CxPDetaCausaId  implements java.io.Serializable {
          result = 37 * result + ( getCodCon() == null ? 0 : this.getCodCon().hashCode() );
          result = 37 * result + ( getCodCue() == null ? 0 : this.getCodCue().hashCode() );
          result = 37 * result + ( getCodter() == null ? 0 : this.getCodter().hashCode() );
+         result = 37 * result + ( getCodCos() == null ? 0 : this.getCodCos().hashCode() );
+         result = 37 * result + ( getIdregDe() == null ? 0 : this.getIdregDe().hashCode() );
          return result;
    }   
 

@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 23-oct-2014 8:25:41 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="POJOS.AlmComVenxProd" table="Alm_ComVenxProd" schema="dbo" catalog="BD_SEGURIDAD">
+        <id name="codIns" type="string">
+            <column name="CodIns" length="8" />
+            <generator class="assigned" />
+        </id>
+        <property name="porEmp" type="big_decimal">
+            <column name="PorEmp" precision="9" not-null="true" />
+        </property>
+        <property name="porTrab" type="big_decimal">
+            <column name="PorTrab" precision="9" not-null="true" />
+        </property>
+        <property name="codVen" type="string">
+            <column name="CodVen" length="3" not-null="true" />
+        </property>
+        <property name="valTrab" type="big_decimal">
+            <column name="ValTrab" precision="18" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

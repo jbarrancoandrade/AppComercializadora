@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 21-oct-2014 16:02:56 by Hibernate Tools 3.6.0 -->
+<!-- Generated 23-oct-2014 8:25:41 by Hibernate Tools 3.6.0 -->
 <hibernate-mapping>
-    <class name="POJOS.TesCajas" table="Tes_Cajas" schema="dbo" catalog="BD_COMERCIAL">
+    <class name="POJOS.TesCajas" table="Tes_Cajas" schema="dbo" catalog="BD_SEGURIDAD">
         <id name="codCaja" type="string">
             <column name="CodCaja" length="5" />
             <generator class="assigned" />
@@ -58,6 +58,21 @@
         </property>
         <property name="ajustaSaldo" type="boolean">
             <column name="AjustaSaldo" not-null="true" />
+        </property>
+        <property name="printPosDt" type="boolean">
+            <column name="PrintPosDT" not-null="true" />
+        </property>
+        <property name="printPosFp" type="boolean">
+            <column name="PrintPosFP" not-null="true" />
+        </property>
+        <property name="printPosHd" type="boolean">
+            <column name="PrintPosHD" not-null="true" />
+        </property>
+        <property name="printPosRp" type="boolean">
+            <column name="PrintPosRP" not-null="true" />
+        </property>
+        <property name="printerPackage" type="string">
+            <column name="PrinterPackage" length="30" not-null="true" />
         </property>
     </class>
 </hibernate-mapping>

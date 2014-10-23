@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 21-oct-2014 16:02:56 by Hibernate Tools 3.6.0 -->
+<!-- Generated 23-oct-2014 8:25:41 by Hibernate Tools 3.6.0 -->
 <hibernate-mapping>
-    <class name="POJOS.VenClientes" table="Ven_Clientes" schema="dbo" catalog="BD_COMERCIAL">
+    <class name="POJOS.VenClientes" table="Ven_Clientes" schema="dbo" catalog="BD_SEGURIDAD">
         <id name="cedula" type="string">
             <column name="Cedula" length="15" />
             <generator class="assigned" />
@@ -116,8 +116,11 @@
         <property name="codZona" type="string">
             <column name="CodZona" length="3" not-null="true" />
         </property>
-        <property name="codVenTmp" type="string">
-            <column name="CodVen_tmp" length="3" not-null="true" />
+        <property name="plazoCr" type="int">
+            <column name="PlazoCR" not-null="true" />
+        </property>
+        <property name="exentoIva" type="boolean">
+            <column name="ExentoIVA" not-null="true" />
         </property>
     </class>
 </hibernate-mapping>

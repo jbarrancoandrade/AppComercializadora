@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 23-oct-2014 8:25:41 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="POJOS.AlmDetaMultiProd" table="Alm_DetaMultiProd" schema="dbo" catalog="BD_SEGURIDAD">
+        <composite-id name="id" class="POJOS.AlmDetaMultiProdId">
+            <key-property name="codInsBase" type="string">
+                <column name="CodInsBase" length="8" />
+            </key-property>
+            <key-property name="idopc" type="string">
+                <column name="IDOpc" length="2" />
+            </key-property>
+            <key-property name="codIns" type="string">
+                <column name="CodIns" length="8" />
+            </key-property>
+        </composite-id>
+        <property name="qty" type="big_decimal">
+            <column name="Qty" precision="18" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

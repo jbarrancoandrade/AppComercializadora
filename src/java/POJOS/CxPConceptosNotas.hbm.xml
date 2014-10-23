@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 23-oct-2014 8:25:41 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="POJOS.CxPConceptosNotas" table="CxP_ConceptosNotas" schema="dbo" catalog="BD_SEGURIDAD">
+        <id name="codCon" type="string">
+            <column name="CodCon" length="3" />
+            <generator class="assigned" />
+        </id>
+        <property name="nomCon" type="string">
+            <column name="NomCon" length="150" not-null="true" />
+        </property>
+        <property name="codCue" type="string">
+            <column name="CodCue" length="8" not-null="true" />
+        </property>
+        <property name="tipCon" type="string">
+            <column name="TipCon" length="1" not-null="true" />
+        </property>
+        <property name="codCueIva" type="string">
+            <column name="CodCueIva" length="8" not-null="true" />
+        </property>
+        <property name="modificado" type="boolean">
+            <column name="MODIFICADO" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
