@@ -15,16 +15,13 @@
         <center> 
             <div id="BoxLogin" style="margin-top: 10%">
 
-                
-
                 <p:ajaxStatus  style="display:block;margin-bottom:2em;height:24px;" onstart="PF('statusDialog').show()" onsuccess="PF('statusDialog').hide()" />
 
                 <p:dialog widgetVar="statusDialog" modal="true" draggable="false" closable="false" resizable="false" showHeader="false">
                     <p:graphicImage value='Public/Image/ajax-loader.gif' />
                 </p:dialog>
 
-                <h:form>  
-
+                <h:form>
                     <p:growl id="growl" showDetail="true" life="3000" />  
                     <p:panel id="ph" header="Acceso" style="width:400px" >
                         <p:focus context="ph"/>

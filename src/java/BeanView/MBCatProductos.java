@@ -614,7 +614,7 @@ public class MBCatProductos implements Serializable {
                         }
                     }
                     BigDecimal cantval = new BigDecimal("1"); //convertir a bigdecimal valores cantidad
-
+                    //margen dee
                  //   BigDecimal margeneDescuentos = convertirBig(Margendescuento);//convertid a bigdecimal los descuentos de la vista
                     BigDecimal cantid = convertirBig("1");
                     Calculos(MIva, precio, margendesc, cantid, FacturaIva, IvaIncluido);
@@ -652,6 +652,10 @@ public class MBCatProductos implements Serializable {
     
     /**
      * 
+     * @param codins
+     * @param cantidadMe
+     * @param Margendescuento
+     * @throws Exception 
      */
     public void agregarListaVentaDetalle2(String codins, String cantidadMe, String Margendescuento) throws Exception {
         this.session = null;

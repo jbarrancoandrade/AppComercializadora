@@ -1,5 +1,5 @@
 package POJOS;
-// Generated 23-oct-2014 8:25:39 by Hibernate Tools 3.6.0
+// Generated 25-oct-2014 9:20:16 by Hibernate Tools 3.6.0
 
 
 
@@ -11,6 +11,7 @@ public class CfgUsuarios  implements java.io.Serializable {
 
      private String userName;
      private String nombre1;
+     private String pwdweb;
      private String nombre2;
      private String apellido1;
      private String apellido2;
@@ -37,9 +38,10 @@ public class CfgUsuarios  implements java.io.Serializable {
         this.visualizaCostos = visualizaCostos;
         this.notificarupd = notificarupd;
     }
-    public CfgUsuarios(String userName, String nombre1, String nombre2, String apellido1, String apellido2, String cedula, String cargo, Boolean activo, String pwd, String nombreCom, boolean visualizaCostos, boolean notificarupd) {
+    public CfgUsuarios(String userName, String nombre1, String pwdweb, String nombre2, String apellido1, String apellido2, String cedula, String cargo, Boolean activo, String pwd, String nombreCom, boolean visualizaCostos, boolean notificarupd) {
        this.userName = userName;
        this.nombre1 = nombre1;
+       this.pwdweb = pwdweb;
        this.nombre2 = nombre2;
        this.apellido1 = apellido1;
        this.apellido2 = apellido2;
@@ -65,6 +67,13 @@ public class CfgUsuarios  implements java.io.Serializable {
     
     public void setNombre1(String nombre1) {
         this.nombre1 = nombre1;
+    }
+    public String getPwdweb() {
+        return this.pwdweb;
+    }
+    
+    public void setPwdweb(String pwdweb) {
+        this.pwdweb = pwdweb;
     }
     public String getNombre2() {
         return this.nombre2;
